@@ -43,11 +43,20 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 | `event.dateLabel`, `event.city`, `event.shortDate` | Date affichée, ville, date courte du pied de page |
 | `theme.color*`, `theme.font*` | Palette (rouge, gris, crèmes) et polices Google Fonts |
 | `intro.enabled`, `intro.prompt` | Rideau d'ouverture et texte du bouton |
-| `rsvp.sendVia` | `mailto` (client mail), `whatsapp` (message pré-rempli) ou `formspree` (POST) ; libellés et messages d'erreur dans `rsvp.labels` |
+| `rsvp.sendVia` | `googlesheet` (enregistrement dans Google Sheets, voir ci-dessous), `formspree`, `whatsapp` (message pré-rempli) ou `mailto` ; libellés et messages d'erreur dans `rsvp.labels` |
 | `venue.latitude`, `venue.longitude` | Coordonnées du lieu pour les liens Waze et Google Maps (ou `wazeUrl` / `googleMapsUrl` explicites) |
 | `attire.items[]` | Illustrations des tenues avec position (`left`, `width` en %) |
 | `schedule.items[]` | Heure et titre de chaque étape |
 | `weddingList.buttons[]`, `shops[]`, `banks` | Boutons Morocco / Abroad, boutiques (nom, lien, image), RIB et IBAN |
+
+## Enregistrer les réponses RSVP dans Google Sheets
+
+1. Créez une feuille Google Sheets vide, puis Extensions → Apps Script.
+2. Collez le contenu de `google-sheet/Code.gs`, enregistrez.
+3. Déployer → Nouveau déploiement → Application Web, exécuter en tant que « Moi », accès « Tout le monde ». Autorisez l'accès.
+4. Copiez l'URL `…/exec` dans `content/site.json` → `rsvp.googleSheetEndpoint`, avec `rsvp.sendVia` à `googlesheet`.
+
+Chaque réponse ajoute une ligne : date, nom, présence, accompagné(e), nom du +1, message.
 
 ## Tester en local
 

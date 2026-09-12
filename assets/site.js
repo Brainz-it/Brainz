@@ -246,7 +246,12 @@
       var done = function () { rsvpStatus.textContent = ""; e.target.hidden = true; rsvpSuccess.hidden = false; };
       var fail = function (msg) { rsvpStatus.textContent = msg || L.errorSend || "Error"; submit.disabled = false; };
       try {
-        if (rc.sendVia === "formspree" && rc.formspreeEndpoint) {
+        if (rc.sendVia === "googlesheet" && rc.googleSheetEndpoint) {
+          // Apps Script : envoi en formulaire encodé et sans CORS (réponse opaque), pas de pré-requête à gérer
+          var body = new URLSearchParams(Object.assign({}, data, { presence: data.presence === "yes" ? yes : no, accompanied: data.accompanied === "yes" ? yes : no }));
+          fetch(rc.googleSheetEndpoint, { method: "POST", mode: "no-cors", body: body })
+            .then(function () { done(); }).catch(function () { fail(); });
+        } else if (rc.sendVia === "formspree" && rc.formspreeEndpoint) {
           fetch(rc.formspreeEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ _subject: "RSVP – " + data.name }, data)) })
             .then(function (r) { if (!r.ok) throw new Error(); done(); }).catch(function () { fail(); });
         } else if (rc.sendVia === "whatsapp" && rc.whatsappNumber) {
