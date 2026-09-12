@@ -12,17 +12,17 @@ window.WEDDING_THEME = (function () {
   function build(c, h) {
     var v = c.villa || {}, cp = c.couple, m = v.menu || {}, dt = fmtDate(c), ve = v.venue || {}, pr = v.program || {}, dr = v.dress || {}, gi = v.gifts || {}, rs = v.rsvp || {}, fq = v.faq || {}, ft = v.footer || {}, cd = v.countdown || {};
     var mono = cp.monogram || (cp.bride.charAt(0) + "&" + cp.groom.charAt(0));
-    var webp = { glass: 1, dinner: 1, music: 1, cake: 1 };
+    var webp = { glass: 1, dinner: 1, music: 1, cake: 1, rings: 1 };
     var icon = function (n) { n = n || "glass"; return '<img src="assets/themes/v10/art/icon-' + esc(n) + (webp[n] ? '.webp' : '.svg') + '" alt="">'; };
     var html = ''
-      + '<header class="t10-top"><a class="t10-brand" href="#accueil">' + esc(mono) + '</a><button class="t10-burger" id="t10-burger" aria-label="Menu"><span></span><span></span></button></header>'
+      + '<header class="t10-top"><a class="t10-brand" href="#accueil"><img src="assets/themes/v10/art/monogram.webp" alt="' + esc(mono) + '"></a><button class="t10-burger" id="t10-burger" aria-label="Menu"><span></span><span></span></button></header>'
       + '<nav class="t10-menu" id="t10-menu"><a href="#lieu">' + esc(m.venue) + '</a><a href="#programme">' + esc(m.program) + '</a><a href="#dresscode">' + esc(m.dress) + '</a><a href="#cadeaux">' + esc(m.gifts) + '</a><a href="#rsvp">' + esc(m.rsvp) + '</a><a href="#faq">' + esc(m.faq) + '</a></nav>'
       + '<section id="accueil" class="t10-hero" style="background-image:url(assets/themes/v10/photos/hero.jpg)"><div class="t10-hero-in">'
       + '  <h1 class="t10-names">' + esc(cp.bride).toUpperCase() + '<br><em>' + esc(cp.conjunction === "and" ? "&" : (cp.conjunction || "&")) + '</em> ' + esc(cp.groom).toUpperCase() + '</h1>'
       + '  <p class="t10-tag">' + esc(v.tagline || "") + '</p></div>'
       + '  <div class="t10-hero-card"><span class="t10-place">' + esc(c.event.city || "") + '</span><span class="t10-hero-date"><b>' + dt.dd + '.' + dt.mm + '</b><i></i><b>' + dt.yyyy + '</b></span><a class="t10-scroll" href="#compte">' + esc(v.scrollLabel || "Défiler") + ' <span>↓</span></a></div>'
       + '</section>'
-      + '<section id="compte" class="t10-sec t10-count">' + corners() + '<div class="t10-lace"></div><div class="t10-kicker">' + esc(cd.kicker || "") + '</div><div class="t10-script">' + esc(cd.title || "") + '</div>'
+      + '<section id="compte" class="t10-sec t10-count">' + corners() + '<div class="t10-lace"></div><img class="t10-lantern" src="assets/themes/v10/art/lantern.webp" alt=""><div class="t10-kicker">' + esc(cd.kicker || "") + '</div><div class="t10-script">' + esc(cd.title || "") + '</div>'
       + '  <div class="t10-cd"><div><b id="cd-days">00</b><small>' + esc((cd.labels || c.countdown.labels).days) + '</small></div><div><b id="cd-hours">00</b><small>' + esc((cd.labels || c.countdown.labels).hours) + '</small></div><div><b id="cd-mins">00</b><small>' + esc((cd.labels || c.countdown.labels).minutes) + '</small></div><div><b id="cd-secs">00</b><small>' + esc((cd.labels || c.countdown.labels).seconds) + '</small></div></div>'
       + '  <div class="t10-kicker">' + esc(cd.dateLabel || "Date") + '</div><div class="t10-bigdate">' + esc(dt.long) + '</div><div class="t10-dow">' + esc(dt.dow) + '</div></section>'
       + '<section id="lieu" class="t10-sec">' + corners() + '<div class="t10-num">01</div><h2 class="t10-h2">' + esc(ve.title || "") + '</h2>'
@@ -34,8 +34,8 @@ window.WEDDING_THEME = (function () {
       + '<section id="dresscode" class="t10-sec t10-sec--band">' + corners() + '<div class="t10-num">03</div><h2 class="t10-h2">' + esc(dr.title || "") + '</h2><div class="t10-headline">' + esc(dr.headline || "") + '</div><p class="t10-p">' + esc(dr.text || "") + '</p>'
       + '  <div class="t10-colors">' + (dr.colors || []).map(function (col) { return '<span style="background:' + esc(col) + '"></span>'; }).join("") + '</div></section>'
       + '<section id="cadeaux" class="t10-sec">' + corners() + '<div class="t10-num">04</div><h2 class="t10-h2">' + esc(gi.title || "") + '</h2><div class="t10-headline">' + esc(gi.headline || "") + '</div><p class="t10-p">' + esc(gi.text || "") + '</p>'
-      + '  <button class="t10-btn" data-open-modal="bank" data-bank="abroad">' + esc(gi.button || "") + '</button><img class="t10-emblem" src="assets/themes/v10/art/emblem.svg" alt=""></section>'
-      + '<section id="rsvp" class="t10-sec">' + corners() + '<div class="t10-num">05</div><h2 class="t10-h2">' + esc(rs.title || "") + '</h2><div class="t10-kicker">' + esc(rs.kicker || "") + '</div><p class="t10-p">' + esc(rs.text || "") + '</p>'
+      + '  <button class="t10-btn" data-open-modal="bank" data-bank="abroad">' + esc(gi.button || "") + '</button><img class="t10-emblem" src="assets/themes/v10/art/monogram.webp" alt=""></section>'
+      + '<section id="rsvp" class="t10-sec">' + corners() + '<img class="t10-emblem-rsvp" src="assets/themes/v10/art/emblem-rsvp.webp" alt=""><div class="t10-num">05</div><h2 class="t10-h2">' + esc(rs.title || "") + '</h2><div class="t10-kicker">' + esc(rs.kicker || "") + '</div><p class="t10-p">' + esc(rs.text || "") + '</p>'
       + '  <form class="t10-form" id="t10-form"><label class="t10-field"><span>' + esc(rs.familyLabel) + '</span><input name="family" required></label>'
       + '  <div id="t10-guests"></div><button type="button" class="t10-add" id="t10-add">' + esc(rs.addGuest) + '</button>'
       + '  <label class="t10-check"><input type="checkbox" name="children"> ' + esc(rs.children) + '</label>'
@@ -43,7 +43,7 @@ window.WEDDING_THEME = (function () {
       + '  <p class="t10-privacy">' + esc(rs.privacy || "") + '</p><button class="t10-btn t10-btn--dark" type="submit">' + esc(rs.send) + '</button><p class="t10-status" id="t10-status"></p></form></section>'
       + '<section id="faq" class="t10-sec">' + corners() + '<div class="t10-num">06</div><h2 class="t10-h2">' + esc(fq.title || "") + '</h2>'
       + '  <div class="t10-faq">' + (fq.items || []).map(function (it) { return '<details><summary>' + esc(it.q) + '</summary><p>' + esc(it.a) + '</p></details>'; }).join("") + '</div></section>'
-      + '<footer class="t10-footer"><div class="t10-foot-mono">' + esc(mono) + '</div><div class="t10-script">' + esc(ft.withLove || "") + '</div><div class="t10-foot-names">' + esc(cp.bride) + ' &amp; ' + esc(cp.groom) + '</div><div class="t10-foot-date">' + dt.dd + ' · ' + dt.mm + ' · ' + dt.yyyy + '</div>'
+      + '<footer class="t10-footer"><img class="t10-foot-mono" src="assets/themes/v10/art/monogram.webp" alt="' + esc(mono) + '"><div class="t10-script">' + esc(ft.withLove || "") + '</div><div class="t10-foot-names">' + esc(cp.bride) + ' &amp; ' + esc(cp.groom) + '</div><div class="t10-foot-date">' + dt.dd + ' · ' + dt.mm + ' · ' + dt.yyyy + '</div>'
       + '  <div class="t10-kicker">' + esc(ft.contactKicker || "") + '</div><p class="t10-p">' + esc(ft.contactText || "") + '</p>' + (c.site.creditsPage ? '<a class="photo-credit" href="' + esc(c.site.creditsPage) + '">Crédits photos & musique</a>' : "") + '</footer>'
       + '<nav class="t10-bottom"><a href="#accueil">' + esc(m.home) + '</a><a href="#lieu">' + esc(m.venue) + '</a><a href="#cadeaux">' + esc(m.giftsShort || m.gifts) + '</a><a href="#rsvp">RSVP</a></nav>';
     var page = h.$(".page"); page.innerHTML = html;
@@ -94,9 +94,19 @@ window.WEDDING_THEME = (function () {
       var seal = (new URLSearchParams(location.search).get("seal") || v.seal || "bow").replace(/[^a-z]/g, "") || "bow";
       var vids = v.introVideos || {}, vid = vids[seal] || v.introVideo || {};
       var useVideo = vid.src && !matchMedia("(prefers-reduced-motion: reduce)").matches && !/[?&]novideo=1/.test(location.search);
+      var names = ctx.escapeHtml(c.couple.bride + " & " + c.couple.groom);
+      var scene = '<span class="t10-scene">'
+        + '<span class="t10-slot"><span class="t10-cardwrap"><img class="t10-card" src="assets/themes/v10/art/card.webp" alt=""><span class="t10-card-text"><b>' + names + '</b><i>' + ctx.escapeHtml(c.event.dateLabel || "") + '</i></span></span></span>'
+        + '<img class="t10-l1" src="assets/themes/v10/art/env-body-open.webp" alt="" aria-hidden="true">'
+        + '<img class="t10-l4" src="assets/themes/v10/art/env-flap-open.webp" alt="" aria-hidden="true">'
+        + '<img class="t10-l2" src="assets/themes/v10/art/env-body-closed.webp" alt="" aria-hidden="true">'
+        + '<img class="t10-l3" src="assets/themes/v10/art/env-flap-closed.webp" alt="" aria-hidden="true">'
+        + '<span class="t10-env-names">' + names + '</span>'
+        + '<img class="t10-bow t10-bow--' + seal + '" src="assets/themes/v10/art/seal-' + seal + '.webp" alt="" aria-hidden="true">'
+        + '</span>';
       enter.innerHTML = (useVideo
         ? '<video class="t10-video" playsinline webkit-playsinline muted preload="auto" poster="' + ctx.escapeHtml(vid.poster || "") + '" disablepictureinpicture aria-hidden="true"><source src="' + ctx.escapeHtml(vid.src) + '" type="video/mp4"></video>'
-        : '<span class="t10-env"><span class="t10-env-back"></span><span class="t10-env-names">' + ctx.escapeHtml(c.couple.bride + " & " + c.couple.groom) + '</span><span class="t10-env-flap"></span><span class="t10-env-front"></span><img class="t10-bow t10-bow--' + seal + '" src="assets/themes/v10/art/seal-' + seal + '.webp" alt="" aria-hidden="true"></span>')
+        : scene)
         + '<span class="t10-light"></span><span class="t10-tap">' + ctx.escapeHtml(v.tapLabel || "Touchez pour ouvrir") + '</span>';
       var video = enter.querySelector(".t10-video"), done = false;
       if (video) { enter.addEventListener("pointerdown", function () { try { video.load(); } catch (e) {} }, { once: true, passive: true }); }
@@ -110,8 +120,10 @@ window.WEDDING_THEME = (function () {
           setTimeout(finish, 4500);
           var pv = video.play(); if (pv && pv.catch) pv.catch(finish);
         } else {
-          setTimeout(function () { enter.classList.add("t10-bloom"); }, 1900);
-          setTimeout(ctx.reveal, 3000);
+          setTimeout(function () { enter.classList.add("t10-flap"); }, 350);
+          setTimeout(function () { enter.classList.add("t10-card-out"); }, 1300);
+          setTimeout(function () { enter.classList.add("t10-bloom"); }, 2500);
+          setTimeout(ctx.reveal, 3400);
         }
       });
     },

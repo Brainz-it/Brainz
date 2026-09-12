@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#b08a4e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="78" stroke-dasharray="2 4"/>
-  <path d="M100 14 q-10 14 0 28 q10 -14 0 -28 z M100 186 q-10 -14 0 -28 q10 14 0 28 z M14 100 q14 -10 28 0 q-14 10 -28 0 z M186 100 q-14 -10 -28 0 q14 10 28 0 z" fill="#e8d6b0" fill-opacity=".6"/>
-  <path d="M40 130 q60 -30 120 0 M40 70 q60 30 120 0" opacity=".6"/>
-  <text x="100" y="118" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-weight="600" fill="#6f5c44" stroke="none" id="mono">M&amp;H</text>
-</svg>

@@ -7,7 +7,7 @@
   --t9-red:#6b0f1a; --t9-red2:#4a0b13; --t9-gold:#c9a24a; --t9-ivory:#f3e6d3;
 }
 html{scroll-snap-type:none!important}
-body{background:#f6efe6;background-image:repeating-linear-gradient(0deg,rgba(107,15,26,.025) 0 1px,transparent 1px 4px)}
+body{background:#f6efe6 url("art/paper.jpg") center/400px repeat}
 .page-wash{display:none}
 .no-paged-scroll .page > header.hero,.no-paged-scroll .page > section{height:auto!important;min-height:0!important;display:block!important}
 .page{max-width:560px;padding:0 0 3rem;overflow:hidden}
