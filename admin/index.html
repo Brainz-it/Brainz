@@ -21,12 +21,12 @@
     <!-- Connexion -->
     <section id="panel-login" class="card">
       <h1>Connexion au dépôt Git</h1>
-      <p class="hint">Cette page modifie directement les fichiers du dépôt GitHub (dossier <code>wedding/content</code>). Chaque enregistrement crée un commit ; le site est redéployé automatiquement.</p>
+      <p class="hint">Cette page modifie directement les fichiers du dépôt GitHub (dossier <code>content/</code>). Chaque enregistrement crée un commit ; le site est redéployé automatiquement.</p>
       <form id="login-form" class="grid">
         <label>Propriétaire (owner)<input id="in-owner" required placeholder="Brainz-it"></label>
         <label>Dépôt (repo)<input id="in-repo" required placeholder="Brainz"></label>
         <label>Branche<input id="in-branch" required value="main"></label>
-        <label>Dossier du site dans le dépôt<input id="in-base" required value="wedding"></label>
+        <label>Dossier du site dans le dépôt (vide = racine)<input id="in-base" value="" placeholder="(racine)"></label>
         <label class="span2">Token GitHub (fine-grained, permission <em>Contents : Read and write</em>)
           <input id="in-token" type="password" required placeholder="github_pat_…" autocomplete="off">
         </label>

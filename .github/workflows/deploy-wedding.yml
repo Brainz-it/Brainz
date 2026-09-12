@@ -1,11 +1,10 @@
-# Déploie le dossier `wedding/` sur GitHub Pages à chaque modification.
-# Activez Pages dans Settings → Pages → Source : "GitHub Actions".
+# Déploie le site (racine du dépôt) sur GitHub Pages à chaque push sur la branche du site.
+# Activez Pages une fois : Settings → Pages → Source : "GitHub Actions".
 name: Deploy wedding site
 
 on:
   push:
-    branches: [main]
-    paths: ["wedding/**", ".github/workflows/deploy-wedding.yml"]
+    branches: [main, claude/wedding-site-customizable-npgmy7]
   workflow_dispatch:
 
 permissions:
@@ -14,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-wedding
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -28,6 +27,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: wedding
+          path: .
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -71,10 +71,11 @@
       return new Blob([arr]);
     },
   };
+  const inRepo = (rel) => (state.cfg.base ? `${state.cfg.base}/${rel}` : rel);
   const P = {
-    site: () => `${state.cfg.base}/content/site.json`,
-    gallery: () => `${state.cfg.base}/content/gallery.json`,
-    photos: () => `${state.cfg.base}/content/photos`,
+    site: () => inRepo("content/site.json"),
+    gallery: () => inRepo("content/gallery.json"),
+    photos: () => inRepo("content/photos"),
   };
   const utf8ToB64 = (s) => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
   const b64ToUtf8 = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
@@ -102,7 +103,7 @@
   async function connect(cfg) {
     state.cfg = cfg;
     const site = await api.get(P.site());
-    if (!site) throw new Error("site.json introuvable : vérifiez owner / repo / branche / dossier.");
+    if (!site) throw new Error("content/site.json introuvable : vérifiez propriétaire / dépôt / branche / dossier.");
     state.site = JSON.parse(b64ToUtf8(site.content));
     state.siteSha = site.sha;
     const gal = await api.get(P.gallery());
@@ -365,14 +366,14 @@
   /* ---------- UI ---------- */
   function showEditor() {
     $("#panel-login").hidden = true; $("#panel-editor").hidden = false; $("#btn-logout").hidden = false;
-    $("#repo-label").textContent = `${state.cfg.owner}/${state.cfg.repo} @ ${state.cfg.branch} · ${state.cfg.base}/content`;
+    $("#repo-label").textContent = `${state.cfg.owner}/${state.cfg.repo} @ ${state.cfg.branch} · ${inRepo("content")}`;
     renderForm(); renderPhotos();
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     const saved = { ...guessRepoFromUrl(), ...loadSavedCfg() };
     $("#in-owner").value = saved.owner || ""; $("#in-repo").value = saved.repo || "";
-    $("#in-branch").value = saved.branch || "main"; $("#in-base").value = saved.base || "wedding";
+    $("#in-branch").value = saved.branch || "main"; $("#in-base").value = saved.base || "";
     $("#in-token").value = saved.token || ""; $("#in-remember").checked = !!localStorage.getItem("wedding-admin");
 
     $("#login-form").addEventListener("submit", async (e) => {
