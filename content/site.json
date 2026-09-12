@@ -408,6 +408,21 @@
     },
     "music": {
       "src": "assets/themes/v9/media/music.mp3"
+    },
+    "seal": "bow",
+    "introVideos": {
+      "bow": {
+        "src": "assets/themes/v10/media/envelope-bow.mp4",
+        "poster": "assets/themes/v10/media/envelope-bow-poster.jpg"
+      },
+      "wax": {
+        "src": "assets/themes/v10/media/envelope-wax.mp4",
+        "poster": "assets/themes/v10/media/envelope-wax-poster.jpg"
+      },
+      "gold": {
+        "src": "assets/themes/v10/media/envelope-gold.mp4",
+        "poster": "assets/themes/v10/media/envelope-gold-poster.jpg"
+      }
     }
   }
 }

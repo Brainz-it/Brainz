@@ -90,14 +90,28 @@ window.WEDDING_THEME = (function () {
     pagedScroll: false,
     intro: function (ctx) {
       var c = ctx.config, v = c.villa || {}, enter = ctx.enter;
-      enter.innerHTML = '<span class="t10-env"><span class="t10-env-back"></span><span class="t10-env-names">' + ctx.escapeHtml(c.couple.bride + " & " + c.couple.groom) + '</span><span class="t10-env-flap"></span><span class="t10-env-front"></span><img class="t10-bow" src="assets/themes/v10/art/bow.svg" alt="" aria-hidden="true"></span><span class="t10-light"></span><span class="t10-tap">' + ctx.escapeHtml(v.tapLabel || "Touchez pour ouvrir") + '</span>';
-      var done = false;
+      var seal = (new URLSearchParams(location.search).get("seal") || v.seal || "bow").replace(/[^a-z]/g, "") || "bow";
+      var vids = v.introVideos || {}, vid = vids[seal] || v.introVideo || {};
+      var useVideo = vid.src && !matchMedia("(prefers-reduced-motion: reduce)").matches && !/[?&]novideo=1/.test(location.search);
+      enter.innerHTML = (useVideo
+        ? '<video class="t10-video" playsinline webkit-playsinline muted preload="auto" poster="' + ctx.escapeHtml(vid.poster || "") + '" disablepictureinpicture aria-hidden="true"><source src="' + ctx.escapeHtml(vid.src) + '" type="video/mp4"></video>'
+        : '<span class="t10-env"><span class="t10-env-back"></span><span class="t10-env-names">' + ctx.escapeHtml(c.couple.bride + " & " + c.couple.groom) + '</span><span class="t10-env-flap"></span><span class="t10-env-front"></span><img class="t10-bow t10-bow--' + seal + '" src="assets/themes/v10/art/seal-' + seal + '.webp" alt="" aria-hidden="true"></span>')
+        + '<span class="t10-light"></span><span class="t10-tap">' + ctx.escapeHtml(v.tapLabel || "Touchez pour ouvrir") + '</span>';
+      var video = enter.querySelector(".t10-video"), done = false;
+      if (video) { enter.addEventListener("pointerdown", function () { try { video.load(); } catch (e) {} }, { once: true, passive: true }); }
       enter.addEventListener("click", function (e) {
         e.preventDefault(); if (done) return; done = true;
         enter.classList.add("t10-open");
         if (audio && (v.music || {}).autoplay !== false) audio.play().then(function () { musicOn = true; var mb = document.querySelector(".t10-music"); if (mb) mb.classList.add("on"); }).catch(function () {});
-        setTimeout(function () { enter.classList.add("t10-bloom"); }, 1100);
-        setTimeout(ctx.reveal, 1900);
+        if (video) {
+          var finish = function () { if (finish.done) return; finish.done = true; enter.classList.add("t10-bloom"); setTimeout(ctx.reveal, 500); };
+          video.addEventListener("ended", finish); video.addEventListener("error", finish, { once: true });
+          setTimeout(finish, 4500);
+          var pv = video.play(); if (pv && pv.catch) pv.catch(finish);
+        } else {
+          setTimeout(function () { enter.classList.add("t10-bloom"); }, 1900);
+          setTimeout(ctx.reveal, 3000);
+        }
       });
     },
     decorate: function (c, h) { build(c, h); }

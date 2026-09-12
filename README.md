@@ -59,7 +59,7 @@ Structure inspirée des faire-part de mariage en ligne (carte d'ouverture, envel
 
 ### V10 · Villa
 
-Faire-part éditorial en français : enveloppe brodée à ruban blanc, photo plein écran avec carte lieu/date, menu plein écran et barre de navigation, compte à rebours, sections numérotées (lieu avec cérémonie / réception / accès, programme illustré, dress code, liste de mariage avec IBAN, RSVP par invité avec régime alimentaire, FAQ), musique. Ses textes sont dans le bloc `villa` de `site.json`. Les réponses RSVP arrivent dans la feuille Google (nom de famille et invités, présences, régimes, enfants, message).
+Faire-part éditorial en français : enveloppe brodée à ruban blanc, photo plein écran avec carte lieu/date, menu plein écran et barre de navigation, compte à rebours, sections numérotées (lieu avec cérémonie / réception / accès, programme illustré, dress code, liste de mariage avec IBAN, RSVP par invité avec régime alimentaire, FAQ), musique. Ses textes sont dans le bloc `villa` de `site.json`. Le sceau de l'enveloppe se choisit avec `?seal=bow` (ruban blanc), `?seal=wax` (cire bordeaux) ou `?seal=gold` (cire dorée et ruban), ou par défaut avec `villa.seal`. Les vidéos d'ouverture (`assets/themes/v10/media/envelope-*.mp4`) sont générées à partir de l'animation CSS ; sans vidéo, l'animation CSS joue directement. Les sceaux, coins brodés et dentelle sont des images générées par IA fournies par les mariés. Les réponses RSVP arrivent dans la feuille Google (nom de famille et invités, présences, régimes, enfants, message).
 
 ## Enregistrer les réponses RSVP et le livre d'or dans Google Sheets
 
