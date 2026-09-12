@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "The Wedding of Rania & Zidane · Marrakech · 26 September 2026",
+    "title": "The Wedding of Marwa & Hamid · Marrakech · 26 September 2026",
     "language": "en",
-    "description": "You are invited to the wedding of Rania and Zidane — Saturday 26 September 2026, Marrakech. RSVP online.",
+    "description": "You are invited to the wedding of Marwa and Hamid — Saturday 26 September 2026, Marrakech. RSVP online.",
     "ogImage": "content/photos/couple.svg",
     "favicon": "content/photos/favicon.svg"
   },
@@ -23,10 +23,10 @@
     "prompt": "Touchez pour continuer"
   },
   "couple": {
-    "bride": "Rania",
-    "groom": "Zidane",
+    "bride": "Marwa",
+    "groom": "Hamid",
     "conjunction": "and",
-    "monogram": "R&Z"
+    "monogram": "H&M"
   },
   "hero": {
     "eyebrow": "You are invited to the wedding of",
@@ -39,7 +39,12 @@
     "shortDate": "26 . 09 . 2026"
   },
   "countdown": {
-    "labels": { "days": "days", "hours": "hours", "minutes": "minutes", "seconds": "seconds" }
+    "labels": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "seconds": "seconds"
+    }
   },
   "rsvp": {
     "enabled": true,
@@ -81,9 +86,18 @@
     "enabled": true,
     "title": "Attire details",
     "items": [
-      { "image": "assets/art/kaftan.svg", "alt": "Kaftan" },
-      { "image": "assets/art/gown.svg", "alt": "Evening gown" },
-      { "image": "assets/art/suit.svg", "alt": "Suit" }
+      {
+        "image": "assets/art/kaftan.svg",
+        "alt": "Kaftan"
+      },
+      {
+        "image": "assets/art/gown.svg",
+        "alt": "Evening gown"
+      },
+      {
+        "image": "assets/art/suit.svg",
+        "alt": "Suit"
+      }
     ],
     "captionWomen": "For women",
     "captionMen": "For Men"
@@ -92,9 +106,18 @@
     "enabled": true,
     "title": "Schedule",
     "items": [
-      { "time": "17:30", "title": "Guest Arrival" },
-      { "time": "18:30", "title": "The bride and groom’s entrance" },
-      { "time": "Until no time...", "title": "" }
+      {
+        "time": "17:30",
+        "title": "Guest Arrival"
+      },
+      {
+        "time": "18:30",
+        "title": "The bride and groom’s entrance"
+      },
+      {
+        "time": "Until no time...",
+        "title": ""
+      }
     ]
   },
   "weddingList": {
@@ -102,22 +125,50 @@
     "title": "Wedding list",
     "text": "Your presence on this special day is the greatest gift. For those who wish to celebrate with a gift, a few ideas are shared below.",
     "buttons": [
-      { "label": "Morocco", "bank": "morocco", "opens": "gifts" },
-      { "label": "Abroad", "bank": "abroad", "opens": "bank" }
+      {
+        "label": "Morocco",
+        "bank": "morocco",
+        "opens": "gifts"
+      },
+      {
+        "label": "Abroad",
+        "bank": "abroad",
+        "opens": "bank"
+      }
     ],
     "modalTitle": "Wedding list",
     "shops": [
-      { "label": "Rouge ivoire", "url": "https://www.instagram.com/rougeivoire/", "image": "content/photos/rouge-ivoire.webp" },
-      { "label": "Nuances maison", "url": "https://www.instagram.com/nuancesmaisons/", "image": "content/photos/nuances-maison.webp" },
-      { "label": "Fenêtre sur cour", "url": "https://www.fenetresurcour.ma/", "image": "content/photos/fenetre-sur-cour.webp" }
+      {
+        "label": "Rouge ivoire",
+        "url": "https://www.instagram.com/rougeivoire/",
+        "image": "content/photos/rouge-ivoire.webp"
+      },
+      {
+        "label": "Nuances maison",
+        "url": "https://www.instagram.com/nuancesmaisons/",
+        "image": "content/photos/nuances-maison.webp"
+      },
+      {
+        "label": "Fenêtre sur cour",
+        "url": "https://www.fenetresurcour.ma/",
+        "image": "content/photos/fenetre-sur-cour.webp"
+      }
     ],
     "emptyText": "Wedding list details will be shared privately with each guest.",
     "aside": "Or for new adventures…",
     "bankButtonLabel": "Bank details",
     "bankModalTitle": "Bank details",
     "banks": {
-      "morocco": { "holder": "NOM DU TITULAIRE", "kind": "RIB", "number": "000 000 0000000000000000 00" },
-      "abroad": { "holder": "NOM DU TITULAIRE", "kind": "IBAN", "number": "FR76 0000 0000 0000 0000 0000 000" }
+      "morocco": {
+        "holder": "NOM DU TITULAIRE",
+        "kind": "RIB",
+        "number": "000 000 0000000000000000 00"
+      },
+      "abroad": {
+        "holder": "NOM DU TITULAIRE",
+        "kind": "IBAN",
+        "number": "FR76 0000 0000 0000 0000 0000 000"
+      }
     },
     "copyLabel": "Copy",
     "copiedLabel": "Copied",
