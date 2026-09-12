@@ -1,0 +1,140 @@
+{
+  "site": {
+    "title": "Rania & Zidane — Mariage",
+    "language": "fr",
+    "description": "Nous avons la joie de vous inviter à célébrer notre mariage.",
+    "hashtag": "#RaniaEtZidane",
+    "favicon": "content/photos/favicon.svg"
+  },
+  "theme": {
+    "colorPrimary": "#7a5c3e",
+    "colorAccent": "#c9a66b",
+    "colorBackground": "#fbf8f3",
+    "colorText": "#2e2a26",
+    "fontHeading": "Cormorant Garamond",
+    "fontBody": "Montserrat"
+  },
+  "couple": {
+    "bride": "Rania",
+    "groom": "Zidane",
+    "separator": "&",
+    "tagline": "Nous nous marions !"
+  },
+  "event": {
+    "date": "2026-10-17T18:00:00+01:00",
+    "dateLabel": "Samedi 17 octobre 2026",
+    "city": "Casablanca, Maroc",
+    "heroImage": "content/photos/hero.svg",
+    "heroOverlayOpacity": 0.35
+  },
+  "navigation": [
+    { "label": "Accueil", "anchor": "accueil" },
+    { "label": "Notre histoire", "anchor": "histoire" },
+    { "label": "Programme", "anchor": "programme" },
+    { "label": "Lieux", "anchor": "lieux" },
+    { "label": "Galerie", "anchor": "galerie" },
+    { "label": "Infos pratiques", "anchor": "infos" },
+    { "label": "RSVP", "anchor": "rsvp" }
+  ],
+  "countdown": {
+    "enabled": true,
+    "title": "Plus que",
+    "labels": { "days": "jours", "hours": "heures", "minutes": "minutes", "seconds": "secondes" },
+    "finishedText": "C'est le grand jour !"
+  },
+  "invitation": {
+    "enabled": true,
+    "title": "Vous êtes invités",
+    "text": "Avec la bénédiction de nos familles, nous avons l'immense joie de vous convier à la célébration de notre union. Votre présence à nos côtés rendra ce jour encore plus précieux.",
+    "signature": "Rania & Zidane"
+  },
+  "story": {
+    "enabled": true,
+    "title": "Notre histoire",
+    "image": "content/photos/story.svg",
+    "paragraphs": [
+      "Tout a commencé par un regard échangé lors d'un dîner entre amis. Quelques semaines plus tard, un premier café, puis un second… et le reste appartient à notre histoire.",
+      "Après plusieurs années à construire nos rêves ensemble, Zidane a posé la grande question au coucher du soleil. Rania a dit oui, sans hésiter."
+    ]
+  },
+  "program": {
+    "enabled": true,
+    "title": "Programme",
+    "subtitle": "Le déroulé de la journée",
+    "items": [
+      { "time": "18h00", "title": "Accueil des invités", "description": "Cocktail de bienvenue et thé à la menthe.", "icon": "🥂" },
+      { "time": "19h30", "title": "Entrée des mariés", "description": "L'amariya et la neggafa vous attendent.", "icon": "✨" },
+      { "time": "20h30", "title": "Dîner", "description": "Un menu traditionnel préparé avec amour.", "icon": "🍽️" },
+      { "time": "22h30", "title": "Soirée dansante", "description": "Jusqu'au bout de la nuit !", "icon": "🎶" }
+    ]
+  },
+  "venues": {
+    "enabled": true,
+    "title": "Lieux",
+    "items": [
+      {
+        "name": "Cérémonie",
+        "place": "Salle des fêtes Al Amal",
+        "address": "Boulevard de la Corniche, Casablanca",
+        "time": "18h00",
+        "mapsUrl": "https://maps.google.com/?q=Boulevard+de+la+Corniche+Casablanca",
+        "image": "content/photos/venue-1.svg"
+      },
+      {
+        "name": "Réception",
+        "place": "Riad Les Jardins",
+        "address": "Route d'Azemmour, Casablanca",
+        "time": "20h30",
+        "mapsUrl": "https://maps.google.com/?q=Route+d'Azemmour+Casablanca",
+        "image": "content/photos/venue-2.svg"
+      }
+    ]
+  },
+  "gallery": {
+    "enabled": true,
+    "title": "Galerie",
+    "subtitle": "Quelques souvenirs"
+  },
+  "dressCode": {
+    "enabled": true,
+    "title": "Dress code",
+    "text": "Tenue de soirée élégante. Caftans et costumes sont les bienvenus.",
+    "colors": ["#c9a66b", "#7a5c3e", "#f1e4d0", "#3b2f2f"]
+  },
+  "practicalInfo": {
+    "enabled": true,
+    "title": "Infos pratiques",
+    "items": [
+      { "title": "Hébergement", "text": "Des chambres sont réservées à l'hôtel Kenzi Tower à tarif préférentiel. Mentionnez « Mariage Rania & Zidane » à la réservation.", "icon": "🏨" },
+      { "title": "Transport", "text": "Un parking gratuit est disponible sur place. Des navettes partiront de l'hôtel à 17h30.", "icon": "🚗" },
+      { "title": "Cadeaux", "text": "Votre présence est le plus beau des cadeaux. Une urne sera à votre disposition pour ceux qui le souhaitent.", "icon": "🎁" },
+      { "title": "Contact", "text": "Une question ? Écrivez-nous : contact@example.com ou +212 6 00 00 00 00.", "icon": "💌" }
+    ]
+  },
+  "rsvp": {
+    "enabled": true,
+    "title": "Confirmez votre présence",
+    "subtitle": "Merci de répondre avant le 1er octobre 2026",
+    "mode": "mailto",
+    "formspreeEndpoint": "https://formspree.io/f/xxxxxxx",
+    "whatsappNumber": "212600000000",
+    "email": "contact@example.com",
+    "maxGuests": 5,
+    "labels": {
+      "name": "Nom et prénom",
+      "email": "Email",
+      "attending": "Serez-vous présent(e) ?",
+      "yes": "Oui, avec plaisir",
+      "no": "Non, malheureusement",
+      "guests": "Nombre de personnes",
+      "message": "Un message pour les mariés",
+      "submit": "Envoyer",
+      "success": "Merci ! Votre réponse a bien été envoyée.",
+      "error": "Oups, une erreur est survenue. Réessayez ou contactez-nous directement."
+    }
+  },
+  "footer": {
+    "text": "Fait avec amour — à très bientôt !",
+    "showHashtag": true
+  }
+}

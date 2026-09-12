@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Administration — Site de mariage</title>
+  <link rel="icon" href="../content/photos/favicon.svg">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top__title">⚙️ Administration du site</div>
+    <div class="top__actions">
+      <a href="../" target="_blank" rel="noopener" class="link">Voir le site ↗</a>
+      <button id="btn-logout" class="btn btn--ghost" hidden>Déconnexion</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Connexion -->
+    <section id="panel-login" class="card">
+      <h1>Connexion au dépôt Git</h1>
+      <p class="hint">Cette page modifie directement les fichiers du dépôt GitHub (dossier <code>wedding/content</code>). Chaque enregistrement crée un commit ; le site est redéployé automatiquement.</p>
+      <form id="login-form" class="grid">
+        <label>Propriétaire (owner)<input id="in-owner" required placeholder="Brainz-it"></label>
+        <label>Dépôt (repo)<input id="in-repo" required placeholder="Brainz"></label>
+        <label>Branche<input id="in-branch" required value="main"></label>
+        <label>Dossier du site dans le dépôt<input id="in-base" required value="wedding"></label>
+        <label class="span2">Token GitHub (fine-grained, permission <em>Contents : Read and write</em>)
+          <input id="in-token" type="password" required placeholder="github_pat_…" autocomplete="off">
+        </label>
+        <label class="span2 check"><input id="in-remember" type="checkbox"> Se souvenir du token sur cet appareil</label>
+        <div class="span2"><button class="btn" type="submit">Se connecter</button> <span id="login-status" class="status"></span></div>
+      </form>
+      <details class="hint">
+        <summary>Comment créer un token ?</summary>
+        <ol>
+          <li>GitHub → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong> → Generate new token.</li>
+          <li>Repository access : <em>Only select repositories</em> → choisissez ce dépôt.</li>
+          <li>Permissions → Repository permissions → <strong>Contents : Read and write</strong>.</li>
+          <li>Copiez le token ici. Il n'est jamais envoyé ailleurs qu'à l'API GitHub.</li>
+        </ol>
+      </details>
+    </section>
+
+    <!-- Édition -->
+    <section id="panel-editor" hidden>
+      <nav class="tabs">
+        <button class="tab is-active" data-tab="content">📝 Contenu</button>
+        <button class="tab" data-tab="photos">🖼️ Photos</button>
+        <button class="tab" data-tab="json">{ } JSON avancé</button>
+      </nav>
+
+      <div class="savebar">
+        <span id="repo-label" class="muted"></span>
+        <div>
+          <button id="btn-reload" class="btn btn--ghost">Recharger</button>
+          <button id="btn-save" class="btn">💾 Enregistrer (commit)</button>
+        </div>
+      </div>
+      <div id="save-status" class="status"></div>
+
+      <div id="tab-content" class="tabpane"></div>
+
+      <div id="tab-photos" class="tabpane" hidden>
+        <div class="card">
+          <h2>Ajouter des photos</h2>
+          <p class="hint">Les images sont redimensionnées côté navigateur (max <input id="in-maxpx" type="number" value="1600" min="400" max="4000" style="width:80px"> px, JPEG) avant envoi pour garder le dépôt léger. Cochez « Envoyer l'original » pour ne pas convertir.</p>
+          <label class="check"><input id="in-original" type="checkbox"> Envoyer l'original sans conversion</label>
+          <label class="check"><input id="in-addgallery" type="checkbox" checked> Ajouter automatiquement à la galerie</label>
+          <input id="in-files" type="file" accept="image/*" multiple>
+          <div id="upload-status" class="status"></div>
+        </div>
+        <div class="card">
+          <h2>Galerie (ordre d'affichage)</h2>
+          <p class="hint">Modifiez l'ordre, les légendes, ou retirez une photo de la galerie (le fichier reste dans le dépôt).</p>
+          <div id="gallery-list" class="photo-list"></div>
+        </div>
+        <div class="card">
+          <h2>Tous les fichiers du dossier photos</h2>
+          <div id="files-list" class="photo-list"></div>
+        </div>
+      </div>
+
+      <div id="tab-json" class="tabpane" hidden>
+        <div class="card">
+          <h2>site.json</h2>
+          <p class="hint">Pour les utilisateurs avancés : le formulaire « Contenu » est généré à partir de ce JSON. Vous pouvez ajouter des rubriques ici.</p>
+          <textarea id="json-site" spellcheck="false"></textarea>
+          <button id="btn-json-apply" class="btn btn--ghost">Appliquer au formulaire</button>
+        </div>
+        <div class="card">
+          <h2>gallery.json</h2>
+          <textarea id="json-gallery" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

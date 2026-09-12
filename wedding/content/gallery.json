@@ -1,0 +1,10 @@
+{
+  "photos": [
+    { "src": "content/photos/gallery-1.svg", "alt": "Photo 1", "caption": "" },
+    { "src": "content/photos/gallery-2.svg", "alt": "Photo 2", "caption": "" },
+    { "src": "content/photos/gallery-3.svg", "alt": "Photo 3", "caption": "" },
+    { "src": "content/photos/gallery-4.svg", "alt": "Photo 4", "caption": "" },
+    { "src": "content/photos/gallery-5.svg", "alt": "Photo 5", "caption": "" },
+    { "src": "content/photos/gallery-6.svg", "alt": "Photo 6", "caption": "" }
+  ]
+}
