@@ -3,8 +3,9 @@
     "title": "The Wedding of Marwa & Hamid · Marrakech · 26 September 2026",
     "language": "en",
     "description": "You are invited to the wedding of Marwa and Hamid — Saturday 26 September 2026, Marrakech. RSVP online.",
-    "ogImage": "content/photos/couple.svg",
-    "favicon": "content/photos/favicon.svg"
+    "ogImage": "content/photos/couple.jpg",
+    "favicon": "content/photos/favicon.svg",
+    "creditsPage": "credits.html"
   },
   "theme": {
     "colorRed": "#AD3F3F",
@@ -30,7 +31,7 @@
   },
   "hero": {
     "eyebrow": "You are invited to the wedding of",
-    "photo": "content/photos/couple.svg"
+    "photo": "content/photos/couple.jpg"
   },
   "event": {
     "date": "2026-09-26T17:30:00+01:00",

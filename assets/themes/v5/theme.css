@@ -52,3 +52,7 @@ body{background:#f3e6d8;background-image:repeating-linear-gradient(0deg,rgba(74,
 .curtain{opacity:.9;top:clamp(5rem,12svh,8rem)}.curtain.left{width:34%;transform:none}.curtain.right{width:34%;transform:scaleX(-1)}
 .orn-divider{width:min(70%,320px)}.orn-sprig{width:min(36%,180px)}
 .lantern{width:min(46%,220px)}
+
+/* photos libres de droits */
+.venue-art.is-photo{border-radius:24px 24px 90px 90px/24px 24px 40px 40px;box-shadow:0 0 0 6px #f3e6d8,0 0 0 8px #c8ad8a,0 30px 50px rgba(74,59,50,.25)}
+.venue-art.is-photo{filter:none!important;opacity:1}

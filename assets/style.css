@@ -1188,3 +1188,8 @@ a.gift:focus-visible{outline:2px solid var(--red);outline-offset:3px}
   object-position:center top;
 }
 @media (min-height:520px){ .hero .portrait img{width:auto;height:100%;object-fit:cover} }
+
+/* photos libres de droits (thèmes) et lien crédits */
+.venue-art.is-photo{width:min(100% - 2.5rem,var(--content));margin-inline:auto;left:auto;margin-left:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.photo-credit{display:block;margin-top:1.2rem;font-family:var(--sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);text-decoration:none;opacity:.7}
+.photo-credit:hover{opacity:1;text-decoration:underline}

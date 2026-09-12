@@ -17,6 +17,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v6/photos/dunes.jpg");
     h.hide(".candle-l"); h.hide(".candle-r"); h.hide(".orn-feet");
     h.swap(".lights-l", "assets/themes/v6/art/constellation.svg");
     h.swap(".lights-r", "assets/themes/v6/art/constellation.svg");

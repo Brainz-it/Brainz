@@ -16,6 +16,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v7/photos/koutoubia.jpg");
     h.hide(".candle-l"); h.hide(".candle-r"); h.hide(".lights-band"); h.hide(".orn-divider"); h.hide(".orn-feet"); h.hide(".curtain"); h.hide(".lantern");
     // numérotation éditoriale des sections
     h.$$(".page > section").forEach(function (s, i) {

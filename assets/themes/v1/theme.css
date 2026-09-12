@@ -45,3 +45,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .curtain{opacity:.55}.curtain.left{width:22%;transform:none}.curtain.right{width:22%}
 .lantern{width:min(46%,200px)}
 .hero::before{content:"";position:absolute;inset:0 0 auto 0;height:100%;z-index:-1;background:radial-gradient(ellipse at 50% 30%,rgba(201,164,92,.12),transparent 60%)}
+
+/* photos libres de droits */
+.hero{background:linear-gradient(180deg,rgba(15,26,48,.82),rgba(15,26,48,.6) 50%,#0f1a30 100%),url("photos/lanterns.jpg") center/cover no-repeat}
+.hero::before{display:none}
+.venue-art.is-photo{border:1px solid #c9a45c;box-shadow:0 0 0 6px #0f1a30,0 0 0 7px rgba(201,164,92,.5),0 30px 60px rgba(0,0,0,.6)}
+.venue-art.is-photo{filter:none!important;opacity:1}

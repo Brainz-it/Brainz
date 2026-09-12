@@ -18,6 +18,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v5/photos/olives.jpg");
     h.swap(".candle-l", "assets/themes/v5/art/pot.svg");
     h.swap(".candle-r", "assets/themes/v5/art/pot.svg");
     h.swap(".lights-l", "assets/themes/v5/art/olive.svg");

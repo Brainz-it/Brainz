@@ -87,6 +87,10 @@
 
     var fi = $("#footer-illustration");
     if (fi) { if (foot.illustration) fi.src = foot.illustration; else fi.remove(); }
+    if (c.site && c.site.creditsPage) {
+      var cr = document.createElement("a"); cr.className = "photo-credit"; cr.href = c.site.creditsPage; cr.textContent = "Crédits photos";
+      $(".footer").appendChild(cr);
+    }
     if (foot.showMonogram === false) $(".monogram").remove();
     if (foot.showDate === false) $(".footer-date").remove();
   }
@@ -544,7 +548,8 @@
             theme.decorate(c, {
               $: $, $$: $$, escapeHtml: escapeHtml,
               swap: function (sel, src) { $$(sel).forEach(function (img) { if (src) img.src = src; else img.remove(); }); },
-              hide: function (sel) { $$(sel).forEach(function (el) { el.remove(); }); }
+              hide: function (sel) { $$(sel).forEach(function (el) { el.remove(); }); },
+              photo: function (sel, src) { $$(sel).forEach(function (img) { img.src = src; img.classList.remove("bleed"); img.classList.add("is-photo"); }); }
             });
           }
           initCountdown(c);

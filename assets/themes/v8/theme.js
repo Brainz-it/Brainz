@@ -15,6 +15,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v8/photos/caftan.jpg");
     h.swap(".candle-l", "assets/themes/v8/art/mandala.svg");
     h.swap(".candle-r", "assets/themes/v8/art/mandala.svg");
     h.swap(".lights-l", "assets/themes/v8/art/sfifa.svg");

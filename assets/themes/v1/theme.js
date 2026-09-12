@@ -16,6 +16,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v1/photos/riad.jpg");
     h.swap(".candle-l", "assets/themes/v1/art/lantern-small.svg");
     h.swap(".candle-r", "assets/themes/v1/art/lantern-small.svg");
     h.swap(".curtain.left", "assets/themes/v1/art/arch.svg");

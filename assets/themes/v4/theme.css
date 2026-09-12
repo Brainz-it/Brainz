@@ -54,3 +54,7 @@ body::before{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opa
 .candle-l{width:16%;left:2%}.candle-r{width:16%;right:4%}
 .curtain{opacity:.95}.curtain.left{width:26%;transform:none}.curtain.right{width:26%;transform:scaleX(-1)}
 .lantern{width:min(60%,300px)}
+
+/* photos libres de droits */
+#enter{background:linear-gradient(rgba(42,42,42,.72),rgba(42,42,42,.85)),url("photos/cinema.jpg") center/cover no-repeat}
+.venue-art.is-photo{border-radius:4px;border:6px solid #2a2a2a;filter:sepia(.55) contrast(1.1);box-shadow:8px 8px 0 #c1272d}

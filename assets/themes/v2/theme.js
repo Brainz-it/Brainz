@@ -16,6 +16,7 @@ window.WEDDING_THEME = {
     });
   },
   decorate: function (c, h) {
+    h.photo(".venue-art", "assets/themes/v2/photos/majorelle.jpg");
     h.swap(".candle-l", "assets/themes/v2/art/cactus.svg");
     h.swap(".candle-r", "assets/themes/v2/art/cactus.svg");
     h.swap(".lights-l", "assets/themes/v2/art/leaf-band.svg");

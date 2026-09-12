@@ -54,3 +54,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .orn-divider{width:min(70%,320px)}
 .lantern{width:min(50%,220px)}
 .page > section{border-top:6px solid #f5d547}
+
+/* photos libres de droits */
+.venue-art.is-photo{border-radius:0;border:10px solid #f5d547;box-shadow:14px 14px 0 #2f7d4f}
+.venue-art.is-photo{filter:none!important;opacity:1}

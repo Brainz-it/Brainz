@@ -70,3 +70,6 @@ body{background:#fff}
 .footer{text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto;border-top:2px solid #111;padding-top:2rem}
 .hero .portrait{width:100vw!important;max-width:none!important;--cover-photo:none}
 .hero .portrait img{width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:4/5;object-fit:cover}
+
+/* photos libres de droits */
+.venue-art.is-photo{width:100vw;max-width:none;position:relative;left:50%;margin-left:-50vw;border-radius:0;aspect-ratio:4/5;max-height:80vh;box-shadow:none;filter:grayscale(1) contrast(1.15)}

@@ -56,3 +56,8 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:22vh;z-inde
 .curtain{top:clamp(4rem,10svh,7rem);opacity:.9}.curtain.left{width:24%;transform:none}.curtain.right{width:24%;transform:scaleX(-1)}
 .orn-divider{width:min(80%,360px)}
 .lantern{width:min(46%,220px)}
+
+/* photos libres de droits */
+.hero{background:linear-gradient(180deg,rgba(14,17,51,.55),rgba(27,31,75,.75) 60%,#1b1f4b 100%),url("photos/dunes-portrait.jpg") center 30%/cover no-repeat}
+.venue-art.is-photo{border-radius:999px 999px 14px 14px;border:1px solid rgba(232,184,109,.6);box-shadow:0 0 50px rgba(232,184,109,.15)}
+.venue-art.is-photo{filter:none!important;opacity:1}
