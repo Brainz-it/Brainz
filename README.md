@@ -51,11 +51,15 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 
 ## Variantes de design
 
-Dix versions du même contenu, sélectionnées par `?v=N` dans l'URL (V0 = original). Chaque thème est un dossier `assets/themes/vN/` avec `theme.css` (palette, polices, mise en page), `theme.js` (animation d'entrée, remplacement des illustrations, structure) et `art/` (illustrations SVG). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`.
+Onze versions du même contenu, sélectionnées par `?v=N` dans l'URL (V0 = original). Chaque thème est un dossier `assets/themes/vN/` avec `theme.css` (palette, polices, mise en page), `theme.js` (animation d'entrée, remplacement des illustrations, structure) et `art/` (illustrations SVG). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`.
 
 ### V9 · Faire-part
 
 Structure inspirée des faire-part de mariage en ligne (carte d'ouverture, enveloppe et photo, cartes bordeaux, mini-calendrier, galerie, dress code, programme illustré, livre d'or, cagnotte, musique). Ses textes propres sont dans le bloc `invitation` de `site.json` (familles, cérémonie, réception, dress code, livre d'or, cagnotte, musique). La galerie vient de `content/gallery.json`. Le livre d'or lit et écrit dans l'onglet « Livre d'or » de la feuille Google (voir ci-dessous) ; mettez « non » dans la colonne « Affiché » pour masquer un vœu.
+
+### V10 · Villa
+
+Faire-part éditorial en français : enveloppe brodée à ruban blanc, photo plein écran avec carte lieu/date, menu plein écran et barre de navigation, compte à rebours, sections numérotées (lieu avec cérémonie / réception / accès, programme illustré, dress code, liste de mariage avec IBAN, RSVP par invité avec régime alimentaire, FAQ), musique. Ses textes sont dans le bloc `villa` de `site.json`. Les réponses RSVP arrivent dans la feuille Google (nom de famille et invités, présences, régimes, enfants, message).
 
 ## Enregistrer les réponses RSVP et le livre d'or dans Google Sheets
 

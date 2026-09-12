@@ -266,5 +266,148 @@
       "src": "assets/themes/v9/media/music.mp3",
       "autoplay": true
     }
+  },
+  "villa": {
+    "lang": "fr",
+    "tagline": "Avec tout notre amour, nous vous invitons",
+    "scrollLabel": "Défiler",
+    "tapLabel": "Touchez pour ouvrir",
+    "menu": {
+      "home": "Accueil",
+      "venue": "Le lieu",
+      "program": "Programme",
+      "dress": "Le dress code",
+      "gifts": "Liste de mariage",
+      "rsvp": "Confirmez votre présence",
+      "faq": "Questions fréquentes",
+      "giftsShort": "Cadeaux"
+    },
+    "countdown": {
+      "kicker": "Le compte à rebours",
+      "title": "Pour toujours commence dans",
+      "dateLabel": "Date",
+      "labels": {
+        "days": "jours",
+        "hours": "heures",
+        "minutes": "minutes",
+        "seconds": "secondes"
+      }
+    },
+    "venue": {
+      "title": "Le lieu",
+      "ceremonyLabel": "Cérémonie",
+      "ceremonyName": "Riad des Jardins",
+      "ceremonyTime": "17h30",
+      "ceremonyAddress": "Marrakech, Médina",
+      "receptionLabel": "Réception",
+      "receptionName": "Pavillon de la Ménara",
+      "receptionTime": "19h00",
+      "receptionAddress": "Avenue de la Ménara, Marrakech",
+      "mapsLabel": "Ouvrir dans Maps →",
+      "travel": [
+        {
+          "label": "En voiture",
+          "text": "Parking gratuit à proximité du lieu, suivez les indications « Ménara »."
+        },
+        {
+          "label": "En avion",
+          "text": "Aéroport Marrakech-Ménara à 10 minutes en taxi."
+        },
+        {
+          "label": "Hébergement",
+          "text": "Des chambres sont réservées à tarif préférentiel, écrivez-nous."
+        }
+      ]
+    },
+    "program": {
+      "kicker": "La journée",
+      "title": "Le programme",
+      "items": [
+        {
+          "time": "17:30",
+          "title": "Accueil des invités",
+          "text": "Thé à la menthe et pâtisseries dans le jardin",
+          "icon": "glass"
+        },
+        {
+          "time": "18:30",
+          "title": "Entrée des mariés",
+          "text": "Cérémonie traditionnelle au son des neggafates",
+          "icon": "rings"
+        },
+        {
+          "time": "20:30",
+          "title": "Dîner",
+          "text": "Dîner marocain sous les étoiles",
+          "icon": "dinner"
+        },
+        {
+          "time": "22:30",
+          "title": "Soirée",
+          "text": "Musique live jusqu'au bout de la nuit",
+          "icon": "music"
+        }
+      ]
+    },
+    "dress": {
+      "title": "Le dress code",
+      "headline": "Élégance formelle",
+      "text": "Tenue de soirée, caftans et costumes bienvenus. Évitez le blanc.",
+      "colors": [
+        "#6f7248",
+        "#b08a4e",
+        "#c0674a",
+        "#e6d5b8"
+      ]
+    },
+    "gifts": {
+      "title": "Liste de mariage",
+      "headline": "Un cadeau pour nous",
+      "text": "Votre présence est le plus beau des cadeaux. Pour celles et ceux qui souhaiteraient nous gâter, nous avons choisi de récolter des contributions pour notre voyage de noces.",
+      "button": "Afficher l'IBAN"
+    },
+    "rsvp": {
+      "title": "Confirmez votre présence",
+      "kicker": "Faites-le nous savoir",
+      "text": "Dites-nous si vous serez présents avant le 1er septembre 2026.",
+      "familyLabel": "Nom de famille",
+      "guestLabel": "Prénom de l'invité",
+      "addGuest": "+ Ajouter un invité",
+      "yes": "Oui, je serai présent(e)",
+      "no": "Je ne peux pas",
+      "diet": "Régime alimentaire",
+      "dietPlaceholder": "Végétarien, sans gluten, allergies…",
+      "children": "Nous venons avec enfant(s)",
+      "message": "Une pensée pour les mariés",
+      "privacy": "Ces informations seront utilisées par les mariés uniquement pour organiser la journée.",
+      "send": "Envoyer la réponse",
+      "thanks": "Merci, votre réponse a bien été enregistrée.",
+      "error": "Une erreur est survenue, réessayez."
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Puis-je venir accompagné(e) ?",
+          "a": "Seules les personnes mentionnées sur l'invitation peuvent participer. Merci de votre compréhension !"
+        },
+        {
+          "q": "Où puis-je loger à proximité ?",
+          "a": "Plusieurs riads et hôtels sont à quelques minutes. Écrivez-nous et nous vous aiderons à trouver le plus pratique."
+        },
+        {
+          "q": "Y a-t-il un parking ?",
+          "a": "Oui, un parking gratuit est disponible sur place."
+        }
+      ]
+    },
+    "footer": {
+      "withLove": "Avec amour",
+      "contactKicker": "Contactez-nous pour toute info",
+      "contactText": "Pour toute question : contact@example.com"
+    },
+    "music": {
+      "src": "assets/themes/v9/media/music.mp3"
+    }
   }
 }
