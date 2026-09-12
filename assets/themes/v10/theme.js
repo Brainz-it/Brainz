@@ -12,7 +12,8 @@ window.WEDDING_THEME = (function () {
   function build(c, h) {
     var v = c.villa || {}, cp = c.couple, m = v.menu || {}, dt = fmtDate(c), ve = v.venue || {}, pr = v.program || {}, dr = v.dress || {}, gi = v.gifts || {}, rs = v.rsvp || {}, fq = v.faq || {}, ft = v.footer || {}, cd = v.countdown || {};
     var mono = cp.monogram || (cp.bride.charAt(0) + "&" + cp.groom.charAt(0));
-    var icon = function (n) { return '<img src="assets/themes/v10/art/icon-' + esc(n || "glass") + '.svg" alt="">'; };
+    var webp = { glass: 1, dinner: 1, music: 1, cake: 1 };
+    var icon = function (n) { n = n || "glass"; return '<img src="assets/themes/v10/art/icon-' + esc(n) + (webp[n] ? '.webp' : '.svg') + '" alt="">'; };
     var html = ''
       + '<header class="t10-top"><a class="t10-brand" href="#accueil">' + esc(mono) + '</a><button class="t10-burger" id="t10-burger" aria-label="Menu"><span></span><span></span></button></header>'
       + '<nav class="t10-menu" id="t10-menu"><a href="#lieu">' + esc(m.venue) + '</a><a href="#programme">' + esc(m.program) + '</a><a href="#dresscode">' + esc(m.dress) + '</a><a href="#cadeaux">' + esc(m.gifts) + '</a><a href="#rsvp">' + esc(m.rsvp) + '</a><a href="#faq">' + esc(m.faq) + '</a></nav>'

@@ -12,13 +12,13 @@ body{background:var(--t10-ivory)}
 .no-paged-scroll .page > header.hero,.no-paged-scroll .page > section{height:auto!important;min-height:0!important;display:block!important}
 .page{max-width:none;padding:0 0 4.2rem}
 /* lin */
-.t10-sec{position:relative;padding:3.2rem 1.6rem 3rem;text-align:center;background:var(--t10-linen);background-image:repeating-linear-gradient(0deg,rgba(111,92,68,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(111,92,68,.05) 0 1px,transparent 1px 3px);border-top:1px solid rgba(176,138,78,.25);overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s}
+.t10-sec{position:relative;padding:3.2rem 1.6rem 3rem;text-align:center;background:var(--t10-linen) url("art/linen.jpg") center/300px repeat;border-top:1px solid rgba(176,138,78,.25);overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s}
 .t10-sec.in{opacity:1;transform:none}
-.t10-sec--band{background:var(--t10-sand)}
+.t10-sec--band{background:var(--t10-sand) url("art/linen.jpg") center/300px repeat;background-blend-mode:multiply}
 .t10-c{position:absolute;width:150px;height:150px;background:url("art/corner.webp") left top/contain no-repeat;opacity:.95;pointer-events:none}
 .t10-c--tl{left:-6px;top:-6px}.t10-c--tr{right:-6px;top:-6px;transform:scaleX(-1)}.t10-c--bl{left:-6px;bottom:-6px;transform:scaleY(-1)}.t10-c--br{right:-6px;bottom:-6px;transform:scale(-1)}
 .t10-lace{height:34px;background:url("art/lace.webp") repeat-x top/102px 34px;opacity:.95;margin:-2rem -1.6rem 1.6rem}
-.t10-lace--mid{margin:0 auto 1.6rem;width:60%}
+.t10-lace--mid{background:url("art/band.webp") center/contain no-repeat;height:54px;width:min(90%,340px);margin:-.6rem auto 1.4rem;opacity:1}
 .t10-num{font-family:var(--serif);font-size:.95rem;letter-spacing:.3em;color:var(--t10-gold);margin-bottom:.4rem}
 .t10-kicker{font-family:var(--sans);font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--t10-brown);margin:.2rem 0 .4rem}
 .t10-h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,7vw,2.6rem);color:var(--t10-ink);margin:0 0 1.2rem;line-height:1.1}
@@ -68,7 +68,7 @@ body{background:var(--t10-ivory)}
 .t10-tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--t10-gold),transparent);opacity:.5}
 .t10-ev{position:relative;background:var(--t10-ivory);padding:1.2rem 1rem 1rem;margin:0 0 1.6rem;box-shadow:0 12px 30px rgba(111,92,68,.12)}
 .t10-ev-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--t10-ivory);box-shadow:0 0 0 1px var(--t10-gold);margin:-2.6rem auto .6rem}
-.t10-ev-icon img{width:30px}
+.t10-ev-icon img{width:34px}
 .t10-ev b{font-family:var(--serif);font-size:1.2rem;color:var(--t10-gold);font-weight:500}
 .t10-ev h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;margin:.2rem 0;color:var(--t10-ink)}
 .t10-ev p{font-family:var(--sans);font-weight:300;font-size:.82rem;color:var(--t10-brown);margin:0;line-height:1.6}
@@ -105,7 +105,7 @@ body{background:var(--t10-ivory)}
 .t10-music.on span{animation:t10eq .9s ease-in-out infinite alternate}.t10-music.on span:nth-child(2){animation-delay:.2s}.t10-music.on span:nth-child(3){animation-delay:.4s}
 @keyframes t10eq{from{height:5px}to{height:16px}}
 /* ── intro : enveloppe brodée à ruban blanc ── */
-#enter{background:#efe7d8;background-image:repeating-linear-gradient(0deg,rgba(111,92,68,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(111,92,68,.05) 0 1px,transparent 1px 3px);overflow:hidden;color:var(--t10-brown);perspective:1200px}
+#enter{background:#efe7d8 url("art/linen.jpg") center/300px repeat;overflow:hidden;color:var(--t10-brown);perspective:1200px}
 .t10-env{position:relative;width:min(88vw,470px);aspect-ratio:1.42;display:block;transition:transform 1.3s cubic-bezier(.6,0,.8,.4) 1.1s}
 .t10-env-back{position:absolute;inset:0;background:#f7f1e6;box-shadow:0 30px 60px rgba(46,37,27,.18),inset 0 0 0 1px rgba(176,138,78,.3)}
 .t10-env-front{position:absolute;inset:0;background:linear-gradient(135deg,#f5eee0 0 50%,#efe6d4 50%);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);z-index:2}
@@ -137,3 +137,6 @@ body{background:var(--t10-ivory)}
 
 .t10-bow.t10-bow--wax{width:27%}.t10-bow.t10-bow--gold{width:46%}
 .t10-foot-mono{background:url("art/seal-gold.webp") center/contain no-repeat;border:0;width:96px;height:96px;color:transparent}
+
+.t10-place-block:first-of-type::before{content:"";display:block;width:min(80%,300px);height:44px;margin:0 auto .8rem;background:url("art/band.webp") center/contain no-repeat}
+.t10-footer::before{content:"";display:block;width:min(80%,300px);height:44px;margin:0 auto 1rem;background:url("art/band.webp") center/contain no-repeat}

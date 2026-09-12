@@ -50,7 +50,7 @@ window.WEDDING_THEME = (function () {
     var names = esc(cp.bride) + "<span class='t9-amp'>" + esc(cp.conjunction || "&") + "</span>" + esc(cp.groom);
     var html = ''
       + '<section class="t9-sec t9-save reveal"><div class="t9-kicker">' + esc(inv.kicker || "Save the date") + '</div>'
-      + '  <div class="t9-envelope"><img class="t9-roses t9-roses--l" src="assets/themes/v9/art/roses.svg" alt="" aria-hidden="true"><div class="t9-photo"><img src="' + esc(c.hero.photo) + '" alt="' + esc(cp.bride + " & " + cp.groom) + '"></div><div class="t9-env-back"></div><div class="t9-env-front"></div><img class="t9-seal" src="assets/themes/v9/art/seal.svg" alt="" aria-hidden="true"><img class="t9-roses t9-roses--r" src="assets/themes/v9/art/roses.svg" alt="" aria-hidden="true"></div>'
+      + '  <div class="t9-envelope"><img class="t9-roses t9-roses--l" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"><div class="t9-photo"><img src="' + esc(c.hero.photo) + '" alt="' + esc(cp.bride + " & " + cp.groom) + '"></div><div class="t9-env-back"></div><div class="t9-env-front"></div><img class="t9-seal" src="assets/themes/v9/art/seal.svg" alt="" aria-hidden="true"><img class="t9-roses t9-roses--r" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"></div>'
       + '  <h1 class="t9-names">' + names + '</h1></section>'
       + '<section class="t9-sec reveal"><div class="t9-card">'
       + '  <div class="t9-card-title">' + esc(f.title || "Ceremony info") + '</div>'
@@ -73,10 +73,10 @@ window.WEDDING_THEME = (function () {
       + (c.schedule.items || []).filter(function (it) { return it.title; }).map(function (it, i) { return "<div class='t9-tl'><span class='t9-tl-time'>" + esc(it.time) + "</span><span class='t9-tl-dot'>" + esc(icons[i % icons.length] || "•") + "</span><span class='t9-tl-name'>" + esc(it.title) + "</span></div>"; }).join("")
       + '</div></div></section>'
       + '<section class="t9-sec reveal"><div class="t9-paper"><div class="t9-title">' + esc(gb.title || "Guestbook") + '</div><form id="t9-gb-form"><input name="name" placeholder="' + esc(gb.namePlaceholder || "Your name") + '" required><textarea name="wish" rows="2" placeholder="' + esc(gb.wishPlaceholder || "Your wishes") + '" required></textarea><button class="t9-btn" type="submit">✧ ' + esc(gb.send || "Send wishes") + '</button><p class="t9-gb-status" id="t9-gb-status"></p></form></div><div class="t9-wishes" id="t9-wishes"><p class="t9-muted">' + esc(gb.empty || "") + '</p></div></section>'
-      + '<section class="t9-sec reveal t9-giftsec"><div class="t9-title">' + esc(gift.title || "Gift box") + '</div><button class="t9-gift" data-open-modal="gifts" data-bank="morocco"><img src="assets/themes/v9/art/gift.svg" alt=""><span>' + esc(gift.tap || "Tap to open") + '</span></button><p class="t9-addr">' + esc(gift.text || "") + '</p></section>'
+      + '<section class="t9-sec reveal t9-giftsec"><div class="t9-title">' + esc(gift.title || "Gift box") + '</div><button class="t9-gift" data-open-modal="gifts" data-bank="morocco"><img src="assets/themes/v9/art/gift.webp" alt=""><span>' + esc(gift.tap || "Tap to open") + '</span></button><p class="t9-addr">' + esc(gift.text || "") + '</p></section>'
       + '<footer class="t9-footer"><div class="t9-mono">' + esc(monogram) + '</div><div class="t9-date">' + esc(ev.shortDate || "") + '</div>' + (c.site.creditsPage ? '<a class="photo-credit" href="' + esc(c.site.creditsPage) + '">Crédits photos & musique</a>' : "") + '</footer>';
     var page = h.$(".page");
-    page.innerHTML = '<img class="t9-castle" src="assets/images/venue.webp" alt="" aria-hidden="true">' + html;
+    page.innerHTML = '<img class="t9-castle" src="assets/themes/v9/art/riad.webp" alt="" aria-hidden="true">' + html;
     h.hide("#scroll-cue");
     // apparition progressive (les sections sont créées après l'observateur du site)
     var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }); }, { threshold: 0.08 });
@@ -128,7 +128,7 @@ window.WEDDING_THEME = (function () {
     pagedScroll: false,
     intro: function (ctx) {
       var c = ctx.config, inv = c.invitation || {}, enter = ctx.enter;
-      enter.innerHTML = '<span class="t9-hearts"></span><span class="t9-cover"><img class="t9-cover-roses t9-cover-roses--l" src="assets/themes/v9/art/roses.svg" alt="" aria-hidden="true"><img class="t9-cover-roses t9-cover-roses--r" src="assets/themes/v9/art/roses.svg" alt="" aria-hidden="true">'
+      enter.innerHTML = '<span class="t9-hearts"></span><span class="t9-cover"><img class="t9-cover-roses t9-cover-roses--l" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"><img class="t9-cover-roses t9-cover-roses--r" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true">'
         + '<span class="t9-heart">♥</span><span class="t9-cover-names">' + ctx.escapeHtml(c.couple.bride) + '<i>' + ctx.escapeHtml(c.couple.conjunction || "&") + '</i>' + ctx.escapeHtml(c.couple.groom) + '</span>'
         + '<img class="t9-orn" src="assets/themes/v9/art/ornament.svg" alt="" aria-hidden="true"><span class="t9-cover-date">' + ctx.escapeHtml(c.event.dateLabel || "") + '</span><span class="t9-cover-invites">' + ctx.escapeHtml(inv.coverInvites || "Cordially invites") + '</span>'
         + '<span class="t9-open">' + ctx.escapeHtml(inv.openLabel || "Open") + '</span></span>';
