@@ -34,3 +34,25 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:22vh;z-inde
 .modal label,.modal .field-label,.modal-title,.bank-holder,.bank-kind,.bank-number,.modal-aside,.gift .addr,.map-app{color:#f4e3c6}
 .overlay{background:rgba(10,8,30,.7)}
 .scroll-cue svg{stroke:#e8b86d}
+
+/* ── intro : vœu sous les étoiles ── */
+#enter{background:#0e1133;overflow:hidden;color:#f4e3c6}
+.t6-sky{position:absolute;inset:0;background:linear-gradient(180deg,#07081c,#1b1f4b 60%,#2b2350);
+  background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 60%,transparent),radial-gradient(1px 1px at 30% 40%,#fff 60%,transparent),radial-gradient(1.6px 1.6px at 48% 12%,#fff 60%,transparent),radial-gradient(1px 1px at 66% 30%,#fff 60%,transparent),radial-gradient(1.4px 1.4px at 82% 8%,#fff 60%,transparent),radial-gradient(1px 1px at 90% 54%,#fff 60%,transparent),radial-gradient(1.2px 1.2px at 20% 70%,#fff 60%,transparent),radial-gradient(1px 1px at 58% 62%,#fff 60%,transparent),linear-gradient(180deg,#07081c,#1b1f4b 60%,#2b2350);animation:twinkle 3s ease-in-out infinite alternate}
+.t6-dawn{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,rgba(232,184,109,0),#c37a3a 40%,#f4d9a8);transition:height 1.5s cubic-bezier(.2,.8,.2,1)}
+.t6-dunes{position:absolute;left:0;right:0;bottom:0;width:100%;height:24vh}
+.t6-moon{position:relative;width:min(40vw,180px);height:auto;filter:drop-shadow(0 0 30px rgba(232,184,109,.35));animation:t6float 5s ease-in-out infinite}
+@keyframes t6float{50%{transform:translateY(-8px)}}
+.t6-star{position:absolute;top:18%;left:-10%;width:180px;height:2px;background:linear-gradient(90deg,transparent,#fff);border-radius:2px;transform:rotate(18deg);opacity:0}
+.t6-copy{position:relative;margin-top:2rem;font-family:"Marcellus",serif;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(.7rem,2vw,.9rem);animation:tapCopy 2.4s ease-in-out infinite}
+#enter.t6-wish .t6-star{animation:t6shoot 1s ease-out forwards}
+@keyframes t6shoot{0%{opacity:0;transform:translateX(0) rotate(18deg)}15%{opacity:1}100%{opacity:0;transform:translateX(130vw) translateY(40vh) rotate(18deg)}}
+#enter.t6-wish .t6-copy{opacity:0;transition:opacity .4s}
+#enter.t6-rise .t6-dawn{height:120%}
+#enter.t6-rise .t6-moon{opacity:0;transform:translateY(-40px);transition:all 1.2s}
+#enter.gone{transition:opacity .8s ease,visibility .8s}
+/* décor */
+.lights-band img,.curtain,.orn-divider,.lantern{filter:none!important;opacity:1}
+.curtain{top:clamp(4rem,10svh,7rem);opacity:.9}.curtain.left{width:24%;transform:none}.curtain.right{width:24%;transform:scaleX(-1)}
+.orn-divider{width:min(80%,360px)}
+.lantern{width:min(46%,220px)}

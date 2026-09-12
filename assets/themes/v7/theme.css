@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600&family=Instrument+Serif:ital@0;1&display=swap');
+:root{
+  --red:#7a1f2b; --charcoal:#111111; --grey:#777; --taupe:#111;
+  --cream:#ffffff; --paper:#ffffff; --cream-low:#f4f4f4;
+  --serif:"Instrument Serif",Georgia,serif; --apparel:var(--serif); --button-serif:"Inter",sans-serif;
+  --script:"Instrument Serif",serif; --sans:"Inter",sans-serif;
+}
+body{background:#fff}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band,.orn-divider,.orn-feet,.curtain,.lantern,.rsvp-candle{display:none!important}
+.venue-art,.attire-row img{filter:grayscale(1) contrast(1.2)}
+.names{font-family:"Archivo Black",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;color:#111;font-size:clamp(3rem,12vw,8rem)}
+.names .and{font-family:"Instrument Serif",serif;font-style:italic;text-transform:none;font-size:.35em;color:#7a1f2b;margin:.3em auto .2em;letter-spacing:0}
+.eyebrow{color:#111;font-weight:600;letter-spacing:.3em;font-size:clamp(.65rem,1.8vw,.85rem)}
+.section-title{font-family:"Archivo Black",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:-.02em;color:#111;font-size:clamp(2rem,7vw,4.4rem);text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.section-title .glyph-fix{display:inline}
+.hero-meta{font-family:"Inter",sans-serif;font-style:normal;font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(.85rem,2.2vw,1.2rem);color:#111}
+.hero .portrait{width:min(100% - 2.5rem,560px)}
+.portrait img{border-radius:0;aspect-ratio:4/5;box-shadow:none}
+.btn,.btn-send{background:#111;color:#fff;border-radius:0;font-style:normal;font-weight:600;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(.72rem,1.8vw,.85rem);padding:1em 2.6em}
+.btn:hover,.btn-send:hover{background:#7a1f2b}
+.countdown{border:0;border-top:2px solid #111;border-bottom:2px solid #111;border-radius:0;width:min(100% - 2.5rem,var(--content))}
+.cd-num{font-family:"Archivo Black",sans-serif;color:#111}.cd-label{font-family:"Inter",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.14em;font-size:.6rem;color:#777}
+.cd-unit + .cd-unit .cd-num::before{content:"";}
+.rule{background:#111;height:2px;width:min(100% - 2.5rem,var(--content));max-width:none}
+.event-time{font-family:"Inter",sans-serif;font-style:normal;font-weight:600;color:#7a1f2b;letter-spacing:.1em}
+.event-name{font-style:italic;color:#111}
+.body-copy,.section-intro{color:#111;font-weight:300;letter-spacing:0;font-size:clamp(1rem,2.4vw,1.2rem);text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.venue-action,.pair{text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto;justify-content:flex-start}
+.monogram{font-family:"Archivo Black",sans-serif;color:#111;letter-spacing:-.02em}
+.footer-date{color:#7a1f2b;font-weight:600}
+.modal{background:#fff;border-radius:0;border:2px solid #111;box-shadow:none}
+.modal-title{font-family:"Archivo Black",sans-serif;font-style:normal;text-transform:uppercase;color:#111}
+.overlay{background:rgba(0,0,0,.6);backdrop-filter:none}
+
+/* ── intro : typographie et balayage noir ── */
+#enter{background:#fff;color:#111;overflow:hidden;display:block;padding:0}
+.t7-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,6vw,4rem);text-align:left;gap:1rem}
+.t7-kicker{font-family:"Inter",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.3em;font-size:.7rem}
+.t7-names{display:flex;flex-direction:column;font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:clamp(3.2rem,15vw,9rem);line-height:.88;letter-spacing:-.03em}
+.t7-amp{font-family:"Instrument Serif",serif;font-style:italic;text-transform:none;color:#7a1f2b;font-size:.5em;line-height:1.2;letter-spacing:0}
+.t7-date{font-family:"Inter",sans-serif;font-weight:300;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;border-top:2px solid #111;padding-top:1rem;margin-top:.5rem}
+.t7-copy{font-family:"Inter",sans-serif;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:#7a1f2b;animation:tapCopy 2.4s ease-in-out infinite}
+.t7-block{position:absolute;top:0;bottom:0;left:0;width:0;background:#111;z-index:3;transition:width .55s cubic-bezier(.7,0,.3,1)}
+#enter.t7-wipe .t7-block{width:100%}
+#enter.t7-wipe .t7-inner{opacity:0;transition:opacity .3s .3s}
+#enter.gone{transition:opacity .01s .9s,visibility .01s .9s}
+/* ── structure : défilement continu ── */
+.no-paged-scroll{scroll-snap-type:none!important}
+.no-paged-scroll .page > header.hero,.no-paged-scroll .page > section{height:auto!important;min-height:0!important;display:block!important;padding-block:clamp(3rem,8vw,6rem)!important;border-top:2px solid #111}
+.no-paged-scroll .page > header.hero{border-top:0;padding-top:clamp(4rem,10vw,7rem)!important}
+.no-paged-scroll .scroll-cue{display:none}
+.no-paged-scroll .rule{display:none}
+.hero .wrap{text-align:left}
+.eyebrow{text-align:left}
+.names{margin-inline:0;text-align:left;max-width:none;width:auto}
+.hero .portrait{width:100vw;max-width:none;position:relative;left:50%;margin-left:-50vw;margin-top:2rem}
+.portrait img{aspect-ratio:4/5;width:100%;max-height:80vh}
+.hero-meta{text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.invite-main{text-align:left}
+.countdown{margin-inline:auto}
+.t7-index{display:block;font-family:"Inter",sans-serif;font-weight:300;font-size:clamp(3rem,10vw,6rem);line-height:1;color:#ddd;width:min(100% - 2.5rem,var(--content));margin:0 auto -.2em;text-align:left}
+.venue-art{filter:grayscale(1) contrast(1.3);width:100vw}
+.attire-row{width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.attire-caps{width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.schedule .wrap{text-align:left}
+.t7-row{display:grid;grid-template-columns:5rem 1fr;gap:1rem;align-items:baseline;text-align:left;border-bottom:1px solid #ddd;padding:1rem 0;margin:0}
+.t7-row .event-time{font-size:1rem}.t7-row .event-name{font-size:clamp(1.3rem,4vw,2rem);margin:0}
+.wedding-list-main{text-align:left}
+.footer{text-align:left;width:min(100% - 2.5rem,var(--content));margin-inline:auto;border-top:2px solid #111;padding-top:2rem}
+.hero .portrait{width:100vw!important;max-width:none!important;--cover-photo:none}
+.hero .portrait img{width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:4/5;object-fit:cover}

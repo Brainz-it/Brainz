@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" fill="none" stroke="#6b7a4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path class="stem" d="M10 100 C 120 40 260 40 390 90"/>
+  <g class="leaves" fill="#8a9a5b" stroke="#6b7a4b">
+    <path d="M60 78 q-10 -30 14 -46 q10 30 -14 46 z"/><path d="M110 60 q-14 -28 8 -48 q14 28 -8 48 z"/><path d="M170 52 q-16 -26 4 -48 q16 26 -4 48 z"/><path d="M230 52 q-16 -26 4 -48 q16 26 -4 48 z"/><path d="M290 60 q-14 -28 8 -48 q14 28 -8 48 z"/><path d="M340 74 q-10 -30 14 -46 q10 30 -14 46 z"/>
+    <path d="M90 94 q6 30 -18 44 q-6 -30 18 -44 z"/><path d="M150 82 q8 30 -14 48 q-8 -30 14 -48 z"/><path d="M210 78 q8 30 -12 50 q-8 -30 12 -50 z"/><path d="M270 82 q8 30 -14 48 q-8 -30 14 -48 z"/><path d="M320 94 q6 30 -18 44 q-6 -30 18 -44 z"/>
+  </g>
+  <g fill="#4a3b32" stroke="none"><ellipse cx="130" cy="80" rx="7" ry="10"/><ellipse cx="250" cy="76" rx="7" ry="10"/><ellipse cx="200" cy="70" rx="7" ry="10"/></g>
+</svg>

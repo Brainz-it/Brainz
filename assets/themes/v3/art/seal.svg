@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <path d="M100 8 c14 0 20 12 34 10 c14 -2 22 8 30 20 c8 12 22 14 24 28 c2 14 -8 22 -6 36 c2 14 12 22 4 34 c-8 12 -22 10 -32 20 c-10 10 -12 24 -26 26 c-14 2 -20 -8 -34 -6 c-14 2 -24 12 -36 4 c-12 -8 -8 -22 -18 -32 c-10 -10 -24 -10 -28 -24 c-4 -14 6 -22 6 -36 c0 -14 -12 -22 -6 -34 c6 -12 20 -12 30 -22 c10 -10 12 -24 26 -26 c14 -2 22 6 32 2 z" fill="#8b1e2d"/>
+  <circle cx="100" cy="100" r="62" fill="none" stroke="#c8687a" stroke-width="1.5" opacity=".7"/>
+  <circle cx="100" cy="100" r="56" fill="none" stroke="#5e1220" stroke-width="1" opacity=".7"/>
+  <text x="100" y="118" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-style="italic" fill="#f3d9c1">H&amp;M</text>
+</svg>

@@ -266,8 +266,16 @@
   }
 
   /* ── 5. Intro : rideau → prénoms centrés → invitation ── */
-  function initIntro(c) {
+  function initIntro(c, theme) {
     var enterScreen = $("#enter"), namesEl = $(".names"), video = $("#curtain-video");
+    if (theme && typeof theme.intro === "function") {
+      var preview = new URLSearchParams(window.location.search).get("preview") === "1" || (c.intro && c.intro.enabled === false);
+      if (video) { video.pause(); video.remove(); video = null; }
+      if (preview) { themeReveal(); return; }
+      document.body.style.overflow = "hidden";
+      theme.intro({ enter: enterScreen, config: c, reveal: themeReveal, escapeHtml: escapeHtml });
+      return;
+    }
     var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var INTRO_CURTAIN_FALLBACK_MS = 5400, INTRO_NAMES_REVEAL_AT = 3, INTRO_VIDEO_FADE_MS = 750;
     var INTRO_NAMES_CENTER_HOLD_MS = 380, INTRO_NAMES_TRAVEL_MS = 1400, INTRO_FONT_LAYOUT_WAIT_MS = 700;
@@ -383,7 +391,8 @@
   }
 
   /* ── 6. Défilement par page ────────────────────────────── */
-  function initPagedScroll() {
+  function initPagedScroll(theme) {
+    if (theme && theme.pagedScroll === false) { document.documentElement.classList.add("no-paged-scroll"); return; }
     var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var pagedScrollMedia = matchMedia("(min-height: 520px)");
     var pagedPanels = $$(".page > header.hero, .page > section, .page > footer.footer");
@@ -489,35 +498,62 @@
   }
 
   /* ── Démarrage ─────────────────────────────────────────── */
-  /* Variante de design : ?v=N dans l'URL (ou theme.variant dans site.json) charge assets/themes/vN.css */
-  function applyVariant(c) {
+  /* Variante de design : ?v=N (ou theme.variant dans site.json) charge assets/themes/vN/theme.css
+     et assets/themes/vN/theme.js, qui peut définir window.WEDDING_THEME = { intro, decorate, pagedScroll } */
+  function loadVariant(c) {
     var q = new URLSearchParams(window.location.search).get("v");
     var n = q != null && q !== "" ? parseInt(q, 10) : parseInt((c.theme || {}).variant, 10);
-    if (!n || isNaN(n) || n < 1) return 0;
-    document.documentElement.classList.add("theme-v" + n);
+    if (!n || isNaN(n) || n < 1) return Promise.resolve(null);
+    document.documentElement.classList.add("theme-v" + n, "has-theme");
     var link = document.createElement("link");
-    link.rel = "stylesheet"; link.href = "assets/themes/v" + n + ".css";
+    link.rel = "stylesheet"; link.href = "assets/themes/v" + n + "/theme.css";
     document.head.appendChild(link);
-    // les liens internes conservent la variante
-    $$("a[href^='#']").forEach(function (a) { a.href = a.getAttribute("href"); });
-    return n;
+    return new Promise(function (resolve) {
+      var sc = document.createElement("script");
+      sc.src = "assets/themes/v" + n + "/theme.js";
+      sc.onload = function () { resolve(window.WEDDING_THEME || {}); };
+      sc.onerror = function () { resolve({}); };
+      document.head.appendChild(sc);
+    });
+  }
+
+  /* Révélation utilisée par les intros de thème (remplace la vidéo du rideau) */
+  function themeReveal() {
+    var h = document.documentElement;
+    document.body.style.overflow = "";
+    var video = $("#curtain-video"); if (video) { video.pause(); video.remove(); }
+    h.classList.add("intro-revealed", "intro-name-settled");
+    requestAnimationFrame(function () {
+      h.classList.add("intro-rest-revealed", "painted");
+      setTimeout(function () { h.classList.add("paint-done"); }, 4600);
+    });
+    var enter = $("#enter");
+    if (enter) { enter.classList.add("gone"); setTimeout(function () { enter.remove(); }, 900); }
   }
 
   function boot() {
     fetch("content/site.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("site.json " + r.status); return r.json(); })
       .then(function (c) {
-        // avec une variante, les couleurs/polices viennent du fichier de thème, pas de site.json
-        if (!applyVariant(c)) applyTheme(c.theme);
-        setMeta(c);
-        fillText(c);
-        renderContent(c);
-        initCountdown(c);
-        initVenueLinks(c);
-        initModals(c);
-        initIntro(c);
-        initPagedScroll();
-        initReveal();
+        return loadVariant(c).then(function (theme) {
+          if (!theme) applyTheme(c.theme);
+          setMeta(c);
+          fillText(c);
+          renderContent(c);
+          if (theme && typeof theme.decorate === "function") {
+            theme.decorate(c, {
+              $: $, $$: $$, escapeHtml: escapeHtml,
+              swap: function (sel, src) { $$(sel).forEach(function (img) { if (src) img.src = src; else img.remove(); }); },
+              hide: function (sel) { $$(sel).forEach(function (el) { el.remove(); }); }
+            });
+          }
+          initCountdown(c);
+          initVenueLinks(c);
+          initModals(c);
+          initIntro(c, theme);
+          initPagedScroll(theme);
+          initReveal();
+        });
       })
       .catch(function (err) {
         console.error(err);

@@ -27,3 +27,28 @@ body{background:#f3e6d8;background-image:repeating-linear-gradient(0deg,rgba(74,
 .modal{background:#f8efe4;border-radius:24px;border:2px solid #c8ad8a;box-shadow:0 30px 60px rgba(74,59,50,.3)}
 .modal-title{color:#b5563a}
 .overlay{background:rgba(74,59,50,.45)}
+
+/* ── intro : raphia et olivier ── */
+#enter{background:#e9d6bf;overflow:hidden;color:#4a3b32}
+.t5-weave{position:absolute;inset:0;opacity:.55;background:
+  repeating-linear-gradient(0deg,rgba(181,86,58,.16) 0 6px,transparent 6px 14px),
+  repeating-linear-gradient(90deg,rgba(74,59,50,.12) 0 6px,transparent 6px 14px),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 2px,transparent 2px 12px)}
+.t5-branch{position:absolute;top:50%;width:min(60vw,360px);height:auto;opacity:0;transition:transform 1.3s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.t5-branch--l{left:50%;transform:translate(-50%,-50%) scale(.2) rotate(20deg)}
+.t5-branch--r{left:50%;transform:translate(-50%,-50%) scale(.2) rotate(200deg)}
+.t5-stamp{position:relative;z-index:2;width:min(60vw,240px);aspect-ratio:1;border-radius:50%;background:#b5563a;color:#f8efe4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;box-shadow:inset 0 0 0 6px #b5563a,inset 0 0 0 8px #f8efe4,0 20px 40px rgba(74,59,50,.3);animation:tapHint 2.4s ease-in-out infinite;transition:transform .8s,opacity .8s}
+.t5-stamp b{font-family:"Homemade Apple",cursive;font-size:clamp(2rem,8vw,3rem);font-weight:400}
+.t5-stamp small{font-family:"Nunito",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.24em;font-size:.6rem}
+#enter.t5-grow .t5-branch{opacity:1}
+#enter.t5-grow .t5-branch--l{transform:translate(-100%,-50%) scale(1) rotate(0deg)}
+#enter.t5-grow .t5-branch--r{transform:translate(0%,-50%) scale(1) rotate(180deg)}
+#enter.t5-grow .t5-stamp{transform:scale(.85)}
+#enter.t5-fade .t5-stamp{opacity:0;transform:scale(1.4)}
+#enter.gone{transition:opacity .7s ease,visibility .7s}
+/* décor */
+.candle-l,.candle-r,.lights-band img,.orn-divider,.orn-sprig,.curtain,.lantern{filter:none!important;opacity:1}
+.candle-l{width:18%;left:2%}.candle-r{width:14%;right:4%}
+.curtain{opacity:.9;top:clamp(5rem,12svh,8rem)}.curtain.left{width:34%;transform:none}.curtain.right{width:34%;transform:scaleX(-1)}
+.orn-divider{width:min(70%,320px)}.orn-sprig{width:min(36%,180px)}
+.lantern{width:min(46%,220px)}

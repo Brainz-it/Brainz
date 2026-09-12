@@ -51,7 +51,7 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 
 ## Variantes de design
 
-Neuf versions du même site, sélectionnées par `?v=N` dans l'URL (V0 = original, V1 à V8 = thèmes dans `assets/themes/vN.css`). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`. Une variante remplace couleurs et polices de `site.json` par celles de son fichier de thème.
+Neuf versions du même contenu, sélectionnées par `?v=N` dans l'URL (V0 = original). Chaque thème est un dossier `assets/themes/vN/` avec `theme.css` (palette, polices, mise en page), `theme.js` (animation d'entrée, remplacement des illustrations, structure) et `art/` (illustrations SVG). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`.
 
 ## Enregistrer les réponses RSVP dans Google Sheets
 

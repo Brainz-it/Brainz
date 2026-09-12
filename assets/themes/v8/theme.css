@@ -30,3 +30,26 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .modal{background:#fbf7ef;border:2px solid #c9a24a;box-shadow:0 0 0 6px #fbf7ef,0 0 0 7px #7a1f2b,0 30px 60px rgba(58,42,42,.3)}
 .modal-title{color:#7a1f2b}
 .overlay{background:rgba(58,42,42,.5)}
+
+/* ── intro : pans de caftan brodés ── */
+#enter{background:#5c1620;overflow:hidden;color:#f7f1e6}
+.t8-pan{position:absolute;top:0;bottom:0;width:50%;background:#7a1f2b url("art/panel.svg") right/auto 100% no-repeat;transition:transform 1.3s cubic-bezier(.7,0,.3,1);box-shadow:0 0 60px rgba(0,0,0,.5)}
+.t8-pan--l{left:0;transform-origin:left}.t8-pan--r{right:0;transform:scaleX(-1);transform-origin:right}
+.t8-shine{position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(90deg,transparent,rgba(255,225,150,.55),transparent);transform:skewX(-15deg);opacity:0;z-index:2}
+.t8-center{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.t8-center img{width:clamp(110px,26vw,180px);height:auto;filter:drop-shadow(0 0 22px rgba(201,162,74,.5));animation:tapHint 2.4s ease-in-out infinite}
+.t8-copy{font-family:"Amiri",serif;font-style:italic;letter-spacing:.2em;font-size:clamp(.9rem,2.4vw,1.1rem);animation:tapCopy 2.4s ease-in-out infinite}
+#enter.t8-shimmer .t8-shine{opacity:1;animation:t8shine 1s ease-in-out forwards}
+@keyframes t8shine{to{left:120%}}
+#enter.t8-open .t8-pan--l{transform:translateX(-100%) rotateY(20deg)}
+#enter.t8-open .t8-pan--r{transform:scaleX(-1) translateX(-100%) rotateY(20deg)}
+#enter.t8-open .t8-center{opacity:0;transform:scale(.7);transition:all .5s}
+#enter.t8-open{background:transparent}
+#enter.gone{transition:opacity .4s ease .9s,visibility .4s .9s}
+/* décor */
+.candle-l,.candle-r,.lights-band img,.orn-divider,.orn-sprig,.curtain,.lantern{filter:none!important;opacity:1}
+.candle-l{width:18%;left:2%}.candle-r{width:18%;right:2%}
+.lights-band img{opacity:.95}
+.orn-divider{width:min(80%,400px)}.orn-sprig{width:min(24%,120px)}
+.curtain{top:clamp(5rem,12svh,8rem);opacity:.95}.curtain.left{width:12%;transform:none}.curtain.right{width:12%;transform:scaleX(-1)}
+.lantern{width:min(36%,160px)}

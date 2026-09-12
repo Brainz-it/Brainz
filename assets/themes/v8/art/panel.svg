@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 700" preserveAspectRatio="none">
+  <rect width="300" height="700" fill="#7a1f2b"/>
+  <g fill="none" stroke="#c9a24a" stroke-width="3"><path d="M40 0 v700 M60 0 v700" opacity=".8"/><path d="M50 40 l14 24 l-14 24 l-14 -24 z M50 140 l14 24 l-14 24 l-14 -24 z M50 240 l14 24 l-14 24 l-14 -24 z M50 340 l14 24 l-14 24 l-14 -24 z M50 440 l14 24 l-14 24 l-14 -24 z M50 540 l14 24 l-14 24 l-14 -24 z M50 640 l14 24 l-14 24 l-14 -24 z"/></g>
+  <g fill="#c9a24a"><circle cx="50" cy="100" r="5"/><circle cx="50" cy="200" r="5"/><circle cx="50" cy="300" r="5"/><circle cx="50" cy="400" r="5"/><circle cx="50" cy="500" r="5"/><circle cx="50" cy="600" r="5"/></g>
+  <path d="M100 0 v700" stroke="#5c1620" stroke-width="40" opacity=".5"/><path d="M200 0 v700" stroke="#5c1620" stroke-width="60" opacity=".4"/>
+</svg>

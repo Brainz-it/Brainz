@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none" stroke="#b08d57" stroke-width="1.3" stroke-linecap="round">
+  <path d="M20 100 q90 -80 180 -60 M380 100 q-90 -80 -180 -60"/>
+  <g><path d="M50 80 q-6 -20 10 -30 q6 20 -10 30 z M80 62 q-4 -20 12 -28 q4 20 -12 28 z M115 48 q0 -20 16 -26 q0 20 -16 26 z M150 42 q4 -20 20 -22 q-2 20 -20 22 z"/>
+  <path d="M350 80 q6 -20 -10 -30 q-6 20 10 30 z M320 62 q4 -20 -12 -28 q-4 20 12 28 z M285 48 q0 -20 -16 -26 q0 20 16 26 z M250 42 q-4 -20 -20 -22 q2 20 20 22 z"/></g>
+  <circle cx="200" cy="38" r="3" fill="#b08d57" stroke="none"/>
+</svg>
