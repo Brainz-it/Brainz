@@ -51,9 +51,13 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 
 ## Variantes de design
 
-Neuf versions du même contenu, sélectionnées par `?v=N` dans l'URL (V0 = original). Chaque thème est un dossier `assets/themes/vN/` avec `theme.css` (palette, polices, mise en page), `theme.js` (animation d'entrée, remplacement des illustrations, structure) et `art/` (illustrations SVG). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`.
+Dix versions du même contenu, sélectionnées par `?v=N` dans l'URL (V0 = original). Chaque thème est un dossier `assets/themes/vN/` avec `theme.css` (palette, polices, mise en page), `theme.js` (animation d'entrée, remplacement des illustrations, structure) et `art/` (illustrations SVG). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`.
 
-## Enregistrer les réponses RSVP dans Google Sheets
+### V9 · Faire-part
+
+Structure inspirée des faire-part de mariage en ligne (carte d'ouverture, enveloppe et photo, cartes bordeaux, mini-calendrier, galerie, dress code, programme illustré, livre d'or, cagnotte, musique). Ses textes propres sont dans le bloc `invitation` de `site.json` (familles, cérémonie, réception, dress code, livre d'or, cagnotte, musique). La galerie vient de `content/gallery.json`. Le livre d'or lit et écrit dans l'onglet « Livre d'or » de la feuille Google (voir ci-dessous) ; mettez « non » dans la colonne « Affiché » pour masquer un vœu.
+
+## Enregistrer les réponses RSVP et le livre d'or dans Google Sheets
 
 1. Créez une feuille Google Sheets vide, puis Extensions → Apps Script.
 2. Collez le contenu de `google-sheet/Code.gs`, enregistrez.

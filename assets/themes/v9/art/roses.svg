@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <radialGradient id="r1" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#b03a45"/><stop offset=".55" stop-color="#7a1622"/><stop offset="1" stop-color="#4a0b13"/></radialGradient>
+    <radialGradient id="r2" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#f3e6d3"/><stop offset=".6" stop-color="#d8bfa0"/><stop offset="1" stop-color="#a8896a"/></radialGradient>
+    <g id="rose"><circle r="34" fill="url(#r1)"/><path d="M-22 -4 q22 -30 44 0 q-22 30 -44 0z M-8 -20 q20 -4 24 14 q-20 6 -24 -14z M-16 12 q10 -18 30 -6 q-8 20 -30 6z M4 -10 q14 8 4 22 q-16 -6 -4 -22z" fill="none" stroke="#3a0810" stroke-width="1.4" opacity=".55"/><circle r="8" fill="#3a0810" opacity=".35"/></g>
+    <g id="bud"><circle r="18" fill="url(#r2)"/><path d="M-10 -4 q10 -14 20 0 q-10 14 -20 0z M-4 -10 q10 2 8 12" fill="none" stroke="#8a6b4a" stroke-width="1" opacity=".6"/></g>
+    <g id="leaf"><path d="M0 0 q24 -22 48 0 q-24 22 -48 0z" fill="#3f5a3a"/><path d="M4 0 h40" stroke="#243a22" stroke-width="1"/></g>
+  </defs>
+  <g stroke="#3f5a3a" stroke-width="2.5" fill="none"><path d="M150 290 q-30 -80 -100 -120 M150 290 q40 -90 120 -130 M150 290 q-10 -110 20 -200"/></g>
+  <use href="#leaf" x="60" y="200" transform="rotate(-40 84 200)"/><use href="#leaf" x="190" y="210" transform="rotate(30 214 210)"/><use href="#leaf" x="120" y="120" transform="rotate(-70 144 120)"/><use href="#leaf" x="220" y="140" transform="rotate(15 244 140)"/><use href="#leaf" x="30" y="110" transform="rotate(-10 54 110)"/>
+  <use href="#bud" x="210" y="120"/><use href="#bud" x="70" y="100"/><use href="#bud" x="180" y="60"/>
+  <use href="#rose" x="110" y="150"/><use href="#rose" x="170" y="95" transform="scale(.85) translate(30 17)"/><use href="#rose" x="70" y="150" transform="scale(.7) translate(30 64)"/>
+  <g fill="#f3e6d3" stroke="#d8bfa0"><circle cx="240" cy="90" r="4"/><circle cx="40" cy="170" r="4"/><circle cx="250" cy="180" r="3"/><circle cx="130" cy="60" r="3"/></g>
+  <g stroke="#3f5a3a" stroke-width="1.2" fill="none"><path d="M240 90 q-10 -20 -30 -30 M40 170 q-10 -20 0 -40 M250 180 q10 -14 10 -30"/></g>
+</svg>

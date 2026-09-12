@@ -184,5 +184,87 @@
     "illustration": "assets/images/lantern.webp",
     "showMonogram": true,
     "showDate": true
+  },
+  "invitation": {
+    "kicker": "Save the date",
+    "coverInvites": "Cordially invites",
+    "openLabel": "Open",
+    "families": {
+      "title": "Ceremony info",
+      "groom": {
+        "prefix": "Mr. & Mrs.",
+        "father": "Father of the groom",
+        "mother": "Mother of the groom",
+        "city": "Casablanca"
+      },
+      "bride": {
+        "prefix": "Mr. & Mrs.",
+        "father": "Father of the bride",
+        "mother": "Mother of the bride",
+        "city": "Marrakech"
+      }
+    },
+    "announce": "With joyful hearts we announce\nthe wedding of our children",
+    "groomFullName": "Hamid",
+    "brideFullName": "Marwa",
+    "groomLabel": "The groom",
+    "brideLabel": "The bride",
+    "ceremony": {
+      "label": "Wedding ceremony at",
+      "venue": "Family home",
+      "time": "17:30"
+    },
+    "gallery": {
+      "title": "Photo gallery"
+    },
+    "reception": {
+      "title": "Reception info",
+      "intro": "The reception will take place at:",
+      "venue": "Riad, Marrakech",
+      "address": "Marrakech, Morocco",
+      "time": "19:00",
+      "welcomeLabel": "Welcome",
+      "welcomeTime": "18:30",
+      "receptionLabel": "Reception",
+      "addToCalendar": "Add to calendar",
+      "confirm": "Confirm attendance",
+      "venueTitle": "Wedding reception venue"
+    },
+    "dressCode": {
+      "title": "Dress code",
+      "text": "Traditional or formal attire",
+      "colors": [
+        "#6b0f1a",
+        "#1f1f1f",
+        "#c9a24a",
+        "#f3e6d3"
+      ]
+    },
+    "scheduleTitle": "Wedding day schedule",
+    "scheduleIcons": [
+      "🥂",
+      "💃",
+      "💍",
+      "🍰",
+      "🎆",
+      "🌙"
+    ],
+    "guestbook": {
+      "title": "Guestbook",
+      "namePlaceholder": "Enter your name",
+      "wishPlaceholder": "Enter your wishes",
+      "send": "Send wishes",
+      "thanks": "Thank you for your wishes!",
+      "empty": "Be the first to leave a wish."
+    },
+    "gift": {
+      "title": "Gift box",
+      "tap": "Tap to open",
+      "text": "Your presence would be the greatest gift we could receive!"
+    },
+    "music": {
+      "src": "assets/themes/v9/media/music.mp3",
+      "autoplay": true
+    }
   }
 }

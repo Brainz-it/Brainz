@@ -1,10 +1,34 @@
 {
   "photos": [
-    { "src": "content/photos/gallery-1.svg", "alt": "Photo 1", "caption": "" },
-    { "src": "content/photos/gallery-2.svg", "alt": "Photo 2", "caption": "" },
-    { "src": "content/photos/gallery-3.svg", "alt": "Photo 3", "caption": "" },
-    { "src": "content/photos/gallery-4.svg", "alt": "Photo 4", "caption": "" },
-    { "src": "content/photos/gallery-5.svg", "alt": "Photo 5", "caption": "" },
-    { "src": "content/photos/gallery-6.svg", "alt": "Photo 6", "caption": "" }
+    {
+      "src": "content/photos/couple.jpg",
+      "alt": "Couple",
+      "caption": ""
+    },
+    {
+      "src": "assets/themes/v1/photos/riad.jpg",
+      "alt": "Riad",
+      "caption": ""
+    },
+    {
+      "src": "assets/themes/v2/photos/majorelle.jpg",
+      "alt": "Jardin Majorelle",
+      "caption": ""
+    },
+    {
+      "src": "assets/themes/v6/photos/dunes.jpg",
+      "alt": "Dunes",
+      "caption": ""
+    },
+    {
+      "src": "assets/themes/v5/photos/olives.jpg",
+      "alt": "Oliveraie",
+      "caption": ""
+    },
+    {
+      "src": "assets/themes/v7/photos/koutoubia.jpg",
+      "alt": "Koutoubia",
+      "caption": ""
+    }
   ]
 }
