@@ -1,6 +1,6 @@
 # Site de mariage paramétrable
 
-Reproduction fidèle du site raniaetzidanewedding.com (intro rideau vidéo, prénoms animés, défilement page par page, compte à rebours, modales RSVP / itinéraire / liste de mariage / coordonnées bancaires), dont **tout le contenu** est piloté par `content/site.json`. Ce dépôt ne contient que le site. La page `/admin/` sert de « petit backend côté Git » : elle lit et écrit `site.json` et les photos directement dans le dépôt GitHub, chaque enregistrement est un commit, et GitHub Pages redéploie automatiquement.
+Reproduction fidèle du site raniaetzidanewedding.com (intro rideau vidéo, prénoms animés, défilement page par page, compte à rebours, modales RSVP / itinéraire / liste de mariage / coordonnées bancaires), dont **tout le contenu** est piloté par `content/site.json`. Ce dépôt ne contient que le site : on modifie `content/site.json` et les photos directement dans Git, et GitHub Pages redéploie automatiquement à chaque push.
 
 ```
 .
@@ -12,7 +12,6 @@ Reproduction fidèle du site raniaetzidanewedding.com (intro rideau vidéo, pré
 ├── assets/media/         # vidéo d'ouverture du rideau
 ├── content/site.json     # ⚙️ tous les textes, dates, couleurs, liens, comptes bancaires
 ├── content/photos/       # 📷 photo du couple, visuels des boutiques
-├── admin/                # backend Git : édition du contenu et des photos
 └── .github/workflows/    # déploiement GitHub Pages
 ```
 
@@ -32,19 +31,7 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 
 ## Modifier le contenu
 
-### Option A — Page d'administration (recommandé)
-
-1. Ouvrez `https://<votre-site>/admin/`.
-2. Renseignez le propriétaire et le nom du dépôt, la branche du site, laissez le dossier vide (racine), et un **token GitHub fine-grained** limité à ce dépôt avec la permission *Contents : Read and write* (GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens).
-3. Onglet **Contenu** : formulaire généré depuis `site.json` (textes, date, couleurs, programme, lieux, RSVP…). Les listes (programme, lieux, infos) peuvent être réordonnées, ajoutées, supprimées.
-4. Onglet **Photos** : envoi de photos (redimensionnées en JPEG 1600 px max côté navigateur), ajout à la galerie, réordonnancement, légendes, suppression du dépôt.
-5. **Enregistrer (commit)** : écrit `site.json` et `gallery.json` dans le dépôt. Le site est mis à jour en une à deux minutes.
-
-Le token ne quitte jamais le navigateur (il est envoyé uniquement à `api.github.com`) ; il peut être mémorisé sur l'appareil ou seulement pour la session.
-
-### Option B — Directement dans Git
-
-Éditez `content/site.json` / `content/gallery.json`, déposez vos images dans `content/photos/`, commitez, poussez. C'est tout.
+Éditez `content/site.json` (textes, dates, couleurs, liens), déposez vos images dans `content/photos/` (par exemple la photo du couple, référencée par `hero.photo`), commitez, poussez. Le site est mis à jour en une à deux minutes. L'édition peut se faire directement sur GitHub (icône crayon sur le fichier).
 
 ## Paramètres principaux (`content/site.json`)
 
@@ -66,5 +53,5 @@ Le token ne quitte jamais le navigateur (il est envoyé uniquement à `api.githu
 
 ```bash
 python3 -m http.server 8080
-# puis http://localhost:8080  et  http://localhost:8080/admin/
+# puis http://localhost:8080
 ```
