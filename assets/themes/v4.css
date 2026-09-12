@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&family=Oswald:wght@300;500;700&family=Abril+Fatface&display=swap');
+:root{
+  --red:#c1272d; --charcoal:#2a2a2a; --grey:#8b8378; --taupe:#c9b99a;
+  --cream:#f2e8d5; --paper:#f7efdf; --cream-low:#ead9bd;
+  --serif:"Abril Fatface",Georgia,serif; --apparel:var(--serif); --button-serif:"Oswald",sans-serif;
+  --script:"Yellowtail",cursive; --sans:"Oswald",sans-serif;
+}
+body{background:#f2e8d5}
+body::before{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.18;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:sepia(.6) contrast(1.1) opacity(.75)}
+.names{font-family:"Yellowtail",cursive;font-style:normal;color:#c1272d;font-size:clamp(3.4rem,11vw,8rem);line-height:.9;text-shadow:3px 3px 0 #f7efdf,5px 5px 0 #2a2a2a}
+.names .and{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.4em;font-size:.28em;color:#2a2a2a;margin:.6em auto .4em}
+.eyebrow{font-weight:700;letter-spacing:.35em;color:#2a2a2a;font-size:clamp(.7rem,2vw,1.1rem)}
+.section-title{font-family:"Abril Fatface",serif;font-style:normal;font-weight:400;text-transform:uppercase;letter-spacing:.04em;color:#c1272d;text-shadow:2px 2px 0 #f7efdf,4px 4px 0 #2a2a2a}
+.hero-meta{font-family:"Oswald",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.2em;font-weight:500;font-size:clamp(1rem,2.6vw,1.5rem)}
+.portrait img{border-radius:0;filter:sepia(.85) contrast(1.15) saturate(.7);border:6px solid #2a2a2a;box-shadow:0 0 0 3px #f2e8d5,0 0 0 5px #c1272d}
+.btn,.btn-send{background:#c1272d;color:#f2e8d5;border-radius:4px;font-style:normal;font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(.8rem,2vw,1rem);border:2px dashed #f2e8d5;outline:2px solid #c1272d;box-shadow:4px 4px 0 #2a2a2a}
+.btn:hover,.btn-send:hover{background:#2a2a2a;outline-color:#2a2a2a}
+.countdown{border:3px double #2a2a2a;border-radius:4px;background:#f7efdf}
+.cd-num{font-family:"Oswald",sans-serif;font-weight:700;color:#2a2a2a}.cd-label{font-family:"Oswald",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.15em;font-size:.65rem}
+.cd-unit + .cd-unit .cd-num::before{color:#c1272d}
+.rule{background:repeating-linear-gradient(90deg,#2a2a2a 0 8px,transparent 8px 14px);height:3px}
+.event-time{font-family:"Oswald",sans-serif;font-style:normal;font-weight:700;letter-spacing:.1em}
+.event-name{font-family:"Abril Fatface",serif;font-style:normal}
+.body-copy,.section-intro{color:#2a2a2a;font-weight:300;letter-spacing:.1em}
+.monogram{font-family:"Yellowtail",cursive;color:#c1272d;font-size:clamp(2.6rem,7vw,4rem)}
+.footer-date{font-weight:700;color:#2a2a2a;letter-spacing:.5em}
+.modal{background:#f7efdf;border:6px solid #2a2a2a;border-radius:4px;box-shadow:10px 10px 0 #c1272d}
+.modal-title{font-family:"Abril Fatface",serif;font-style:normal;text-transform:uppercase;color:#c1272d}
+.overlay{background:rgba(42,42,42,.55)}

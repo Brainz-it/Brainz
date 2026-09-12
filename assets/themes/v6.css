@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Great+Vibes&family=Raleway:wght@300;400&display=swap');
+:root{
+  --red:#e8b86d; --charcoal:#f4e3c6; --grey:#c9a97e; --taupe:#8a6b4a;
+  --cream:#1b1f4b; --paper:#24285c; --cream-low:#15183a;
+  --serif:"Marcellus",Georgia,serif; --apparel:var(--serif); --button-serif:var(--serif);
+  --script:"Great Vibes",cursive; --sans:"Raleway",sans-serif;
+}
+body{background:linear-gradient(180deg,#0e1133 0%,#1b1f4b 35%,#4a2f56 70%,#c37a3a 100%) fixed}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 60%,transparent),radial-gradient(1px 1px at 30% 40%,#fff 60%,transparent),radial-gradient(1.6px 1.6px at 48% 12%,#fff 60%,transparent),radial-gradient(1px 1px at 66% 30%,#fff 60%,transparent),radial-gradient(1.4px 1.4px at 82% 8%,#fff 60%,transparent),radial-gradient(1px 1px at 90% 44%,#fff 60%,transparent),radial-gradient(1.2px 1.2px at 20% 60%,#fff 60%,transparent),radial-gradient(1px 1px at 55% 55%,#fff 60%,transparent),radial-gradient(1.4px 1.4px at 74% 64%,#fff 60%,transparent),radial-gradient(1px 1px at 8% 80%,#fff 60%,transparent),radial-gradient(1px 1px at 40% 78%,#fff 60%,transparent);
+  animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.55}to{opacity:1}}
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:22vh;z-index:-1;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'><path d='M0 200 L0 150 Q150 110 300 150 T600 140 T900 150 T1200 130 L1200 200 Z' fill='%23140f1e'/><path d='M420 150 L470 105 L520 150 Z M640 145 L690 100 L740 145 Z M980 148 L1030 95 L1080 148 Z' fill='%230d0a15'/></svg>") bottom/100% 100% no-repeat}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:invert(1) sepia(.6) saturate(1.5) brightness(1.1);opacity:.85}
+.names{color:#f4e3c6;font-style:normal;text-shadow:0 0 40px rgba(232,184,109,.35)}
+.names .and{color:#e8b86d}
+.eyebrow{color:#e8b86d;letter-spacing:.32em;font-weight:300}
+.section-title{font-style:normal;color:#e8b86d;letter-spacing:.05em}
+.hero-meta,.event-name{font-style:normal;color:#f4e3c6}
+.event-time{font-style:normal;color:#e8b86d}
+.portrait img{border-radius:999px 999px 999px 999px/60% 60% 40% 40%;box-shadow:0 0 0 2px rgba(232,184,109,.6),0 0 60px rgba(232,184,109,.25)}
+.btn,.btn-send{background:transparent;color:#e8b86d;border:1.5px solid #e8b86d;font-style:normal;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(.8rem,2vw,1rem);box-shadow:0 0 24px rgba(232,184,109,.15)}
+.btn:hover,.btn-send:hover{background:#e8b86d;color:#1b1f4b}
+.countdown{border:1.5px solid rgba(232,184,109,.7);border-radius:999px;background:rgba(255,255,255,.04);padding-inline:clamp(1.4rem,4vw,2rem)}
+.cd-num{color:#f4e3c6;font-style:normal}.cd-label{font-style:normal;color:#e8b86d;text-transform:uppercase;letter-spacing:.14em;font-size:.6rem}
+.cd-unit + .cd-unit .cd-num::before{color:#e8b86d}
+.rule{background:linear-gradient(90deg,transparent,#e8b86d,transparent);height:1px}
+.body-copy,.section-intro{color:#f4e3c6;font-weight:300}
+.monogram{color:#e8b86d}.footer-date{color:#f4e3c6}
+.modal{background:#1b1f4b;color:#f4e3c6;border:1px solid rgba(232,184,109,.6);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.modal input,.modal textarea{background:#15183a;color:#f4e3c6;border-color:#8a6b4a}
+.modal label,.modal .field-label,.modal-title,.bank-holder,.bank-kind,.bank-number,.modal-aside,.gift .addr,.map-app{color:#f4e3c6}
+.overlay{background:rgba(10,8,30,.7)}
+.scroll-cue svg{stroke:#e8b86d}

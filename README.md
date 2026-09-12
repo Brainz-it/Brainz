@@ -49,6 +49,10 @@ Tout hébergeur statique (Netlify, Vercel, OVH…) fonctionne aussi : servez sim
 | `schedule.items[]` | Heure et titre de chaque étape |
 | `weddingList.buttons[]`, `shops[]`, `banks` | Boutons Morocco / Abroad, boutiques (nom, lien, image), RIB et IBAN |
 
+## Variantes de design
+
+Neuf versions du même site, sélectionnées par `?v=N` dans l'URL (V0 = original, V1 à V8 = thèmes dans `assets/themes/vN.css`). La page `versions.html` les liste toutes. Pour fixer une variante par défaut, mettez `theme.variant` à N dans `site.json`. Une variante remplace couleurs et polices de `site.json` par celles de son fichier de thème.
+
 ## Enregistrer les réponses RSVP dans Google Sheets
 
 1. Créez une feuille Google Sheets vide, puis Extensions → Apps Script.

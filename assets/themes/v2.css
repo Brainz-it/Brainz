@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&display=swap');
+:root{
+  --red:#f5d547; --charcoal:#ffffff; --grey:#cfe3ff; --taupe:#7fb6ff;
+  --cream:#2456d6; --paper:#2c62ea; --cream-low:#1f48b8;
+  --serif:"Josefin Sans",sans-serif; --apparel:var(--serif); --button-serif:var(--serif);
+  --script:"Playfair Display",serif; --sans:"Josefin Sans",sans-serif;
+}
+body{background:#2456d6}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160' fill='%23163d9e'><path d='M80 10c25 30 25 70 0 100C55 80 55 40 80 10z'/><path d='M20 90c30-5 55 15 60 45-30 5-55-15-60-45z'/><path d='M140 90c-30-5-55 15-60 45 30 5 55-15 60-45z'/></svg>");
+  background-size:160px 160px}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:invert(1) brightness(1.3);opacity:.8}
+.section-title,.hero-meta,.event-name,.event-time,.cd-num,.cd-label,.monogram{font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.section-title{color:#f5d547;font-size:clamp(2rem,6vw,3.6rem)}
+.names{font-family:"Josefin Sans",sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;font-size:clamp(2.8rem,9vw,6.5rem)}
+.names .and{font-family:"Playfair Display",serif;font-style:italic;text-transform:none;color:#f5d547;font-size:.45em}
+.eyebrow{color:#f5d547;font-weight:600;letter-spacing:.3em}
+.hero-meta{color:#fff;font-weight:300;font-size:clamp(1rem,2.6vw,1.6rem);letter-spacing:.12em}
+.portrait img{border-radius:0;border:10px solid #f5d547;box-shadow:14px 14px 0 #2f7d4f}
+.btn,.btn-send{background:#f5d547;color:#1a3a9e;border-radius:0;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(.8rem,2vw,1rem);box-shadow:6px 6px 0 #2f7d4f}
+.btn:hover,.btn-send:hover{background:#fff;transform:translate(-2px,-2px);box-shadow:8px 8px 0 #2f7d4f}
+.countdown{border:3px solid #f5d547;border-radius:0;background:#1a3a9e;box-shadow:8px 8px 0 #2f7d4f}
+.cd-num{color:#f5d547}.cd-label{color:#fff;font-size:.7rem}
+.cd-unit + .cd-unit .cd-num::before{color:#fff}
+.rule{background:#f5d547;height:4px;width:80px}
+.body-copy,.section-intro{color:#fff;letter-spacing:.08em}
+.footer-date{color:#f5d547}
+.modal{background:#fff;color:#1a3a9e;border-radius:0;border:4px solid #f5d547;box-shadow:12px 12px 0 #2f7d4f}
+.modal-title{color:#2456d6;text-transform:uppercase;font-style:normal;font-weight:700}
+.overlay{background:rgba(20,40,110,.6)}
+.scroll-cue svg{stroke:#f5d547}

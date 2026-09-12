@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Nunito:wght@300;400;600&family=Homemade+Apple&display=swap');
+:root{
+  --red:#b5563a; --charcoal:#4a3b32; --grey:#8c7a6b; --taupe:#c8ad8a;
+  --cream:#f3e6d8; --paper:#f8efe4; --cream-low:#ecdac6;
+  --serif:"Lora",Georgia,serif; --apparel:var(--serif); --button-serif:var(--serif);
+  --script:"Homemade Apple",cursive; --sans:"Nunito",sans-serif;
+}
+body{background:#f3e6d8;background-image:repeating-linear-gradient(0deg,rgba(74,59,50,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(74,59,50,.035) 0 1px,transparent 1px 3px)}
+.page-wash{display:none}
+.page > section:nth-of-type(odd)::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(107,122,75,.07)}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:sepia(.7) saturate(1.4) hue-rotate(-10deg) opacity(.85)}
+.names{color:#4a3b32;font-weight:600}
+.names .and{font-family:"Homemade Apple",cursive;font-size:.42em;color:#6b7a4b;margin:.5em auto .3em}
+.eyebrow{color:#6b7a4b;font-weight:600;letter-spacing:.28em}
+.section-title{color:#b5563a;font-weight:600}
+.section-title::after{content:"❦";display:block;font-style:normal;font-size:.5em;color:#6b7a4b;margin-top:.4rem}
+.portrait img{border-radius:24px 24px 120px 120px/24px 24px 60px 60px;box-shadow:0 0 0 6px #f3e6d8,0 0 0 8px #c8ad8a,0 30px 50px rgba(74,59,50,.25)}
+.btn,.btn-send{background:#b5563a;color:#f8efe4;font-style:normal;font-weight:600;letter-spacing:.08em;box-shadow:0 10px 24px rgba(181,86,58,.3)}
+.btn:hover,.btn-send:hover{background:#6b7a4b}
+.countdown{border:2px solid #c8ad8a;border-radius:24px;background:rgba(255,255,255,.35)}
+.cd-num{color:#b5563a}.cd-label{color:#6b7a4b;font-family:"Nunito",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.12em;font-size:.65rem}
+.rule{background:repeating-linear-gradient(90deg,#c8ad8a 0 6px,transparent 6px 10px);height:2px;max-width:40%}
+.event-time{color:#6b7a4b}
+.body-copy,.section-intro{color:#4a3b32;letter-spacing:.06em;font-size:clamp(.9rem,2.2vw,1.05rem)}
+.monogram{font-family:"Homemade Apple",cursive;color:#b5563a}
+.footer-date{color:#6b7a4b}
+.modal{background:#f8efe4;border-radius:24px;border:2px solid #c8ad8a;box-shadow:0 30px 60px rgba(74,59,50,.3)}
+.modal-title{color:#b5563a}
+.overlay{background:rgba(74,59,50,.45)}

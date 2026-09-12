@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&display=swap');
+:root{
+  --red:#b08d57; --charcoal:#2b2b2b; --grey:#8a8a8a; --taupe:#d9cbb0;
+  --cream:#faf7f1; --paper:#fffdf9; --cream-low:#f5f0e6;
+  --serif:"Cormorant Garamond",Georgia,serif; --apparel:var(--serif); --button-serif:var(--serif);
+  --script:"Pinyon Script",cursive; --sans:"Cormorant Garamond",serif;
+}
+body{background:#faf7f1}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:grayscale(1) opacity(.55)}
+.page > header.hero,.page > section{box-shadow:inset 0 0 0 1px #d9cbb0,inset 0 0 0 5px #faf7f1,inset 0 0 0 6px #e6d9bf;margin:0 12px;position:relative}
+.names{font-weight:300;letter-spacing:.06em;color:#2b2b2b}
+.names .and{font-family:"Pinyon Script",cursive;font-size:.7em;color:#b08d57}
+.eyebrow{font-family:"Cormorant Garamond",serif;font-style:italic;text-transform:none;letter-spacing:.12em;font-size:clamp(1rem,2.4vw,1.5rem);color:#8a8a8a}
+.section-title{font-weight:300;font-style:normal;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(1.4rem,4vw,2.2rem);color:#2b2b2b}
+.section-title::after{content:"";display:block;width:40px;height:1px;background:#b08d57;margin:.9rem auto 0}
+.hero-meta,.event-name,.event-time,.cd-label{font-weight:300}
+.event-time{color:#b08d57}
+.portrait img{border-radius:0;box-shadow:0 0 0 1px #d9cbb0,0 0 0 8px #fff,0 0 0 9px #d9cbb0}
+.btn,.btn-send{background:transparent;color:#2b2b2b;border:1px solid #2b2b2b;border-radius:0;font-style:normal;text-transform:uppercase;letter-spacing:.28em;font-size:clamp(.7rem,1.8vw,.85rem);padding:.9em 2.6em}
+.btn:hover,.btn-send:hover{background:#2b2b2b;color:#faf7f1}
+.countdown{border:1px solid #d9cbb0;border-radius:0}
+.cd-num{color:#2b2b2b;font-weight:300}.cd-unit + .cd-unit .cd-num::before{color:#b08d57}
+.rule{background:#d9cbb0;height:1px}
+.body-copy,.section-intro{color:#2b2b2b;letter-spacing:.06em;font-family:"Cormorant Garamond",serif;font-size:clamp(1rem,2.4vw,1.25rem);line-height:1.7}
+.monogram{font-family:"Pinyon Script",cursive;font-size:clamp(3rem,8vw,4.5rem);color:#b08d57}
+.footer-date{color:#8a8a8a;letter-spacing:.4em}
+.modal{background:#fff;border:1px solid #d9cbb0;border-radius:0;box-shadow:0 30px 60px rgba(0,0,0,.12)}
+.modal-title{font-weight:300;font-style:normal;letter-spacing:.14em;text-transform:uppercase}
+.overlay{background:rgba(43,43,43,.35)}

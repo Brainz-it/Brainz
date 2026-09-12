@@ -489,11 +489,26 @@
   }
 
   /* ── Démarrage ─────────────────────────────────────────── */
+  /* Variante de design : ?v=N dans l'URL (ou theme.variant dans site.json) charge assets/themes/vN.css */
+  function applyVariant(c) {
+    var q = new URLSearchParams(window.location.search).get("v");
+    var n = q != null && q !== "" ? parseInt(q, 10) : parseInt((c.theme || {}).variant, 10);
+    if (!n || isNaN(n) || n < 1) return 0;
+    document.documentElement.classList.add("theme-v" + n);
+    var link = document.createElement("link");
+    link.rel = "stylesheet"; link.href = "assets/themes/v" + n + ".css";
+    document.head.appendChild(link);
+    // les liens internes conservent la variante
+    $$("a[href^='#']").forEach(function (a) { a.href = a.getAttribute("href"); });
+    return n;
+  }
+
   function boot() {
     fetch("content/site.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("site.json " + r.status); return r.json(); })
       .then(function (c) {
-        applyTheme(c.theme);
+        // avec une variante, les couleurs/polices viennent du fichier de thème, pas de site.json
+        if (!applyVariant(c)) applyTheme(c.theme);
         setMeta(c);
         fillText(c);
         renderContent(c);
