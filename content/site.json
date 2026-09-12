@@ -1,140 +1,119 @@
 {
   "site": {
-    "title": "Rania & Zidane — Mariage",
-    "language": "fr",
-    "description": "Nous avons la joie de vous inviter à célébrer notre mariage.",
-    "hashtag": "#RaniaEtZidane",
+    "title": "Rania & Zidane — Wedding",
+    "language": "en",
+    "description": "You are invited to the wedding of Rania and Zidane — Saturday 26 September 2026, Marrakech.",
     "favicon": "content/photos/favicon.svg"
   },
   "theme": {
-    "colorPrimary": "#7a5c3e",
-    "colorAccent": "#c9a66b",
-    "colorBackground": "#fbf8f3",
-    "colorText": "#2e2a26",
-    "fontHeading": "Cormorant Garamond",
-    "fontBody": "Montserrat"
+    "colorBackground": "#f4efe7",
+    "colorAccent": "#a13a3f",
+    "colorText": "#4a4642",
+    "colorMuted": "#7d7268",
+    "fontHeading": "Playfair Display",
+    "fontBody": "Montserrat",
+    "paperTexture": true,
+    "watercolorBlotches": true
   },
   "couple": {
     "bride": "Rania",
     "groom": "Zidane",
-    "separator": "&",
-    "tagline": "Nous nous marions !"
+    "conjunction": "and",
+    "monogram": "R&Z"
+  },
+  "hero": {
+    "kicker": "You are invited to the wedding of",
+    "photo": "content/photos/couple.svg",
+    "leftDecoration": "content/illustrations/candles-left.svg",
+    "rightDecoration": "content/illustrations/candles-right.svg",
+    "divider": "content/illustrations/string-lights.svg"
   },
   "event": {
-    "date": "2026-10-17T18:00:00+01:00",
-    "dateLabel": "Samedi 17 octobre 2026",
-    "city": "Casablanca, Maroc",
-    "heroImage": "content/photos/hero.svg",
-    "heroOverlayOpacity": 0.35
+    "date": "2026-09-26T17:30:00+01:00",
+    "dateLabel": "Saturday 26 September 2026",
+    "city": "Marrakech",
+    "shortDate": "26 . 09 . 2026"
   },
-  "navigation": [
-    { "label": "Accueil", "anchor": "accueil" },
-    { "label": "Notre histoire", "anchor": "histoire" },
-    { "label": "Programme", "anchor": "programme" },
-    { "label": "Lieux", "anchor": "lieux" },
-    { "label": "Galerie", "anchor": "galerie" },
-    { "label": "Infos pratiques", "anchor": "infos" },
-    { "label": "RSVP", "anchor": "rsvp" }
-  ],
   "countdown": {
     "enabled": true,
-    "title": "Plus que",
-    "labels": { "days": "jours", "hours": "heures", "minutes": "minutes", "seconds": "secondes" },
-    "finishedText": "C'est le grand jour !"
-  },
-  "invitation": {
-    "enabled": true,
-    "title": "Vous êtes invités",
-    "text": "Avec la bénédiction de nos familles, nous avons l'immense joie de vous convier à la célébration de notre union. Votre présence à nos côtés rendra ce jour encore plus précieux.",
-    "signature": "Rania & Zidane"
-  },
-  "story": {
-    "enabled": true,
-    "title": "Notre histoire",
-    "image": "content/photos/story.svg",
-    "paragraphs": [
-      "Tout a commencé par un regard échangé lors d'un dîner entre amis. Quelques semaines plus tard, un premier café, puis un second… et le reste appartient à notre histoire.",
-      "Après plusieurs années à construire nos rêves ensemble, Zidane a posé la grande question au coucher du soleil. Rania a dit oui, sans hésiter."
-    ]
-  },
-  "program": {
-    "enabled": true,
-    "title": "Programme",
-    "subtitle": "Le déroulé de la journée",
-    "items": [
-      { "time": "18h00", "title": "Accueil des invités", "description": "Cocktail de bienvenue et thé à la menthe.", "icon": "🥂" },
-      { "time": "19h30", "title": "Entrée des mariés", "description": "L'amariya et la neggafa vous attendent.", "icon": "✨" },
-      { "time": "20h30", "title": "Dîner", "description": "Un menu traditionnel préparé avec amour.", "icon": "🍽️" },
-      { "time": "22h30", "title": "Soirée dansante", "description": "Jusqu'au bout de la nuit !", "icon": "🎶" }
-    ]
-  },
-  "venues": {
-    "enabled": true,
-    "title": "Lieux",
-    "items": [
-      {
-        "name": "Cérémonie",
-        "place": "Salle des fêtes Al Amal",
-        "address": "Boulevard de la Corniche, Casablanca",
-        "time": "18h00",
-        "mapsUrl": "https://maps.google.com/?q=Boulevard+de+la+Corniche+Casablanca",
-        "image": "content/photos/venue-1.svg"
-      },
-      {
-        "name": "Réception",
-        "place": "Riad Les Jardins",
-        "address": "Route d'Azemmour, Casablanca",
-        "time": "20h30",
-        "mapsUrl": "https://maps.google.com/?q=Route+d'Azemmour+Casablanca",
-        "image": "content/photos/venue-2.svg"
-      }
-    ]
-  },
-  "gallery": {
-    "enabled": true,
-    "title": "Galerie",
-    "subtitle": "Quelques souvenirs"
-  },
-  "dressCode": {
-    "enabled": true,
-    "title": "Dress code",
-    "text": "Tenue de soirée élégante. Caftans et costumes sont les bienvenus.",
-    "colors": ["#c9a66b", "#7a5c3e", "#f1e4d0", "#3b2f2f"]
-  },
-  "practicalInfo": {
-    "enabled": true,
-    "title": "Infos pratiques",
-    "items": [
-      { "title": "Hébergement", "text": "Des chambres sont réservées à l'hôtel Kenzi Tower à tarif préférentiel. Mentionnez « Mariage Rania & Zidane » à la réservation.", "icon": "🏨" },
-      { "title": "Transport", "text": "Un parking gratuit est disponible sur place. Des navettes partiront de l'hôtel à 17h30.", "icon": "🚗" },
-      { "title": "Cadeaux", "text": "Votre présence est le plus beau des cadeaux. Une urne sera à votre disposition pour ceux qui le souhaitent.", "icon": "🎁" },
-      { "title": "Contact", "text": "Une question ? Écrivez-nous : contact@example.com ou +212 6 00 00 00 00.", "icon": "💌" }
-    ]
+    "labels": { "days": "days", "hours": "hours", "minutes": "minutes", "seconds": "seconds" },
+    "finishedText": "Today is the day!"
   },
   "rsvp": {
     "enabled": true,
-    "title": "Confirmez votre présence",
-    "subtitle": "Merci de répondre avant le 1er octobre 2026",
-    "mode": "mailto",
-    "formspreeEndpoint": "https://formspree.io/f/xxxxxxx",
-    "whatsappNumber": "212600000000",
-    "email": "contact@example.com",
-    "maxGuests": 5,
-    "labels": {
-      "name": "Nom et prénom",
-      "email": "Email",
-      "attending": "Serez-vous présent(e) ?",
-      "yes": "Oui, avec plaisir",
-      "no": "Non, malheureusement",
-      "guests": "Nombre de personnes",
-      "message": "Un message pour les mariés",
-      "submit": "Envoyer",
-      "success": "Merci ! Votre réponse a bien été envoyée.",
-      "error": "Oups, une erreur est survenue. Réessayez ou contactez-nous directement."
+    "buttonLabel": "RSVP",
+    "mode": "form",
+    "url": "https://forms.gle/your-form",
+    "form": {
+      "title": "RSVP",
+      "subtitle": "Please reply before 1 September 2026",
+      "sendVia": "mailto",
+      "email": "contact@example.com",
+      "whatsappNumber": "212600000000",
+      "formspreeEndpoint": "https://formspree.io/f/xxxxxxx",
+      "maxGuests": 5,
+      "labels": {
+        "name": "Full name",
+        "email": "Email",
+        "attending": "Will you attend?",
+        "yes": "Yes, with pleasure",
+        "no": "Sadly, no",
+        "guests": "Number of guests",
+        "message": "A message for the couple",
+        "submit": "Send",
+        "success": "Thank you! Your reply has been sent.",
+        "error": "Oops, something went wrong. Please try again or contact us directly."
+      }
     }
   },
+  "venue": {
+    "enabled": true,
+    "title": "About the Venue",
+    "illustration": "content/illustrations/venue.svg",
+    "name": "",
+    "text": "Location and practical details to make the journey to the celebration effortless",
+    "buttonLabel": "Directions",
+    "mapsUrl": "https://maps.google.com/?q=Marrakech"
+  },
+  "attire": {
+    "enabled": true,
+    "title": "Attire details",
+    "text": "Traditional or formal attire",
+    "items": [
+      { "label": "For women", "illustration": "content/illustrations/attire-women.svg" },
+      { "label": "For Men", "illustration": "content/illustrations/attire-men.svg" }
+    ],
+    "divider": "content/illustrations/divider.svg"
+  },
+  "schedule": {
+    "enabled": true,
+    "title": "Schedule",
+    "leftDecoration": "content/illustrations/drape-left.svg",
+    "rightDecoration": "content/illustrations/drape-right.svg",
+    "items": [
+      { "time": "17:30", "title": "Guest Arrival" },
+      { "time": "18:30", "title": "The bride and groom's entrance" }
+    ],
+    "closingText": "Until no time..."
+  },
+  "gallery": {
+    "enabled": false,
+    "title": "Gallery",
+    "subtitle": "A few memories"
+  },
+  "weddingList": {
+    "enabled": true,
+    "title": "Wedding list",
+    "text": "Your presence on this special day is the greatest gift. For those who wish to celebrate with a gift, a few ideas are shared below.",
+    "links": [
+      { "label": "Morocco", "url": "https://example.com/wedding-list-morocco" },
+      { "label": "Abroad", "url": "https://example.com/wedding-list-abroad" }
+    ]
+  },
   "footer": {
-    "text": "Fait avec amour — à très bientôt !",
-    "showHashtag": true
+    "illustration": "content/illustrations/footer-lantern.svg",
+    "showMonogram": true,
+    "showDate": true,
+    "text": ""
   }
 }

@@ -9,16 +9,17 @@ Ce dépôt ne contient que le site : un site statique (HTML/CSS/JS, sans build) 
 ├── assets/site.js        # rendu des sections à partir du JSON
 ├── content/site.json     # ⚙️ tous les textes, dates, couleurs, sections
 ├── content/gallery.json  # 🖼️ ordre et légendes des photos de la galerie
-├── content/photos/       # 📷 les photos (hero, histoire, lieux, galerie)
+├── content/photos/       # 📷 les photos (couple, galerie)
+├── content/illustrations/# ✏️ illustrations au trait (lanternes, riad, tenues…)
 ├── admin/                # backend Git : édition du contenu et des photos
 └── .github/workflows/    # déploiement GitHub Pages
 ```
 
 ## Sections du site
 
-Accueil (photo plein écran, prénoms, date) · Compte à rebours · Invitation · Notre histoire · Programme (frise) · Lieux (cartes + itinéraire) · Galerie (lightbox) · Dress code (palette) · Infos pratiques · RSVP · Pied de page.
+Dans l'ordre de la page : en-tête (« You are invited to the wedding of », prénoms, photo en arche, bougies, guirlande de lanternes) · Date et ville · Compte à rebours encadré · Bouton RSVP · About the Venue (illustration + bouton Directions) · Attire details (illustrations femme / homme) · Schedule · Galerie (désactivée par défaut) · Wedding list (boutons) · Formulaire RSVP (si `rsvp.mode` = `form`) · Pied de page (lanterne, monogramme, date courte).
 
-Chaque section a un champ `enabled` dans `site.json` : passez-le à `false` pour la masquer. Le menu se construit tout seul à partir des sections visibles.
+Chaque section a un champ `enabled` dans `site.json` : passez-le à `false` pour la masquer. Les illustrations au trait sont des SVG dans `content/illustrations/`, remplaçables par les vôtres.
 
 ## Mise en ligne (une seule fois)
 
@@ -48,16 +49,18 @@ Le token ne quitte jamais le navigateur (il est envoyé uniquement à `api.githu
 
 | Clé | Rôle |
 |---|---|
-| `couple.bride`, `couple.groom`, `couple.tagline` | Prénoms et accroche du hero |
-| `event.date` | Date ISO utilisée par le compte à rebours (ex. `2026-10-17T18:00:00+01:00`) |
-| `event.dateLabel`, `event.city`, `event.heroImage` | Date affichée, ville, photo de couverture |
-| `theme.color*`, `theme.font*` | Couleurs et polices Google Fonts |
-| `program.items[]` | Frise horaire : `time`, `title`, `description`, `icon` |
-| `venues.items[]` | Lieux : `name`, `place`, `address`, `time`, `mapsUrl`, `image` |
-| `dressCode.colors[]` | Pastilles de couleurs de la palette |
-| `practicalInfo.items[]` | Cartes d'infos pratiques |
-| `rsvp.mode` | `mailto` (ouvre le client mail), `whatsapp` (message pré-rempli vers `whatsappNumber`) ou `formspree` (POST vers `formspreeEndpoint`) |
-| `navigation[]` | Entrées du menu (`label`, `anchor`) |
+| `couple.bride`, `couple.groom`, `couple.conjunction`, `couple.monogram` | Prénoms, mot entre les prénoms, monogramme du pied de page |
+| `hero.kicker`, `hero.photo`, `hero.*Decoration`, `hero.divider` | Phrase d'intro, photo du couple (affichée en arche), illustrations |
+| `event.date` | Date ISO utilisée par le compte à rebours (ex. `2026-09-26T17:30:00+01:00`) |
+| `event.dateLabel`, `event.city`, `event.shortDate` | Date affichée, ville, date courte du pied de page |
+| `theme.color*`, `theme.font*`, `theme.paperTexture`, `theme.watercolorBlotches` | Couleurs, polices Google Fonts, grain papier et taches aquarelle du fond |
+| `rsvp.mode` | `form` : formulaire intégré en bas de page ; `link` : le bouton RSVP ouvre `rsvp.url` (Google Form, etc.) |
+| `rsvp.form.sendVia` | `mailto`, `whatsapp` (message pré-rempli) ou `formspree` (POST) |
+| `venue` | Titre, illustration, texte, bouton Directions vers `mapsUrl` |
+| `attire.items[]` | Illustration et libellé pour chaque tenue |
+| `schedule.items[]` | Heure et titre de chaque étape, `closingText` en fin de liste |
+| `weddingList.links[]` | Boutons (libellé + lien) de la liste de mariage |
+| `gallery.enabled` | Affiche une galerie (photos de `content/gallery.json`) |
 
 ## Tester en local
 

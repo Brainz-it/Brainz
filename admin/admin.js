@@ -8,25 +8,24 @@
 
   /* ---------- Libellés français des clés ---------- */
   const LABELS = {
-    site: "Site", title: "Titre", language: "Langue", description: "Description", hashtag: "Hashtag", favicon: "Favicon",
-    theme: "Thème (couleurs & polices)", colorPrimary: "Couleur principale", colorAccent: "Couleur d'accent", colorBackground: "Couleur de fond", colorText: "Couleur du texte", fontHeading: "Police des titres", fontBody: "Police du texte",
-    couple: "Les mariés", bride: "Mariée", groom: "Marié", separator: "Séparateur", tagline: "Accroche",
-    event: "Événement", date: "Date et heure (ISO, ex. 2026-10-17T18:00:00+01:00)", dateLabel: "Date affichée", city: "Ville", heroImage: "Photo de couverture", heroOverlayOpacity: "Assombrissement de la couverture (0 à 1)",
-    navigation: "Menu de navigation", label: "Libellé", anchor: "Ancre (id de section)",
+    site: "Site", title: "Titre", language: "Langue (fr, en…)", description: "Description (SEO)", favicon: "Favicon",
+    theme: "Thème (couleurs & polices)", colorAccent: "Couleur d'accent (rouge)", colorBackground: "Couleur de fond", colorText: "Couleur du texte", colorMuted: "Couleur secondaire (traits, petits textes)", fontHeading: "Police des titres (Google Fonts)", fontBody: "Police du texte (Google Fonts)", paperTexture: "Grain papier", watercolorBlotches: "Taches aquarelle en fond",
+    couple: "Les mariés", bride: "Mariée", groom: "Marié", conjunction: "Mot entre les prénoms (and, &, et)", monogram: "Monogramme (pied de page)",
+    hero: "En-tête", kicker: "Phrase d'introduction", photo: "Photo du couple", leftDecoration: "Illustration à gauche", rightDecoration: "Illustration à droite", divider: "Illustration séparatrice",
+    event: "Événement", date: "Date et heure ISO (ex. 2026-09-26T17:30:00+01:00)", dateLabel: "Date affichée", city: "Ville", shortDate: "Date courte (pied de page)",
     countdown: "Compte à rebours", enabled: "Activé", labels: "Libellés", days: "Jours", hours: "Heures", minutes: "Minutes", seconds: "Secondes", finishedText: "Texte une fois la date passée",
-    invitation: "Invitation", text: "Texte", signature: "Signature",
-    story: "Notre histoire", image: "Image", paragraphs: "Paragraphes (un par ligne)",
-    program: "Programme", subtitle: "Sous-titre", items: "Éléments", time: "Heure", icon: "Icône (emoji)",
-    venues: "Lieux", name: "Nom", place: "Lieu", address: "Adresse", mapsUrl: "Lien Google Maps",
-    gallery: "Galerie", dressCode: "Dress code", colors: "Palette (codes couleur, un par ligne)",
-    practicalInfo: "Infos pratiques", rsvp: "RSVP", mode: "Mode d'envoi", formspreeEndpoint: "URL Formspree", whatsappNumber: "Numéro WhatsApp (indicatif sans +)", email: "Email de réception", maxGuests: "Nombre max. de personnes",
-    attending: "Présence", yes: "Oui", no: "Non", guests: "Personnes", message: "Message", submit: "Bouton envoyer", success: "Message de succès", error: "Message d'erreur",
-    footer: "Pied de page", showHashtag: "Afficher le hashtag",
+    rsvp: "RSVP", buttonLabel: "Texte du bouton", mode: "Mode (form = formulaire intégré, link = lien externe)", url: "Lien externe (si mode = link)", form: "Formulaire intégré", subtitle: "Sous-titre", sendVia: "Envoi via", email: "Email de réception", whatsappNumber: "Numéro WhatsApp (indicatif sans +)", formspreeEndpoint: "URL Formspree", maxGuests: "Nombre max. de personnes",
+    name: "Nom", attending: "Présence", yes: "Oui", no: "Non", guests: "Personnes", message: "Message", submit: "Bouton envoyer", success: "Message de succès", error: "Message d'erreur",
+    venue: "Lieu", illustration: "Illustration", text: "Texte", mapsUrl: "Lien Google Maps",
+    attire: "Tenue (dress code)", items: "Éléments", label: "Libellé",
+    schedule: "Programme", time: "Heure", closingText: "Phrase de fin",
+    gallery: "Galerie", weddingList: "Liste de mariage", links: "Boutons / liens",
+    footer: "Pied de page", showMonogram: "Afficher le monogramme", showDate: "Afficher la date courte",
   };
   const label = (k) => LABELS[k] || k;
-  const IMAGE_KEYS = new Set(["heroImage", "image", "favicon"]);
+  const IMAGE_KEYS = new Set(["photo", "image", "favicon", "illustration", "leftDecoration", "rightDecoration", "divider"]);
   const COLOR_KEYS = /^color/;
-  const ENUMS = { mode: ["mailto", "whatsapp", "formspree"] };
+  const ENUMS = { mode: ["form", "link"], sendVia: ["mailto", "whatsapp", "formspree"] };
 
   /* ---------- État ---------- */
   const state = {
@@ -76,6 +75,7 @@
     site: () => inRepo("content/site.json"),
     gallery: () => inRepo("content/gallery.json"),
     photos: () => inRepo("content/photos"),
+    illustrations: () => inRepo("content/illustrations"),
   };
   const utf8ToB64 = (s) => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
   const b64ToUtf8 = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
@@ -112,14 +112,14 @@
     await refreshFiles();
   }
   async function refreshFiles() {
-    const list = await api.get(P.photos());
-    state.files = (Array.isArray(list) ? list : []).filter((f) => f.type === "file" && /\.(jpe?g|png|webp|gif|svg|avif)$/i.test(f.name));
+    const lists = await Promise.all([api.get(P.photos()), api.get(P.illustrations())]);
+    state.files = lists.flatMap((l) => (Array.isArray(l) ? l : [])).filter((f) => f.type === "file" && /\.(jpe?g|png|webp|gif|svg|avif)$/i.test(f.name));
   }
 
   /* ---------- Formulaire généré ---------- */
   const getPath = (obj, path) => path.reduce((o, k) => (o == null ? undefined : o[k]), obj);
   const setPath = (obj, path, v) => { const last = path[path.length - 1]; getPath(obj, path.slice(0, -1))[last] = v; state.dirty = true; };
-  const photoPath = (f) => `content/photos/${f.name}`;
+  const photoPath = (f) => (state.cfg.base && f.path.startsWith(state.cfg.base + "/") ? f.path.slice(state.cfg.base.length + 1) : f.path);
 
   function fieldEl(key, path, value, wide) {
     const wrap = document.createElement("div");
@@ -152,7 +152,7 @@
       const img = document.createElement("img"); img.alt = "";
       const sel = document.createElement("select");
       const opts = [value, ...state.files.map(photoPath)].filter((v, i, a) => v && a.indexOf(v) === i);
-      sel.innerHTML = `<option value="">— aucune —</option>` + opts.map((o) => `<option value="${esc(o)}" ${o === value ? "selected" : ""}>${esc(o.replace("content/photos/", ""))}</option>`).join("");
+      sel.innerHTML = `<option value="">— aucune —</option>` + opts.map((o) => `<option value="${esc(o)}" ${o === value ? "selected" : ""}>${esc(o.replace("content/", ""))}</option>`).join("");
       const preview = () => { const f = state.files.find((x) => photoPath(x) === sel.value); img.src = f ? thumb(f) : ""; };
       sel.addEventListener("change", () => { setPath(state.site, path, sel.value); preview(); });
       row.append(img, sel); lab.appendChild(row); preview();
@@ -200,7 +200,7 @@
     arr.forEach((item, i) => {
       const it = document.createElement("div"); it.className = "list__item";
       const head = document.createElement("div"); head.className = "list__head";
-      head.innerHTML = `<span>#${i + 1} ${esc(item.title || item.name || item.label || "")}</span>`;
+      head.innerHTML = `<span>#${i + 1} ${esc(item.title || item.name || item.label || item.time || "")}</span>`;
       const btns = document.createElement("div"); btns.className = "btns";
       const mk = (txt, fn, cls = "btn--ghost") => { const b = document.createElement("button"); b.type = "button"; b.className = `btn btn--sm ${cls}`; b.textContent = txt; b.addEventListener("click", () => { fn(); state.dirty = true; renderForm(); }); return b; };
       btns.append(
@@ -253,7 +253,7 @@
     photos.forEach((p, i) => {
       const card = document.createElement("div"); card.className = "photo";
       card.innerHTML = `${thumbImg(p.src)}<div class="photo__body">
-        <div class="photo__name">${esc(p.src.replace("content/photos/", ""))}</div>
+        <div class="photo__name">${esc(p.src.replace("content/", ""))}</div>
         <input placeholder="Légende" value="${esc(p.caption || "")}" data-k="caption">
         <input placeholder="Texte alternatif" value="${esc(p.alt || "")}" data-k="alt">
         <div class="photo__btns">
@@ -278,7 +278,7 @@
       const inGallery = photos.some((p) => p.src === photoPath(f));
       const card = document.createElement("div"); card.className = "photo";
       card.innerHTML = `${thumbImg(photoPath(f))}<div class="photo__body">
-        <div class="photo__name">${esc(f.name)} · ${Math.round(f.size / 1024)} Ko</div>
+        <div class="photo__name">${esc(photoPath(f).replace("content/", ""))} · ${Math.round(f.size / 1024)} Ko</div>
         <div class="photo__btns">
           ${inGallery ? `<span class="muted">Dans la galerie</span>` : `<button class="btn btn--sm btn--ghost" data-act="add">+ Galerie</button>`}
           <button class="btn btn--sm btn--danger" data-act="delete">Supprimer du dépôt</button>
