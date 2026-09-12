@@ -8,24 +8,26 @@
 
   /* ---------- Libellés français des clés ---------- */
   const LABELS = {
-    site: "Site", title: "Titre", language: "Langue (fr, en…)", description: "Description (SEO)", favicon: "Favicon",
-    theme: "Thème (couleurs & polices)", colorAccent: "Couleur d'accent (rouge)", colorBackground: "Couleur de fond", colorText: "Couleur du texte", colorMuted: "Couleur secondaire (traits, petits textes)", fontHeading: "Police des titres (Google Fonts)", fontBody: "Police du texte (Google Fonts)", paperTexture: "Grain papier", watercolorBlotches: "Taches aquarelle en fond",
+    site: "Site", title: "Titre", language: "Langue (en, fr…)", description: "Description (SEO / partage)", ogImage: "Image de partage (WhatsApp, réseaux)", favicon: "Favicon",
+    theme: "Thème (couleurs & polices)", colorRed: "Rouge (titres, boutons)", colorCharcoal: "Gris foncé (prénoms, textes)", colorGrey: "Gris (monogramme)", colorTaupe: "Taupe (filets)", colorCream: "Crème (haut et bas de page)", colorPaper: "Blanc papier (bande centrale)", colorCreamLow: "Crème chaud (bas de page)", fontSerif: "Police serif (Google Fonts)", fontSans: "Police sans-serif (Google Fonts)", fontScript: "Police manuscrite (Google Fonts)",
+    intro: "Intro (rideau)", prompt: "Texte du bouton d'entrée",
     couple: "Les mariés", bride: "Mariée", groom: "Marié", conjunction: "Mot entre les prénoms (and, &, et)", monogram: "Monogramme (pied de page)",
-    hero: "En-tête", kicker: "Phrase d'introduction", photo: "Photo du couple", leftDecoration: "Illustration à gauche", rightDecoration: "Illustration à droite", divider: "Illustration séparatrice",
+    hero: "En-tête", eyebrow: "Phrase d'introduction", photo: "Photo du couple",
     event: "Événement", date: "Date et heure ISO (ex. 2026-09-26T17:30:00+01:00)", dateLabel: "Date affichée", city: "Ville", shortDate: "Date courte (pied de page)",
-    countdown: "Compte à rebours", enabled: "Activé", labels: "Libellés", days: "Jours", hours: "Heures", minutes: "Minutes", seconds: "Secondes", finishedText: "Texte une fois la date passée",
-    rsvp: "RSVP", buttonLabel: "Texte du bouton", mode: "Mode (form = formulaire intégré, link = lien externe)", url: "Lien externe (si mode = link)", form: "Formulaire intégré", subtitle: "Sous-titre", sendVia: "Envoi via", email: "Email de réception", whatsappNumber: "Numéro WhatsApp (indicatif sans +)", formspreeEndpoint: "URL Formspree", maxGuests: "Nombre max. de personnes",
-    name: "Nom", attending: "Présence", yes: "Oui", no: "Non", guests: "Personnes", message: "Message", submit: "Bouton envoyer", success: "Message de succès", error: "Message d'erreur",
-    venue: "Lieu", illustration: "Illustration", text: "Texte", mapsUrl: "Lien Google Maps",
-    attire: "Tenue (dress code)", items: "Éléments", label: "Libellé",
-    schedule: "Programme", time: "Heure", closingText: "Phrase de fin",
-    gallery: "Galerie", weddingList: "Liste de mariage", links: "Boutons / liens",
+    countdown: "Compte à rebours", labels: "Libellés", days: "Jours", hours: "Heures", minutes: "Minutes", seconds: "Secondes",
+    rsvp: "RSVP", enabled: "Activé", buttonLabel: "Texte du bouton", modalTitle: "Titre de la fenêtre", sendVia: "Envoi via", email: "Email de réception", whatsappNumber: "Numéro WhatsApp (indicatif sans +)", formspreeEndpoint: "URL Formspree",
+    name: "Nom", presence: "Présence", yes: "Oui", no: "Non", accompanied: "Accompagné(e) ?", plusOne: "Nom du +1", word: "Mot pour les mariés", send: "Bouton envoyer", sending: "Envoi en cours", success: "Message de succès", errorName: "Erreur : nom manquant", errorPresence: "Erreur : présence manquante", errorPlusOne: "Erreur : nom du +1 manquant", errorSend: "Erreur d'envoi",
+    venue: "Lieu", illustration: "Illustration", text: "Texte", latitude: "Latitude", longitude: "Longitude", wazeUrl: "Lien Waze (optionnel, sinon calculé)", googleMapsUrl: "Lien Google Maps (optionnel, sinon calculé)", wazeLabel: "Libellé Waze", googleMapsLabel: "Libellé Google Maps",
+    attire: "Tenue (dress code)", items: "Éléments", image: "Image", alt: "Texte alternatif", left: "Position gauche (%)", width: "Largeur (%)", captionWomen: "Légende femmes", captionMen: "Légende hommes",
+    schedule: "Programme", time: "Heure",
+    weddingList: "Liste de mariage", buttons: "Boutons", bank: "Compte associé (morocco / abroad)", opens: "Ouvre (gifts = boutiques, bank = RIB)", shops: "Boutiques", url: "Lien", emptyText: "Texte si aucune boutique", aside: "Phrase avant le bouton RIB", bankButtonLabel: "Bouton coordonnées bancaires", bankModalTitle: "Titre fenêtre bancaire", banks: "Comptes bancaires", morocco: "Compte Maroc", abroad: "Compte étranger", holder: "Titulaire", kind: "Type (RIB, IBAN)", number: "Numéro", copyLabel: "Bouton copier", copiedLabel: "Texte « copié »", copyFailedLabel: "Texte si copie impossible",
+    gallery: "Galerie", label: "Libellé",
     footer: "Pied de page", showMonogram: "Afficher le monogramme", showDate: "Afficher la date courte",
   };
   const label = (k) => LABELS[k] || k;
-  const IMAGE_KEYS = new Set(["photo", "image", "favicon", "illustration", "leftDecoration", "rightDecoration", "divider"]);
+  const IMAGE_KEYS = new Set(["photo", "image", "favicon", "illustration", "ogImage"]);
   const COLOR_KEYS = /^color/;
-  const ENUMS = { mode: ["form", "link"], sendVia: ["mailto", "whatsapp", "formspree"] };
+  const ENUMS = { sendVia: ["mailto", "whatsapp", "formspree"], opens: ["gifts", "bank"], bank: ["morocco", "abroad"] };
 
   /* ---------- État ---------- */
   const state = {
@@ -75,7 +77,8 @@
     site: () => inRepo("content/site.json"),
     gallery: () => inRepo("content/gallery.json"),
     photos: () => inRepo("content/photos"),
-    illustrations: () => inRepo("content/illustrations"),
+    art: () => inRepo("assets/art"),
+    images: () => inRepo("assets/images"),
   };
   const utf8ToB64 = (s) => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
   const b64ToUtf8 = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
@@ -112,7 +115,7 @@
     await refreshFiles();
   }
   async function refreshFiles() {
-    const lists = await Promise.all([api.get(P.photos()), api.get(P.illustrations())]);
+    const lists = await Promise.all([api.get(P.photos()), api.get(P.art()), api.get(P.images())]);
     state.files = lists.flatMap((l) => (Array.isArray(l) ? l : [])).filter((f) => f.type === "file" && /\.(jpe?g|png|webp|gif|svg|avif)$/i.test(f.name));
   }
 
@@ -152,7 +155,7 @@
       const img = document.createElement("img"); img.alt = "";
       const sel = document.createElement("select");
       const opts = [value, ...state.files.map(photoPath)].filter((v, i, a) => v && a.indexOf(v) === i);
-      sel.innerHTML = `<option value="">— aucune —</option>` + opts.map((o) => `<option value="${esc(o)}" ${o === value ? "selected" : ""}>${esc(o.replace("content/", ""))}</option>`).join("");
+      sel.innerHTML = `<option value="">— aucune —</option>` + opts.map((o) => `<option value="${esc(o)}" ${o === value ? "selected" : ""}>${esc(o)}</option>`).join("");
       const preview = () => { const f = state.files.find((x) => photoPath(x) === sel.value); img.src = f ? thumb(f) : ""; };
       sel.addEventListener("change", () => { setPath(state.site, path, sel.value); preview(); });
       row.append(img, sel); lab.appendChild(row); preview();
@@ -278,7 +281,7 @@
       const inGallery = photos.some((p) => p.src === photoPath(f));
       const card = document.createElement("div"); card.className = "photo";
       card.innerHTML = `${thumbImg(photoPath(f))}<div class="photo__body">
-        <div class="photo__name">${esc(photoPath(f).replace("content/", ""))} · ${Math.round(f.size / 1024)} Ko</div>
+        <div class="photo__name">${esc(photoPath(f))} · ${Math.round(f.size / 1024)} Ko</div>
         <div class="photo__btns">
           ${inGallery ? `<span class="muted">Dans la galerie</span>` : `<button class="btn btn--sm btn--ghost" data-act="add">+ Galerie</button>`}
           <button class="btn btn--sm btn--danger" data-act="delete">Supprimer du dépôt</button>

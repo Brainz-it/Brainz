@@ -1,148 +1,1190 @@
-:root {
-  --bg: #f4efe7;
-  --accent: #a13a3f;
-  --text: #4a4642;
-  --muted: #7d7268;
-  --font-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --col: 560px;
+/* ══════════════════════════════════════════════════════════
+   Palette sampled directly from the Figma export.
+   The whole design runs on exactly two ink colours.
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --red:#AD3F3F;         /* eyebrow, "and", every heading, times, buttons */
+  --charcoal:#676868;    /* names, dates, captions, attire captions      */
+  --grey:#939393;        /* footer monogram                              */
+  --taupe:#ADA196;       /* section divider rules                        */
+
+  --cream:#F6F1EC;       /* page top + bottom                            */
+  --paper:#FCFCFC;       /* brightest band, ~20–40% down                 */
+  --cream-low:#F4EEE7;   /* warm band, ~70–95% down                      */
+
+  --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --apparel:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --button-serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --script:"Caveat",cursive;
+  --sans:"Raleway",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;  /* exact */
+
+  --content:700px;
+  --page:1200px;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 14px;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.7;
-  position: relative;
-  overflow-x: hidden;
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+/* Holds the page still behind an open dialog. It must sit on the root: body's
+   overflow only reaches the viewport when html's own overflow is `visible`,
+   and html already carries overflow-x:hidden — so locking body did nothing. */
+html.modal-open{overflow:hidden}
+
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--charcoal);
+  overflow-x:hidden;
+  background-color:var(--cream);
 }
-/* Fond aquarelle : taches beige / rosé */
-body.has-blotches::before {
-  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 40% at 15% 10%, rgba(214, 190, 176, .55), transparent 70%),
-    radial-gradient(ellipse 50% 35% at 90% 25%, rgba(226, 204, 190, .5), transparent 70%),
-    radial-gradient(ellipse 55% 30% at 10% 50%, rgba(220, 200, 178, .45), transparent 70%),
-    radial-gradient(ellipse 45% 35% at 85% 70%, rgba(214, 190, 176, .5), transparent 70%),
-    radial-gradient(ellipse 60% 30% at 30% 95%, rgba(226, 204, 190, .45), transparent 70%);
+
+.page-wash{
+  position:absolute;top:0;bottom:0;
+  /* bleeds past the 1200px page so a wide window is washed edge to edge —
+     otherwise the plain body colour showed as pale bands down both sides */
+  left:50%;width:100vw;max-width:none;margin-left:-50vw;height:100%;
+  /* max-width:none is load-bearing — the global img{max-width:100%} was
+     clamping this back to the 1200px page, which is what left the band */
+  object-fit:fill;z-index:-1;pointer-events:none;opacity:.86;
+  mix-blend-mode:multiply;
 }
-/* Grain papier */
-body.has-texture::after {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .28; mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .48 0 0 0 0 .42 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+
+.js .page-wash{
+  -webkit-mask-image:linear-gradient(180deg,
+        rgba(0,0,0,0) 0%, rgba(0,0,0,0) 14%, rgba(0,0,0,.45) 26%, #000 40%);
+          mask-image:linear-gradient(180deg,
+        rgba(0,0,0,0) 0%, rgba(0,0,0,0) 14%, rgba(0,0,0,.45) 26%, #000 40%);
+  -webkit-mask-size:100% 300%;   mask-size:100% 300%;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:0% 0%;   mask-position:0% 0%;
 }
-img { max-width: 100%; display: block; }
-a { color: var(--accent); }
-h1, h2, h3 { font-family: var(--font-heading); font-weight: 500; line-height: 1.15; margin: 0; }
-.loading { text-align: center; padding: 40vh 16px; color: var(--muted); }
-
-.page { max-width: var(--col); margin: 0 auto; padding: 0 20px 40px; text-align: center; }
-.section { padding: 56px 0 24px; }
-.section__title { font-style: italic; font-weight: 600; font-size: clamp(2rem, 7vw, 2.7rem); color: var(--accent); margin-bottom: 26px; }
-.illus { margin: 0 auto; }
-.illus--wide { width: min(100%, 420px); }
-.text { max-width: 420px; margin: 0 auto; letter-spacing: .04em; line-height: 1.75; }
-.text p { margin: 0 0 10px; }
-
-/* Boutons */
-.btn {
-  display: inline-block; padding: 9px 30px; border-radius: 999px; background: var(--accent); color: #fff;
-  font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; text-decoration: none; border: 0; cursor: pointer;
-  box-shadow: 0 6px 16px rgba(120, 40, 45, .18); transition: transform .2s, box-shadow .2s;
+.js.painted .page-wash{
+  -webkit-mask-position:0% 100%; mask-position:0% 100%;
+  transition:-webkit-mask-position 4.2s cubic-bezier(.33,.7,.35,1),
+                     mask-position 4.2s cubic-bezier(.33,.7,.35,1);
 }
-.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(120, 40, 45, .26); }
-.btn-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
-.btn-row .btn { min-width: 130px; }
+.js.paint-done .page-wash{-webkit-mask-image:none;mask-image:none}
 
-/* Hero */
-.hero { padding-top: 54px; }
-.hero__kicker { font-size: .62rem; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.hero__names { font-style: italic; font-weight: 500; color: var(--accent); font-size: clamp(2.8rem, 11vw, 4.2rem); line-height: 1.05; }
-.hero__names .and { display: block; font-size: .55em; font-weight: 600; margin: 2px 0; }
-.hero__figure { position: relative; margin: 24px auto 0; width: min(100%, 320px); }
-.hero__photo {
-  width: 62%; margin: 0 auto; aspect-ratio: 3 / 4; object-fit: cover;
-  border-radius: 999px 999px 4px 4px; box-shadow: 0 12px 30px rgba(74, 70, 66, .18);
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+
+.page{max-width:var(--page);margin-inline:auto;position:relative}
+.js .page{visibility:hidden}
+.js.intro-revealed .page{visibility:visible}
+.wrap{width:min(100% - 2.5rem,var(--content));margin-inline:auto}
+.bleed{width:100vw;position:relative;left:50%;margin-left:-50vw}
+
+/* ── shared type — light, high-contrast Figma treatment ── */
+.eyebrow{
+  font-family:var(--sans);font-weight:400;
+  font-size:clamp(.75rem,2.1vw,1.55rem);
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);text-align:center;margin:0;
 }
-.hero__deco { position: absolute; bottom: -6%; width: 22%; opacity: .85; }
-.hero__deco--left { left: -4%; }
-.hero__deco--right { right: -4%; }
-.hero__lights { width: 100%; margin: 40px auto 0; opacity: .9; }
-
-/* Date + compte à rebours */
-.date { padding-top: 40px; }
-.date__label, .date__city { font-family: var(--font-heading); font-style: italic; font-size: clamp(1.25rem, 4.5vw, 1.6rem); color: var(--text); line-height: 1.35; }
-.countdown { display: inline-block; margin: 22px auto 0; padding: 10px 26px 8px; border: 1.5px solid var(--accent); border-radius: 12px; }
-.countdown__digits { display: flex; justify-content: center; align-items: baseline; font-family: var(--font-heading); font-size: clamp(1.9rem, 7.5vw, 2.4rem); color: var(--accent); letter-spacing: .04em; }
-.countdown__digits .sep { margin: 0 4px; }
-.countdown__labels { display: flex; justify-content: center; gap: 0; }
-.countdown__labels span { width: 3.3em; font-family: var(--font-heading); font-style: italic; font-size: .72rem; color: var(--text); }
-.countdown__done { font-family: var(--font-heading); font-style: italic; color: var(--accent); font-size: 1.4rem; }
-.date .btn { margin-top: 26px; }
-
-/* Attire */
-.attire__text { margin-bottom: 20px; }
-.attire__grid { display: flex; justify-content: center; gap: 30px; }
-.attire__item { width: 42%; max-width: 170px; }
-.attire__label { font-family: var(--font-heading); font-style: italic; font-size: .95rem; margin-top: 6px; }
-.attire__divider { width: min(100%, 300px); margin: 40px auto 0; opacity: .85; }
-
-/* Schedule */
-.schedule { position: relative; }
-.schedule__deco { position: absolute; top: 40px; width: 20%; max-width: 110px; opacity: .8; pointer-events: none; }
-.schedule__deco--left { left: -8%; }
-.schedule__deco--right { right: -8%; }
-.schedule__list { list-style: none; margin: 0; padding: 0; }
-.schedule__item { margin-bottom: 30px; }
-.schedule__time { font-family: var(--font-heading); font-style: italic; color: var(--accent); font-size: 1.15rem; }
-.schedule__title { font-family: var(--font-heading); font-style: italic; font-size: 1.25rem; line-height: 1.35; }
-.schedule__closing { font-family: var(--font-heading); font-style: italic; color: var(--accent); font-size: 1.15rem; margin-top: 10px; }
-
-/* Galerie (optionnelle) */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.gallery__item { aspect-ratio: 1; overflow: hidden; border-radius: 8px; cursor: zoom-in; background: #e8e1d6; }
-.gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-.gallery__item:hover img { transform: scale(1.05); }
-.lightbox[hidden] { display: none; }
-.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(30, 20, 18, .94); display: grid; place-items: center; padding: 60px 16px; }
-.lightbox img { max-height: 80vh; max-width: 92vw; object-fit: contain; border-radius: 6px; }
-.lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 2.6rem; cursor: pointer; opacity: .8; }
-.lightbox__close { top: 10px; right: 20px; }
-.lightbox__prev { left: 12px; top: 50%; }
-.lightbox__next { right: 12px; top: 50%; }
-.lightbox__caption { position: absolute; bottom: 20px; color: #fff; opacity: .85; margin: 0; }
-
-/* RSVP form (optionnel) */
-.rsvp-form { max-width: 420px; margin: 0 auto; text-align: left; }
-.rsvp-form .section__subtitle { text-align: center; font-family: var(--font-heading); font-style: italic; color: var(--muted); margin: -14px 0 24px; }
-.field { margin-bottom: 16px; }
-.field label { display: block; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
-.field input, .field select, .field textarea {
-  width: 100%; padding: 10px 12px; border: 1px solid #d9cfc2; border-radius: 8px; font: inherit; background: rgba(255,255,255,.7); color: var(--text);
+.section-title{
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(2.3rem,6.8vw,4.2rem);
+  font-optical-sizing:auto;
+  letter-spacing:0;
+  color:var(--red);text-align:center;line-height:1.1;margin:0 0 1.8rem;
 }
-.field input:focus, .field select:focus, .field textarea:focus { outline: 1.5px solid var(--accent); border-color: transparent; }
-.field textarea { min-height: 100px; resize: vertical; }
-.radios { display: flex; gap: 20px; flex-wrap: wrap; }
-.radios label { display: flex; flex: none; white-space: nowrap; align-items: center; gap: 7px; text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--text); cursor: pointer; }
-.rsvp-form .btn { display: block; margin: 8px auto 0; }
-.rsvp__status { margin-top: 14px; padding: 10px 12px; border-radius: 8px; display: none; text-align: center; }
-.rsvp__status--ok { display: block; background: #eaf2e6; color: #2f6b31; }
-.rsvp__status--err { display: block; background: #f7e6e4; color: #a33a2f; }
+.section-title .glyph-fix{
+  display:inline-block;
+  font-style:inherit;
+  font-weight:inherit;
+  font-optical-sizing:inherit;
+}
+.body-copy{
+  font-family:var(--sans);font-weight:400;
+  font-size:clamp(.78rem,2vw,.92rem);
+  letter-spacing:.16em;line-height:2;
+  color:var(--red);text-align:center;
+  max-width:52ch;margin-inline:auto;
+}
+/* the short lead-in that sits under a section heading */
+.section-intro{
+  font-family:var(--sans);font-weight:400;
+  font-size:clamp(.8rem,2vw,.98rem);
+  letter-spacing:.1em;line-height:1.95;
+  color:var(--charcoal);text-align:center;
+  max-width:46ch;margin:-.6rem auto clamp(1.4rem,4vw,2.4rem);
+}
 
-/* Footer */
-.footer { padding: 40px 0 10px; }
-.footer__illus { width: min(60%, 200px); margin: 0 auto 10px; opacity: .85; }
-.footer__monogram { font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: .12em; color: var(--muted); }
-.footer__date { font-size: .7rem; letter-spacing: .32em; color: var(--muted); margin-top: 2px; }
-.footer__text { margin-top: 10px; color: var(--muted); }
-.footer__chevron { color: var(--accent); font-size: 1.2rem; margin-top: 24px; opacity: .8; }
+/* ═══════════════════════════════════════════════════════════
+   PAGED SECTIONS — every main block owns one viewport.
+   ═══════════════════════════════════════════════════════════ */
+:root{ --section-pad:clamp(1.25rem,3vh,2rem); }
 
-/* Apparition */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+@media (min-height:520px){
+  html{
+    scroll-snap-type:y mandatory;
+    scroll-padding-top:0;
+    scroll-behavior:smooth;
+  }
+
+  .page > header.hero,
+  .page > section{
+    height:100svh;
+    min-height:100svh;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-block:var(--section-pad);
+    scroll-snap-align:start;
+  }
+
+  .page > section,
+  .page > header.hero{position:relative}
+
+  .page > header > .rule,
+  .page > section > .rule{display:none}
+
+  /* The cover no longer opens with the lantern band, so it centres like the
+     rest; the date page takes over the flush-top treatment. */
+  .page > header.hero{justify-content:center}
+
+  /* The design starts this page's heading near the top rather than centring
+     the block, which leaves the corner ornaments room at the foot. */
+  /* Top-aligned matched the artboard at phone height but stranded the block
+     near the top of a taller window, since the garment row is width-driven
+     and cannot grow to fill it. Centring splits the leftover space instead. */
+  .page > section.attire-section{
+    justify-content:center;
+    padding-top:clamp(1.5rem,5svh,3rem);
+  }
+
+  .page > section.invite-section{
+    justify-content:flex-start;
+    padding-top:0;
+  }
+  .invite-main{margin-block:clamp(.75rem,4.5svh,3rem) auto}
+
+  /* Keep the venue sketch from overpowering the neighboring content. */
+  .venue-art{
+    /* As large as it can go: the sketch is 1.33 wide per unit tall, so 72vw of
+       height puts it at ~96% of a phone's width — just short of the edges.
+       The svh cap is what governs on a short or desktop window. */
+    max-height:min(56svh,78vw);width:auto;max-width:104%;
+    left:auto;margin-inline:auto;
+  }
+  /* The garments are positioned bottom-anchored and sized by WIDTH (their
+     Figma proportions). Capping their height instead made them size from
+     height with width:auto, so they ballooned and rode up over the heading.
+     To fit the page they are scaled down by width, keeping the composition. */
+  .attire-row{aspect-ratio:1600/760}
+
+  /* The gap was squeezed back when each event carried a two-line description
+     and three of them had to share a screen. With the descriptions dropped the
+     same gap read as cramped — three short lines huddled in a half-empty page.
+     Now the events breathe to fill the room the descriptions used to take. */
+  .schedule .event{margin-bottom:clamp(2.2rem,8.5vh,4.5rem)}
+  .schedule .section-title{margin-bottom:clamp(2rem,7vh,3.5rem)}
+
+  /* The list and sign-off now read as one centred composition. */
+  .wedding-list-section{
+    justify-content:center;
+    gap:clamp(1rem,3svh,2rem);
+  }
+  .wedding-list-main{margin-block:0}
+  .wedding-list-section .footer{padding-block:0 clamp(.9rem,2.6vh,1.5rem)}
+  /* Same continuous cap as the cover portrait, for the same reason: the
+     heading above it was being clipped on viewport heights that fell between
+     breakpoints. The lantern takes 34svh, or whatever is left after the
+     heading, intro, illustration, buttons and sign-off — whichever is less. */
+  .wedding-list-section .lantern{
+    max-height:min(27svh, calc(100svh - 33rem));
+    width:auto;
+  }
+
+  /* The hero is the cover, and the RSVP button sits under the portrait — so
+     whatever height the portrait takes decides whether the one thing a guest
+     must reach is on screen. iOS Safari keeps its toolbars inside the
+     viewport, leaving as little as 629px, and a fixed cap that suited a
+     desktop pushed the button under the toolbar there.
+
+     So the cap is continuous rather than a breakpoint: the portrait may take
+     46svh, but never more than what is left after the rest of the cover
+     (eyebrow, names, padding — about 15rem) has been paid for. The reserve
+     dropped when the date and the button moved onto their own page.
+     Every viewport gets the largest photo that still clears the fold, with no
+     jump at any particular width.
+
+     It is a definite height, not just a max: the figure is sized by its width,
+     so a cap alone let the image spill out of it and sit over the date. */
+  .hero .portrait{
+    /* Three caps, smallest wins. The third is the one the design needs on a
+       tall window: the photo is height-driven, so without a width bound it
+       grew to two-thirds of the page and swallowed the candles. The arch is
+       0.684 wide per unit tall, so 70vw of height holds it near the 48% of
+       page width the artboard uses. */
+    --cover-photo:min(46svh, calc(100svh - 13rem), 70vw);
+    height:var(--cover-photo);
+    max-height:var(--cover-photo);
+    width:auto;
+    margin-inline:auto;
+  }
+  .hero .portrait img{height:100%;width:auto;margin-inline:auto;object-fit:contain}
+}
+
+/* ── wide screens ────────────────────────────────────────
+   Every size on this page is driven by viewport WIDTH, but a full-screen
+   panel is bounded by its HEIGHT. On a laptop the two pull apart badly: at
+   1440x900 the cover asked for 1199px of a 900px panel, putting the RSVP
+   button off the bottom exactly as it was on a phone. Below, the cover's
+   type and decor are additionally capped against viewport height, so a wide
+   short window scales down instead of overflowing. */
+@media (min-width:700px){
+  /* A 700px column inside a 1200px page left the copy stranded in a narrow
+     strip with wide empty margins. */
+  :root{--content:880px}
+  .section-intro{max-width:56ch;font-size:clamp(.95rem,1.5vw,1.15rem)}
+  .body-copy{max-width:60ch;font-size:clamp(.9rem,1.3vw,1.05rem)}
+  .btn{font-size:clamp(1.1rem,1.6vw,1.5rem);padding:.6em 2.8em}
+  .section-title{font-size:min(4.2rem,7svh)}
+
+  /* The band is cropped by overflow, not scaled, so trimming it too hard cuts
+     the lanterns in half. This is the most it can give back while the cover
+     still fits. */
+  .invite-section .lights-band{padding-top:min(52%, 27svh)}
+  .hero .eyebrow{font-size:min(1.55rem, 2.4svh)}
+  .hero .names{font-size:min(7.8rem, 8.6svh)}
+  .invite-section .hero-meta{
+    font-size:min(2.35rem, 3.6svh);
+    line-height:1.55;
+    margin-block:min(2rem, 2.5svh) min(1.8rem, 2.2svh);
+  }
+  .hero .hero-stage{margin-top:min(2rem, 2.5svh)}
+  .hero .portrait{--cover-photo:min(44svh, calc(100svh - 15rem), 46vw)}
+
+  /* The garment row is sized by WIDTH via its aspect ratio, so on a 1200px
+     page it grew to 615px tall and pushed the page over. Capping the row's
+     width against viewport height keeps the whole block on one screen. */
+  .attire-section .attire-row{width:min(100%, 76svh);margin-inline:auto}
+  .attire-section .orn-feet{width:min(100%, 88svh);margin-inline:auto}
+  .attire-section .orn-sprig{width:min(30%, 22svh)}
+  .page > section.attire-section{padding-top:clamp(2rem,7svh,4rem)}
+
+  /* the closing page has the same width/height tension */
+  .wedding-list-section .lantern{max-height:min(16.5svh, calc(100svh - 37.5rem))}
+}
+
+/* On a short phone the cover ran past the fold and took the RSVP button with
+   it — the one thing on that screen a guest has to be able to reach. The
+   portrait gives up the height, since it is the only element there that can
+   lose some without the layout reading as cramped. */
+@media (min-height:520px) and (max-height:730px){
+  .lights-band{padding-top:min(50%,28svh)}
+  .names{font-size:clamp(2.9rem,8.6vw,7.8rem)}
+  .hero-meta{
+    font-size:clamp(1.05rem,2.7vw,2.35rem);
+    line-height:1.7;
+    margin-block:clamp(.7rem,2vh,2rem) clamp(.7rem,2vh,1.8rem);
+  }
+  .hero-stage{margin-top:clamp(.5rem,1.5vh,2rem)}
+
+  /* The closing page carries the most: heading, intro, illustration, both
+     buttons and the sign-off. The two illustrations give up the room. */
+  .wedding-list-section .section-intro{margin-bottom:.9rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-snap-type:none;scroll-behavior:auto}
+}
+
+.rule{
+  width:234px;max-width:46%;height:1.5px;border:0;background:var(--taupe);
+  margin:clamp(3rem,8vw,5.5rem) auto;
+}
+
+/* ── buttons ─────────────────────────────────────────────── */
+.btn{
+  font-family:var(--button-serif);font-style:italic;font-weight:400;
+  font-variation-settings:"opsz" 14, "wght" 400;
+  font-size:clamp(1rem,2.4vw,1.35rem);
+  line-height:1;
+  letter-spacing:0;
+  color:#fff;background:var(--red);
+  border:0;border-radius:999px;
+  padding:.55em 2.5em;
+  transition:background .25s ease,transform .25s ease;
+}
+.btn:hover{background:#983535;transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* ═══ HERO ═══════════════════════════════════════════════ */
+.hero{position:relative;padding-bottom:clamp(2rem,6vw,3.5rem);text-align:center}
+
+.lights-band{
+  position:relative;width:100%;height:0;
+  /* padding-% resolves against WIDTH, so this is ~24% of a phone's height */
+  padding-top:min(52%,30svh);
+  overflow:hidden;
+}
+/* Two copies of the same garland, each pushed so only its end shows: two
+   lanterns hang at the left edge, two at the right, and the middle stays
+   open — which is the arrangement in the design. One centred garland gave a
+   continuous run of five and read quite differently.
+   max-width:none is load-bearing: the global img{max-width:100%} otherwise
+   caps these back to the band width and the scale-up does nothing. */
+.lights-band img{
+  position:absolute;top:0;
+  width:180%;max-width:none;height:auto;pointer-events:none;
+}
+.lights-l{left:-144%}
+.lights-r{left:64%}
+
+.names{
+  position:relative;
+  width:max-content;
+  max-width:100%;
+  margin-inline:auto;
+  text-align:center;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(3.4rem,10vw,7.8rem);
+  font-variation-settings:"opsz" 96, "wght" 400;
+  line-height:.72;color:var(--charcoal);
+  margin-top:clamp(.75rem,2.4vw,1.65rem);
+  margin-bottom:0;
+}
+.names .and{
+  display:block;
+  width:max-content;
+  margin:.26em auto .16em;
+  font-family:var(--script);font-style:normal;font-weight:400;
+  font-size:clamp(2.375rem,10.8vw,3.25rem);
+  line-height:1;
+  letter-spacing:0;
+  color:var(--red);
+}
+
+.frame{position:relative;width:100%}
+
+.hero-stage{margin-top:clamp(1rem,3vw,2rem)}
+/* The candles stand beside the photo on its own baseline — in the design they
+   read as objects on the same surface, not decoration parked underneath. */
+.hero-stage .candle-l,
+.hero-stage .candle-r{position:absolute;bottom:0;z-index:0;height:auto}
+.candle-l{left:0;width:25%}
+.candle-r{right:5%;left:auto;width:15%}
+.portrait{
+  position:relative;z-index:1;
+  width:min(54%,246px);margin:0 auto;
+}
+
+.js .names{opacity:0}
+.js.intro-revealed .names{opacity:1}
+.js.intro-names-staged .names{
+  position:fixed;
+  top:50%;left:50%;
+  z-index:212;
+  width:max-content;
+  max-width:calc(100% - 2.5rem);
+  margin:0;
+  text-align:center;
+  opacity:1;
+  transform:translate(-50%,-50%);
+  filter:drop-shadow(0 2px 18px rgba(246,241,236,.55));
+  will-change:transform;
+  animation:namesIntroFade 1.3s cubic-bezier(.22,.61,.24,1) both;
+}
+.js .names.is-settling{
+  z-index:212;
+  opacity:1;
+  filter:drop-shadow(0 2px 18px rgba(246,241,236,.45));
+  will-change:transform;
+}
+.js.intro-name-settled .names{opacity:1}
+
+@keyframes namesIntroFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.intro-rest{
+  --intro-delay:0s;
+}
+.js .intro-rest{
+  opacity:0;
+  transform:translateY(26px);
+  filter:blur(8px);
+  transition:
+    opacity 1.4s cubic-bezier(.22,.61,.24,1),
+    transform 1.4s cubic-bezier(.22,.61,.24,1),
+    filter 1.4s cubic-bezier(.22,.61,.24,1);
+  transition-delay:var(--intro-delay);
+}
+.js .intro-rest.intro-lamps{
+  transform:translateY(-58px);
+  filter:blur(6px);
+  transition-duration:1.7s;
+}
+.js .intro-rest.intro-portrait{
+  transform:none;
+  filter:none;
+  transition-property:opacity;
+  transition-duration:1.85s;
+  transition-timing-function:cubic-bezier(.22,.61,.24,1);
+}
+.js .intro-rest.intro-decor{
+  transform:none;
+  filter:none;
+  transition-property:opacity;
+  transition-duration:1.95s;
+  transition-timing-function:cubic-bezier(.22,.61,.24,1);
+}
+.js .intro-rest.intro-copy{
+  transform:translateY(16px);
+  filter:blur(4px);
+  transition-duration:1.6s;
+}
+.js .intro-rest.intro-action{
+  transform:translateY(14px) scale(.96);
+  filter:blur(3px);
+  transition-duration:1.5s;
+}
+.js.intro-rest-revealed .intro-rest{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+/* ── scroll cue ──────────────────────────────────────────
+   Each page fills the screen with no visible edge, so nothing says the
+   invitation continues. This sits above the page and follows the reader
+   down, flipping to a back-to-top control on the closing page. */
+.scroll-cue{
+  position:fixed;left:50%;bottom:clamp(.6rem,2.2vh,1.5rem);z-index:60;
+  display:grid;place-items:center;
+  width:44px;height:34px;padding:0;
+  border:0;background:none;
+  transform:translateX(-50%);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .8s ease,visibility .8s;
+}
+.scroll-cue svg{
+  width:21px;height:auto;
+  fill:none;stroke:var(--red);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  opacity:.72;
+  transition:transform .45s cubic-bezier(.22,.61,.24,1),opacity .25s ease;
+}
+.scroll-cue:hover svg{opacity:1}
+.scroll-cue:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:50%}
+.scroll-cue.is-up svg{transform:rotate(180deg)}
+
+.js.intro-rest-revealed .scroll-cue{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transition-delay:1.2s;
+  animation:scrollCue 2.2s ease-in-out 1.2s infinite;
+}
+/* The nudge follows the arrow: down while there is more to read, up once
+   the only way back is the top. */
+@keyframes scrollCue{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%    {transform:translateX(-50%) translateY(6px)}
+}
+@keyframes scrollCueUp{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%    {transform:translateX(-50%) translateY(-6px)}
+}
+.js.intro-rest-revealed .scroll-cue.is-up{animation-name:scrollCueUp}
+
+@media (prefers-reduced-motion:reduce){
+  .js.intro-rest-revealed .scroll-cue{animation:none}
+}
+
+.hero-meta{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.2rem,3vw,2.35rem);
+  color:var(--charcoal);line-height:1.9;
+  margin:clamp(1.2rem,3vw,2rem) 0 clamp(1.2rem,3vw,1.8rem);
+}
+.hero-meta span{display:block}
+
+/* ═══ VENUE ══════════════════════════════════════════════ */
+.venue-art{margin-block:clamp(.75rem,2vw,1.4rem) clamp(1.1rem,3vw,1.9rem)}
+.page > section.venue-section{
+  justify-content:center;
+  padding-top:clamp(1rem,3svh,2rem);
+  padding-bottom:clamp(4.7rem,11svh,6.6rem);
+}
+.venue-section .section-title{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:700;
+  font-size:clamp(2rem,8.5vw,2.65rem);
+  line-height:1.3;
+  letter-spacing:0;
+  margin-bottom:clamp(2rem,5.3svh,3rem);
+}
+.venue-section .venue-art{
+  width:min(116%,570px);
+  max-width:116%;
+  height:clamp(17.8rem,45svh,20rem);
+  object-fit:cover;
+  object-position:53% center;
+  transform:translateX(-1.45rem);
+  margin-block:0 clamp(1rem,2.8svh,1.25rem);
+}
+.venue-section .body-copy{
+  max-width:min(100% - 1rem,420px);
+  color:var(--charcoal);
+  font-size:clamp(.82rem,3vw,.96rem);
+  line-height:1.35;
+  letter-spacing:.18em;
+}
+.venue-section .body-copy span{display:block}
+.venue-action{
+  text-align:center;
+  margin:clamp(2rem,5.7svh,2.55rem) 0 0;
+}
+.venue-section .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:400;
+  min-width:132px;
+  min-height:50px;
+  font-size:.9375rem;
+  padding:.64em 1.75em;
+}
+
+/* ═══ ATTIRE ═════════════════════════════════════════════ */
+/* A phone is a taller frame than the artboard, so the artboard's width
+   percentages yield too little height here. These are scaled to hold the
+   design's share of the PAGE instead. */
+.attire-row{aspect-ratio:1600/820;margin-top:clamp(.75rem,2vw,1.4rem)}
+.attire-row img{position:absolute;bottom:0}
+.g-kaftan{left:8%;width:34%}
+.g-gown  {left:24.5%;width:34.8%}
+.g-suit  {left:61%;width:25.5%}
+/* The captions are absolutely positioned to sit under their garments, so the
+   row cannot grow on its own and needs an explicit height. It now holds a
+   single line, the descriptions under it having been dropped. */
+.attire-caps{margin-top:1.1rem;height:clamp(2.2rem,6vw,2.8rem)}
+.attire-caps span{
+  position:absolute;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;
+  /* The two captions are centred 40.1% apart (33.3% and 73.4%), so anything
+     at or above that width makes them collide. */
+  width:min(34%,260px);text-align:center;white-space:normal;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.05rem,2.6vw,1.45rem);color:var(--charcoal);
+}
+.cap-women{left:33.3%}
+.cap-men  {left:73.4%}
+
+/* Scrollwork the design places on the attire page — a flourish under the
+   heading and a matching corner at each foot. All three are crops of the one
+   ornate frame in the Figma file. */
+.orn-divider{
+  width:min(38%,158px);height:auto;
+  /* Interim: this is a crop out of the repeating border, so its ends stop
+     mid-pattern. Feathering them hides the cut. Replace with the real
+     one-piece ornament from Figma and drop this mask. */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%);
+  margin:clamp(.6rem,2.2vh,1.4rem) auto clamp(1.4rem,5vh,3rem);
+  opacity:.8;
+}
+/* The design's foot ornament is a horizontal sprig, not a frame corner. One
+   asset serves both sides — the right is simply mirrored — and they sit in
+   flow just below the captions rather than pinned to the page edge. */
+.orn-feet{
+  display:flex;justify-content:space-between;align-items:center;
+  width:100%;margin-top:clamp(.8rem,3.5svh,2.2rem);
+  padding-inline:clamp(.5rem,3vw,2rem);
+  pointer-events:none;
+}
+/* No negative margins: they pulled the sprigs past the page edge and the
+   overflow clipped them. The left one is the mirrored copy, so both curls
+   turn inward toward the centre. */
+.orn-sprig{width:min(36%,185px);height:auto;opacity:.85}
+.orn-sprig{transform:scaleX(-1)}
+.orn-sprig-r{transform:none}
+
+/* ═══ SCHEDULE ═══════════════════════════════════════════ */
+.schedule{
+  position:relative;
+  padding-top:0;
+  --schedule-curtain-top:clamp(7.5rem,18svh,10.25rem);
+}
+.page > section.schedule{
+  justify-content:center;
+  padding-top:var(--section-pad);
+}
+.curtain{position:absolute;top:var(--schedule-curtain-top);height:auto;pointer-events:none;z-index:0}
+.curtain.left {left:0;width:24.9%;transform:scaleX(-1)}
+.curtain.right{right:0;left:auto;width:19.7%}
+.schedule > *:not(.curtain){position:relative;z-index:1}
+.schedule .wrap{transform:translateY(clamp(-.8rem,-1.3svh,-.45rem))}
+
+.event{text-align:center;margin-bottom:clamp(2.5rem,7vw,4rem)}
+.event:last-child{margin-bottom:0}
+.event-time{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-variation-settings:"opsz" 14, "wght" 400;
+  font-size:clamp(1.5rem,4.5vw,2.3rem);color:var(--red);line-height:1.3;
+}
+/* no trailing margin: the description that used to sit under the name is gone,
+   so the gap between events is carried by .event alone */
+.event-name{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.5rem,4.5vw,2.3rem);
+  color:var(--charcoal);
+  margin:.05em 0 0;line-height:1.3;
+}
+.event-name span{display:block}
+
+/* ═══ WEDDING LIST ═══════════════════════════════════════ */
+.pair{
+  width:min(100%,370px);margin-inline:auto;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(.8rem,3vw,1.6rem);
+}
+.pair .btn{
+  width:100%;
+  padding-inline:clamp(.7em,3vw,2.5em);
+  white-space:nowrap;
+  font-size:1.125rem;
+}
+
+/* ═══ FOOTER ═════════════════════════════════════════════ */
+.footer{text-align:center;padding:clamp(2rem,6vw,4rem) 0 clamp(2.5rem,7vw,4rem)}
+.lantern{width:min(50%,210px);height:auto;margin:0 auto clamp(.5rem,2vw,1.2rem)}
+.monogram{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.9rem,5.2vw,2.8rem);color:var(--grey);letter-spacing:.04em;
+}
+.footer-date{
+  font-family:var(--sans);font-weight:400;
+  font-size:clamp(.65rem,1.7vw,.8rem);
+  letter-spacing:.32em;color:var(--red);margin-top:.5rem;
+}
+
+/* the date page inherits the centring that used to come from .hero */
+.invite-section{text-align:center}
+.invite-section .hero-meta{
+  font-size:clamp(1.45rem,6.7vw,2.55rem);
+  line-height:1.55;
+  margin-block:clamp(1.15rem,3.3svh,1.9rem) clamp(1.35rem,3.9svh,2.2rem);
+}
+
+/* ═══ COUNTDOWN ══════════════════════════════════════════ */
+.countdown{
+  border:1.5px solid var(--red);border-radius:14px;
+  width:min(82%,390px);margin:clamp(1.35rem,4.2svh,2.5rem) auto 0;
+  padding:clamp(1.05rem,3svh,1.65rem) clamp(1rem,3vw,1.5rem);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.cd-unit{position:relative;text-align:center}
+/* The separator hangs off the NUMBER, not the unit: on .cd-unit it inherited a
+   16px em box so the offsets barely moved it, and the Didone cut renders a
+   colon as two pin dots without the optical-size fix. */
+.cd-unit + .cd-unit .cd-num::before{
+  content:":";position:absolute;left:0;top:0;
+  transform:translateX(-50%);
+  color:var(--red);
+  font-variation-settings:"opsz" 14, "wght" 400;
+}
+.cd-num{
+  font-family:var(--serif);font-weight:400;
+  font-variation-settings:"opsz" 14, "wght" 400;
+  font-size:clamp(2.25rem,9.1vw,3.25rem);
+  color:var(--red);line-height:1;font-variant-numeric:tabular-nums;
+}
+.cd-label{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(.9rem,2.8vw,1.1rem);
+  color:var(--charcoal);margin-top:.45em;
+}
+/* The design sits the button well below the date, because the countdown used
+   to fill that gap. With the countdown gone the space is kept — just less of
+   it — so the page stays balanced instead of bunching at the top. */
+.invite-section .btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:150px;min-height:52px;
+  font-size:1.25rem;
+  padding:.64em 2.35em;
+  margin-top:clamp(1.8rem,5.6svh,3rem);
+}
+
+/* ═══ MODALS ═════════════════════════════════════════════ */
+.overlay{
+  position:fixed;inset:0;z-index:220;
+  background:rgba(103,104,104,.34);backdrop-filter:blur(2px);
+  display:grid;place-items:center;padding:1.25rem;
+  opacity:0;visibility:hidden;
+  transition:opacity .28s ease,visibility .28s;
+}
+.overlay[data-open="true"]{opacity:1;visibility:visible}
+.modal{
+  font-family:var(--sans);
+  position:relative;width:min(100%,430px);
+  max-height:min(88vh,760px);overflow-y:auto;
+  background-color:var(--cream-low);
+  background-image:url('../assets/art/page-wash.svg');
+  background-repeat:no-repeat;
+  background-size:180% auto;
+  background-position:center 42%;
+  background-blend-mode:multiply;
+  border:2px solid var(--red);border-radius:23px;
+  padding:clamp(1.8rem,5vw,2.6rem) clamp(1.3rem,4vw,2.1rem);
+  box-shadow:0 30px 70px -30px rgba(103,104,104,.6);
+  transform:translateY(14px) scale(.985);transition:transform .28s ease;
+}
+.overlay[data-open="true"] .modal{transform:none}
+.modal--wide{width:min(100%,520px)}
+.modal-close{
+  position:absolute;top:.4rem;right:.7rem;
+  width:36px;height:36px;padding:0;
+  display:grid;place-items:center;
+  border:0;background:none;
+  color:var(--red);
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:2rem;line-height:1;letter-spacing:.16em;
+  transition:opacity .22s ease,transform .22s ease;
+  opacity:.85;
+}
+.modal-close:hover{opacity:1;transform:scale(1.08)}
+.modal-close:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.modal-title{
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.6rem,6.5vw,2.1rem);
+  color:var(--red);text-align:center;
+  /* clears the close mark, which the design places above the heading */
+  margin:.9rem 0 1.5rem;
+}
+
+.field{margin-bottom:.85rem}
+.field > label,.field .field-label{
+  font-family:var(--sans);
+  display:block;font-size:.7rem;font-weight:400;letter-spacing:.1em;
+  color:var(--red);margin-bottom:.3rem;
+}
+.field input[type=text],.field textarea{
+  width:100%;font-family:var(--sans);font-size:.9rem;font-weight:400;
+  color:var(--charcoal);background:#fff;
+  border:1px solid var(--red);border-radius:10px;
+  padding:.55rem .85rem;resize:vertical;
+}
+.field input:focus,.field textarea:focus{
+  outline:none;box-shadow:0 0 0 3px rgba(173,63,63,.16);
+}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{
+  font-family:var(--sans);
+  display:block;text-align:center;font-size:.8rem;font-weight:500;
+  padding:.48rem .5rem;border-radius:999px;
+  border:1px solid var(--red);background:#fff;color:var(--red);
+  cursor:pointer;transition:background .2s,color .2s;
+}
+.choice input:checked + label{background:var(--red);color:#fff}
+.choice input:focus-visible + label{outline:2px solid var(--red);outline-offset:2px}
+.btn-send{
+  font-family:var(--button-serif);font-style:italic;
+  width:100%;margin-top:.5rem;background:var(--red);color:#fff;
+  border:0;border-radius:999px;padding:.68rem;
+  font-size:.85rem;font-weight:400;letter-spacing:0;transition:background .2s;
+}
+.btn-send:hover{background:#983535}
+.form-status{
+  font-family:var(--sans);
+  text-align:center;font-size:.8rem;color:var(--red);
+  margin:.9rem 0 0;min-height:1.2em;
+}
+
+/* RSVP follows the Figma card: narrow form, generous border radius, and the
+   candle held in the lower-right breathing room. */
+#modal-rsvp .modal{
+  width:min(calc(100vw - 3rem),344px);
+  max-height:min(88svh,620px);
+  position:relative;
+  border:2px solid var(--red);
+  border-radius:31px;
+  background-color:var(--cream-low);
+  background-image:url('../assets/art/page-wash.svg');
+  background-repeat:no-repeat;
+  background-size:190% auto;
+  background-position:center 42%;
+  background-blend-mode:multiply;
+  padding:clamp(3.75rem,10svh,4.75rem) clamp(2rem,9vw,2.55rem) clamp(6.2rem,16svh,7.1rem);
+  box-shadow:none;
+}
+#modal-rsvp .modal-close{
+  top:clamp(1.2rem,4.5vw,1.7rem);
+  right:clamp(1rem,5vw,1.45rem);
+  width:32px;height:32px;
+  font-family:var(--serif);
+  font-style:italic;font-weight:700;
+  font-size:clamp(1.35rem,5.2vw,1.75rem);
+  letter-spacing:0;
+}
+#modal-rsvp .modal-title{
+  font-family:var(--serif);
+  font-style:italic;font-weight:700;
+  width:calc(100% + 2rem);
+  margin-inline:-1rem;
+  font-size:clamp(1.15rem,5.7vw,1.625rem);
+  line-height:1.3;
+  letter-spacing:0;
+  white-space:nowrap;
+  margin:0 -1rem clamp(1.4rem,4.4svh,1.75rem);
+}
+#modal-rsvp form{
+  position:relative;z-index:1;
+  width:min(100%,262px);
+  margin-inline:auto;
+}
+#modal-rsvp .field{margin-bottom:clamp(.55rem,1.55svh,.72rem)}
+#modal-rsvp .field > label,
+#modal-rsvp .field .field-label{
+  font-size:.6rem;
+  letter-spacing:.17em;
+  line-height:1.25;
+  margin-bottom:.18rem;
+}
+#modal-rsvp .field input[type=text],
+#modal-rsvp .field textarea{
+  min-height:23px;
+  border-radius:8px;
+  padding:.25rem .5rem;
+  font-size:.75rem;
+  background:rgba(255,255,255,.62);
+}
+#modal-rsvp .field textarea{
+  min-height:40px;
+  padding-block:.4rem;
+}
+#modal-rsvp .choice{
+  gap:4px;
+}
+#modal-rsvp .choice label{
+  min-height:23px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:.18rem .45rem;
+  font-size:.7rem;
+  font-weight:400;
+  letter-spacing:.1em;
+}
+#modal-rsvp .btn-send{
+  min-height:25px;
+  margin-top:clamp(.35rem,1.4svh,.6rem);
+  border-radius:8px;
+  padding:.3rem .7rem;
+  font-size:.68rem;
+  font-weight:400;
+  letter-spacing:.24em;
+}
+#modal-rsvp .form-status:empty{display:none}
+.rsvp-success{
+  position:relative;z-index:1;
+  width:min(100%,262px);
+  margin:clamp(.65rem,2svh,1rem) auto 0;
+  text-align:center;
+  color:var(--red);
+}
+.rsvp-success[hidden]{display:none}
+.rsvp-success-check{
+  display:inline-grid;
+  place-items:center;
+  width:clamp(56px,18vw,72px);
+  height:clamp(56px,18vw,72px);
+  margin-bottom:.85rem;
+}
+.rsvp-success-check svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+.rsvp-success-check circle,
+.rsvp-success-check path{
+  fill:none;
+  stroke:var(--red);
+  stroke-width:3.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.rsvp-success-check circle{
+  opacity:.22;
+  stroke-dasharray:151;
+  stroke-dashoffset:151;
+  animation:rsvp-check-circle .65s ease-out forwards;
+}
+.rsvp-success-check path{
+  stroke-dasharray:42;
+  stroke-dashoffset:42;
+  animation:rsvp-check-mark .55s .42s cubic-bezier(.18,.82,.28,1) forwards;
+}
+.rsvp-success p{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.05rem,5vw,1.45rem);
+  line-height:1.35;
+  margin:0;
+  opacity:0;
+  transform:translateY(8px);
+  animation:rsvp-thanks-in .5s .72s ease-out forwards;
+}
+@keyframes rsvp-check-circle{to{stroke-dashoffset:0}}
+@keyframes rsvp-check-mark{to{stroke-dashoffset:0}}
+@keyframes rsvp-thanks-in{to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  .rsvp-success-check circle,
+  .rsvp-success-check path,
+  .rsvp-success p{
+    animation:none;
+    stroke-dashoffset:0;
+    opacity:1;
+    transform:none;
+  }
+}
+.rsvp-candle{
+  position:absolute;
+  right:clamp(1.35rem,5.4vw,1.85rem);
+  bottom:clamp(1rem,4vw,1.45rem);
+  width:min(20%,68px);
+  height:auto;
+  object-fit:contain;
+  object-position:center bottom;
+  opacity:.92;pointer-events:none;z-index:0;
+}
+
+.map-apps{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:.5rem}
+.map-app{
+  font-family:var(--sans);
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  text-decoration:none;color:var(--charcoal);font-size:.68rem;font-weight:400;letter-spacing:.1em;
+}
+/* The hand-drawn Waze / Google Maps badges from Figma. They carry their own
+   drawn frame and full colour, so the circular wrapper is gone and so is the
+   recolour filter that used to tint the old black line-art red. */
+.map-app .icon-img{
+  display:block;width:clamp(62px,18vw,78px);height:auto;
+  transition:transform .22s ease,opacity .22s ease;
+}
+.map-app:hover .icon-img{transform:translateY(-4px);opacity:.9}
+
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+/* The design insets the image inside the card and sets the shop name beneath
+   it as underlined red text, rather than running the picture edge to edge
+   with a divider above the label. */
+.gift{
+  display:block;text-decoration:none;
+  border:1.5px solid var(--red);border-radius:18px;background:#fff;
+  padding:clamp(.35rem,1.8vw,.55rem);
+  transition:box-shadow .2s ease,transform .2s ease;
+}
+a.gift:hover{transform:translateY(-2px);box-shadow:0 8px 20px -10px rgba(103,104,104,.5)}
+a.gift:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* An odd last card would otherwise sit alone in the left column; this centres
+   it at the same width as the pairs above. */
+.gift-grid > .gift:last-child:nth-child(odd){
+  grid-column:1 / -1;
+  width:calc(50% - .5rem);
+  margin-inline:auto;
+}
+.gift .thumb{
+  display:block;width:100%;aspect-ratio:1;
+  object-fit:cover;border-radius:16px;
+  background:linear-gradient(150deg,#e8e0d8,#c7b9ad);
+}
+/* Stand-in until a shop supplies a photo: its initials on the invitation's
+   own paper, so the card reads as designed rather than as a missing image.
+   Adding `image` to the shop replaces this outright. */
+.gift .thumb--mono{
+  display:grid;place-items:center;
+  background:linear-gradient(160deg,#FDFBF9,#F2EAE2);
+}
+.gift .thumb--mono span{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.9rem,7vw,2.6rem);
+  letter-spacing:.06em;
+  color:var(--red);opacity:.62;
+}
+.gift .addr{
+  font-family:var(--sans);
+  display:block;text-align:center;
+  text-decoration:underline;text-underline-offset:.28em;
+  text-decoration-thickness:from-font;
+  font-size:.65rem;font-weight:400;letter-spacing:.1em;line-height:1.6;
+  color:var(--red);
+  padding:.6rem .2rem .15rem;
+}
+
+/* the quiet hand-off from the shop list to the bank details */
+.modal-aside{
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.2rem,5vw,1.6rem);
+  color:var(--red);text-align:center;margin:1.6rem 0 1rem;
+}
+.modal-action{text-align:center;margin:0}
+#modal-gifts .modal-action .btn{
+  font-size:.75rem;
+  line-height:1;
+  font-weight:400;
+  letter-spacing:0;
+  padding:.6em 2em;
+}
+
+.bank{text-align:left}
+.bank-holder{
+  font-family:var(--apparel);font-style:normal;font-weight:700;text-transform:uppercase;
+  font-size:.9375rem;letter-spacing:0;line-height:1;
+  color:var(--charcoal);margin:0 0 1.6rem;
+}
+.bank-kind{
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:1.25rem;line-height:1;letter-spacing:0;
+  color:var(--red);margin:0 0 .5rem;
+}
+.bank-number{
+  font-family:var(--apparel);font-style:normal;font-weight:700;
+  font-size:.9375rem;
+  letter-spacing:0;line-height:1;
+  color:var(--charcoal);margin:0;
+  /* a RIB and an IBAN are read in groups, so a line may break between them
+     but never inside one */
+  overflow-wrap:normal;word-break:keep-all;
+}
+.bank-copy{
+  margin-top:1.5rem;
+  font-family:var(--button-serif);font-style:italic;font-size:.75rem;font-weight:400;
+  line-height:1;letter-spacing:0;text-transform:none;
+  color:var(--red);background:rgba(255,255,255,.48);
+  border:1px solid var(--red);border-radius:999px;padding:.5rem 1.7rem;
+  transition:background .2s ease,color .2s ease;
+}
+.bank-copy:hover{background:var(--red);color:#fff}
+.bank-copy:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.gift-empty{
+  font-family:var(--sans);
+  grid-column:1 / -1;
+  margin:0;
+  padding:1.15rem 1rem;
+  border:1px solid rgba(173,63,63,.35);
+  border-radius:12px;
+  background:#fff;
+  text-align:center;
+  font-size:.8rem;
+  line-height:1.8;
+  letter-spacing:.08em;
+  color:var(--charcoal);
+}
+
+/* ── motion / a11y ──────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(22px);
+        transition:opacity 1.2s ease,transform 1.2s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ═══ INTRO · curtain video, centred tap cue and staged names ═══ */
+
+/* 100% Opaque video - NO mix-blend-mode transparency! */
+#curtain-video{
+  position:fixed;inset:0;z-index:210;
+  width:100%;height:100%;object-fit:cover;
+  pointer-events:none;
+  opacity:0;visibility:hidden;
+  background:#6B0709;
+  will-change:opacity,transform,clip-path,filter;
+  transition:opacity .75s cubic-bezier(.22,.61,.24,1),
+             filter .75s cubic-bezier(.22,.61,.24,1),
+             transform .75s cubic-bezier(.22,.61,.24,1);
+}
+#curtain-video.rolling{opacity:1;visibility:visible}
+#curtain-video.fading{opacity:0;filter:blur(10px);transform:scale(1.03)}
+#curtain-video.done{display:none!important;opacity:0!important;visibility:hidden!important}
+
+/* The whole first screen is one large, accessible tap target. */
+#enter{
+  position:fixed;inset:0;z-index:211;
+  width:100%;height:100%;
+  display:grid;place-items:center;
+  text-align:center;padding:1.5rem;
+  border:0;color:#F3E4DC;
+  background: url('../assets/images/curtain-closed.jpg') center/cover no-repeat #6B0709;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+#enter.gone{opacity:0;visibility:hidden;pointer-events:none}
+
+.click-prompt-wrapper{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1rem;user-select:none;pointer-events:none;
+}
+
+.enter-trigger{
+  display:grid;place-items:center;
+  width:clamp(88px,13vw,116px);
+  height:clamp(88px,13vw,116px);
+  border:1px solid rgba(243,228,220,.58);
+  border-radius:50%;
+  color:#F3E4DC;
+  background:rgba(62,5,8,.14);
+  box-shadow:0 0 0 0 rgba(243,228,220,.26),0 14px 36px rgba(0,0,0,.22);
+  backdrop-filter:blur(2px);
+  transition:transform .25s ease, color .25s ease, opacity .25s ease;
+  animation:tapHint 2.4s ease-in-out infinite;
+  opacity:.92;
+}
+.enter-trigger-icon{
+  display:block;
+  width:clamp(58px,8vw,76px);
+  height:auto;
+  filter:brightness(0) invert(1) drop-shadow(0 7px 15px rgba(0,0,0,.32));
+}
+#enter:hover .enter-trigger{
+  transform:scale(1.045);
+  color:#fff;
+  opacity:1;
+}
+#enter:focus-visible{
+  outline:2px solid #F3E4DC;
+  outline-offset:-8px;
+}
+.enter-copy{
+  font-family:var(--sans);
+  font-size:clamp(.78rem,2vw,.96rem);
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-shadow:0 4px 18px rgba(0,0,0,.55);
+  animation:tapCopy 2.4s ease-in-out infinite;
+}
+
+@keyframes tapHint{
+  0%,100%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(243,228,220,.28),0 14px 36px rgba(0,0,0,.22)}
+  50%{transform:translateY(-7px) scale(1.035);box-shadow:0 0 0 12px rgba(243,228,220,0),0 18px 42px rgba(0,0,0,.27)}
+}
+@keyframes tapCopy{
+  0%,100%{opacity:.66;transform:translateY(0)}
+  50%{opacity:1;transform:translateY(-2px)}
+}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+@media (max-width:640px){
+  .curtain{opacity:.7}
+  .attire-caps span{font-size:.95rem}
+}
+
+/* ══ Ajouts du clone ═══════════════════════════════════════
+   La photo d'origine avait l'arche découpée dans le fichier ; ici l'arche est
+   faite en CSS pour accepter n'importe quelle photo rectangulaire. */
+.portrait img{
+  border-radius:999px 999px 0 0;
+  aspect-ratio:769/1124;
+  object-fit:cover;
+  object-position:center top;
+}
+@media (min-height:520px){ .hero .portrait img{width:auto;height:100%;object-fit:cover} }

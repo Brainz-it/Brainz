@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9a48e"/><stop offset="1" stop-color="#6f5a48"/></linearGradient></defs>
-  <rect width="600" height="800" fill="url(#g)"/>
-  <circle cx="300" cy="300" r="70" fill="rgba(255,255,255,0.25)"/><path d="M160 800 q140 -300 280 0" fill="rgba(255,255,255,0.2)"/>
-  <text x="50%" y="92%" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="rgba(255,255,255,0.55)">Photo du couple</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="769" height="1124" viewBox="0 0 769 1124">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9cbbd"/><stop offset="1" stop-color="#8d7a68"/></linearGradient></defs>
+  <rect width="769" height="1124" fill="url(#g)"/>
+  <circle cx="384" cy="420" r="110" fill="rgba(255,255,255,0.28)"/><path d="M160 1124 q224 -420 448 0" fill="rgba(255,255,255,0.22)"/>
+  <text x="50%" y="94%" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="rgba(255,255,255,0.6)">Votre photo</text>
 </svg>

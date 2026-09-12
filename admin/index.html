@@ -66,7 +66,7 @@
       <div id="tab-photos" class="tabpane" hidden>
         <div class="card">
           <h2>Ajouter des photos</h2>
-          <p class="hint">Les photos sont envoyées dans <code>content/photos/</code> ; les illustrations au trait (SVG) se trouvent dans <code>content/illustrations/</code> et peuvent être choisies dans les champs « Illustration » de l'onglet Contenu. Cochez « Envoyer l'original » pour un SVG.</p>
+          <p class="hint">Les photos sont envoyées dans <code>content/photos/</code> (photo du couple, boutiques…). Les illustrations décoratives (rideaux, bougies, lanternes, tenues) sont dans <code>assets/art/</code> et <code>assets/images/</code> et se choisissent dans les champs image de l'onglet Contenu. Cochez « Envoyer l'original » pour un SVG ou un WebP.</p>
           <p class="hint">Les images sont redimensionnées côté navigateur (max <input id="in-maxpx" type="number" value="1600" min="400" max="4000" style="width:80px"> px, JPEG) avant envoi pour garder le dépôt léger. Cochez « Envoyer l'original » pour ne pas convertir.</p>
           <label class="check"><input id="in-original" type="checkbox"> Envoyer l'original sans conversion</label>
           <label class="check"><input id="in-addgallery" type="checkbox" checked> Ajouter automatiquement à la galerie</label>
@@ -79,7 +79,7 @@
           <div id="gallery-list" class="photo-list"></div>
         </div>
         <div class="card">
-          <h2>Tous les fichiers (photos et illustrations)</h2>
+          <h2>Tous les fichiers image du dépôt</h2>
           <div id="files-list" class="photo-list"></div>
         </div>
       </div>

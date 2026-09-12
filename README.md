@@ -1,25 +1,26 @@
 # Site de mariage paramétrable
 
-Ce dépôt ne contient que le site : un site statique (HTML/CSS/JS, sans build) dont **tout le contenu** est piloté par deux fichiers JSON et un dossier de photos. La page `/admin/` sert de « petit backend côté Git » : elle lit et écrit ces fichiers directement dans le dépôt GitHub, chaque enregistrement est un commit, et GitHub Pages redéploie le site automatiquement.
+Reproduction fidèle du site raniaetzidanewedding.com (intro rideau vidéo, prénoms animés, défilement page par page, compte à rebours, modales RSVP / itinéraire / liste de mariage / coordonnées bancaires), dont **tout le contenu** est piloté par `content/site.json`. Ce dépôt ne contient que le site. La page `/admin/` sert de « petit backend côté Git » : elle lit et écrit `site.json` et les photos directement dans le dépôt GitHub, chaque enregistrement est un commit, et GitHub Pages redéploie automatiquement.
 
 ```
 .
-├── index.html            # page unique du site
-├── assets/style.css      # styles (couleurs/polices surchargées par site.json)
-├── assets/site.js        # rendu des sections à partir du JSON
-├── content/site.json     # ⚙️ tous les textes, dates, couleurs, sections
-├── content/gallery.json  # 🖼️ ordre et légendes des photos de la galerie
-├── content/photos/       # 📷 les photos (couple, galerie)
-├── content/illustrations/# ✏️ illustrations au trait (lanternes, riad, tenues…)
+├── index.html            # page unique (structure identique à l'original)
+├── assets/style.css      # feuille de style de l'original (couleurs/polices surchargées par site.json)
+├── assets/site.js        # injection du contenu + intro, défilement, modales
+├── assets/art/           # illustrations vectorielles (lanternes, rideaux, tenues, ornements)
+├── assets/images/        # bougies, riad, lanterne, icônes, image du rideau fermé
+├── assets/media/         # vidéo d'ouverture du rideau
+├── content/site.json     # ⚙️ tous les textes, dates, couleurs, liens, comptes bancaires
+├── content/photos/       # 📷 photo du couple, visuels des boutiques
 ├── admin/                # backend Git : édition du contenu et des photos
 └── .github/workflows/    # déploiement GitHub Pages
 ```
 
-## Sections du site
+## Pages du site
 
-Dans l'ordre de la page : en-tête (« You are invited to the wedding of », prénoms, photo en arche, bougies, guirlande de lanternes) · Date et ville · Compte à rebours encadré · Bouton RSVP · About the Venue (illustration + bouton Directions) · Attire details (illustrations femme / homme) · Schedule · Galerie (désactivée par défaut) · Wedding list (boutons) · Formulaire RSVP (si `rsvp.mode` = `form`) · Pied de page (lanterne, monogramme, date courte).
+Rideau « Touchez pour continuer » → prénoms centrés → invitation · Date, ville, compte à rebours, bouton RSVP (modale avec formulaire) · About the Venue (croquis + Directions vers Waze / Google Maps) · Attire details (caftan, robe, costume) · Schedule · Wedding list (boutiques + coordonnées bancaires avec bouton copier) · pied de page (lanterne, monogramme, date).
 
-Chaque section a un champ `enabled` dans `site.json` : passez-le à `false` pour la masquer. Les illustrations au trait sont des SVG dans `content/illustrations/`, remplaçables par les vôtres.
+Chaque section a un champ `enabled` dans `site.json` ; l'intro se désactive avec `intro.enabled: false`. L'URL `?preview=1` saute l'intro.
 
 ## Mise en ligne (une seule fois)
 
@@ -50,17 +51,16 @@ Le token ne quitte jamais le navigateur (il est envoyé uniquement à `api.githu
 | Clé | Rôle |
 |---|---|
 | `couple.bride`, `couple.groom`, `couple.conjunction`, `couple.monogram` | Prénoms, mot entre les prénoms, monogramme du pied de page |
-| `hero.kicker`, `hero.photo`, `hero.*Decoration`, `hero.divider` | Phrase d'intro, photo du couple (affichée en arche), illustrations |
-| `event.date` | Date ISO utilisée par le compte à rebours (ex. `2026-09-26T17:30:00+01:00`) |
+| `hero.eyebrow`, `hero.photo` | Phrase d'intro et photo du couple (affichée en arche) |
+| `event.date` | Date ISO du compte à rebours (ex. `2026-09-26T17:30:00+01:00`) |
 | `event.dateLabel`, `event.city`, `event.shortDate` | Date affichée, ville, date courte du pied de page |
-| `theme.color*`, `theme.font*`, `theme.paperTexture`, `theme.watercolorBlotches` | Couleurs, polices Google Fonts, grain papier et taches aquarelle du fond |
-| `rsvp.mode` | `form` : formulaire intégré en bas de page ; `link` : le bouton RSVP ouvre `rsvp.url` (Google Form, etc.) |
-| `rsvp.form.sendVia` | `mailto`, `whatsapp` (message pré-rempli) ou `formspree` (POST) |
-| `venue` | Titre, illustration, texte, bouton Directions vers `mapsUrl` |
-| `attire.items[]` | Illustration et libellé pour chaque tenue |
-| `schedule.items[]` | Heure et titre de chaque étape, `closingText` en fin de liste |
-| `weddingList.links[]` | Boutons (libellé + lien) de la liste de mariage |
-| `gallery.enabled` | Affiche une galerie (photos de `content/gallery.json`) |
+| `theme.color*`, `theme.font*` | Palette (rouge, gris, crèmes) et polices Google Fonts |
+| `intro.enabled`, `intro.prompt` | Rideau d'ouverture et texte du bouton |
+| `rsvp.sendVia` | `mailto` (client mail), `whatsapp` (message pré-rempli) ou `formspree` (POST) ; libellés et messages d'erreur dans `rsvp.labels` |
+| `venue.latitude`, `venue.longitude` | Coordonnées du lieu pour les liens Waze et Google Maps (ou `wazeUrl` / `googleMapsUrl` explicites) |
+| `attire.items[]` | Illustrations des tenues avec position (`left`, `width` en %) |
+| `schedule.items[]` | Heure et titre de chaque étape |
+| `weddingList.buttons[]`, `shops[]`, `banks` | Boutons Morocco / Abroad, boutiques (nom, lien, image), RIB et IBAN |
 
 ## Tester en local
 
