@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "The Wedding of Marwa & Hamid · Marrakech · 26 September 2026",
+    "title": "The Wedding of Marwa & Hamid · Casablanca · 6 November 2026",
     "language": "en",
-    "description": "You are invited to the wedding of Marwa and Hamid — Saturday 26 September 2026, Marrakech. RSVP online.",
+    "description": "You are invited to the wedding of Marwa and Hamid — Friday 6 November 2026, Prestige Palace, Bouskoura (Casablanca). RSVP online.",
     "ogImage": "content/photos/couple.jpg",
     "favicon": "content/photos/favicon.svg",
     "creditsPage": "credits.html"
@@ -34,10 +34,10 @@
     "photo": "content/photos/couple.jpg"
   },
   "event": {
-    "date": "2026-09-26T17:30:00+01:00",
-    "dateLabel": "Saturday 26 September 2026",
-    "city": "Marrakech",
-    "shortDate": "26 . 09 . 2026"
+    "date": "2026-11-06T17:00:00+01:00",
+    "dateLabel": "Friday 6 November 2026",
+    "city": "Bouskoura · Casablanca",
+    "shortDate": "06 . 11 . 2026"
   },
   "countdown": {
     "labels": {
@@ -77,12 +77,15 @@
     "enabled": true,
     "title": "About the Venue",
     "illustration": "assets/images/venue.webp",
-    "text": "Location and practical details to make the journey to the celebration effortless",
+    "text": "Prestige Palace, Bouskoura — Casablanca.\nLocation and practical details to make the journey to the celebration effortless",
     "buttonLabel": "Directions",
-    "latitude": 31.5242443,
-    "longitude": -7.999107,
+    "latitude": 33.45506,
+    "longitude": -7.63631,
     "wazeLabel": "Waze",
-    "googleMapsLabel": "Google Maps"
+    "googleMapsLabel": "Google Maps",
+    "name": "Prestige Palace",
+    "googleMapsUrl": "https://maps.app.goo.gl/jV6euZeRtcSuHM368",
+    "wazeUrl": "https://waze.com/ul?ll=33.45506,-7.63631&navigate=yes"
   },
   "attire": {
     "enabled": true,
@@ -109,11 +112,11 @@
     "title": "Schedule",
     "items": [
       {
-        "time": "17:30",
+        "time": "17:00",
         "title": "Guest Arrival"
       },
       {
-        "time": "18:30",
+        "time": "18:00",
         "title": "The bride and groom’s entrance"
       },
       {
@@ -211,8 +214,8 @@
     "brideLabel": "The bride",
     "ceremony": {
       "label": "Wedding ceremony at",
-      "venue": "Family home",
-      "time": "17:30"
+      "venue": "Prestige Palace",
+      "time": "17:00"
     },
     "gallery": {
       "title": "Photo gallery"
@@ -220,11 +223,11 @@
     "reception": {
       "title": "Reception info",
       "intro": "The reception will take place at:",
-      "venue": "Riad, Marrakech",
-      "address": "Marrakech, Morocco",
-      "time": "19:00",
+      "venue": "Prestige Palace",
+      "address": "Bouskoura, Casablanca",
+      "time": "18:00",
       "welcomeLabel": "Welcome",
-      "welcomeTime": "18:30",
+      "welcomeTime": "17:00",
       "receptionLabel": "Reception",
       "addToCalendar": "Add to calendar",
       "confirm": "Confirm attendance",
@@ -243,10 +246,10 @@
     "scheduleTitle": "Wedding day schedule",
     "scheduleIcons": [
       "🥂",
-      "💃",
       "💍",
+      "🍽️",
+      "🎶",
       "🍰",
-      "🎆",
       "🌙"
     ],
     "guestbook": {
@@ -296,41 +299,42 @@
     "venue": {
       "title": "Le lieu",
       "ceremonyLabel": "Cérémonie",
-      "ceremonyName": "Riad des Jardins",
-      "ceremonyTime": "17h30",
-      "ceremonyAddress": "Marrakech, Médina",
+      "ceremonyName": "Prestige Palace",
+      "ceremonyTime": "17h00",
+      "ceremonyAddress": "Bouskoura, Casablanca",
       "receptionLabel": "Réception",
-      "receptionName": "Pavillon de la Ménara",
-      "receptionTime": "19h00",
-      "receptionAddress": "Avenue de la Ménara, Marrakech",
+      "receptionName": "Prestige Palace",
+      "receptionTime": "à la suite",
+      "receptionAddress": "Bouskoura, Casablanca",
       "mapsLabel": "Ouvrir dans Maps →",
       "travel": [
         {
           "label": "En voiture",
-          "text": "Parking gratuit à proximité du lieu, suivez les indications « Ménara »."
+          "text": "Prestige Palace, Bouskoura, à 25 minutes du centre de Casablanca. Parking sur place."
         },
         {
           "label": "En avion",
-          "text": "Aéroport Marrakech-Ménara à 10 minutes en taxi."
+          "text": "Aéroport Mohammed V à 20 minutes en taxi."
         },
         {
           "label": "Hébergement",
           "text": "Des chambres sont réservées à tarif préférentiel, écrivez-nous."
         }
-      ]
+      ],
+      "mapsUrl": "https://maps.app.goo.gl/jV6euZeRtcSuHM368"
     },
     "program": {
       "kicker": "La journée",
       "title": "Le programme",
       "items": [
         {
-          "time": "17:30",
+          "time": "17:00",
           "title": "Accueil des invités",
-          "text": "Thé à la menthe et pâtisseries dans le jardin",
+          "text": "Thé à la menthe et pâtisseries",
           "icon": "glass"
         },
         {
-          "time": "18:30",
+          "time": "18:00",
           "title": "Entrée des mariés",
           "text": "Cérémonie traditionnelle au son des neggafates",
           "icon": "rings"
@@ -338,13 +342,13 @@
         {
           "time": "20:30",
           "title": "Dîner",
-          "text": "Dîner marocain sous les étoiles",
+          "text": "Dîner marocain",
           "icon": "dinner"
         },
         {
           "time": "22:30",
           "title": "Soirée",
-          "text": "Musique live jusqu'au bout de la nuit",
+          "text": "Musique live jusqu’au bout de la nuit",
           "icon": "music"
         }
       ]
@@ -369,7 +373,7 @@
     "rsvp": {
       "title": "Confirmez votre présence",
       "kicker": "Faites-le nous savoir",
-      "text": "Dites-nous si vous serez présents avant le 1er septembre 2026.",
+      "text": "Dites-nous si vous serez présents avant le 15 octobre 2026.",
       "familyLabel": "Nom de famille",
       "guestLabel": "Prénom de l'invité",
       "addGuest": "+ Ajouter un invité",
@@ -397,7 +401,7 @@
         },
         {
           "q": "Y a-t-il un parking ?",
-          "a": "Oui, un parking gratuit est disponible sur place."
+          "a": "Oui, un parking est disponible sur place au Prestige Palace."
         }
       ]
     },
