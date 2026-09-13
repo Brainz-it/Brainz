@@ -190,6 +190,7 @@
   },
   "invitation": {
     "kicker": "Save the date",
+    "seal": "gold",
     "coverInvites": "Cordially invites",
     "openLabel": "Open",
     "families": {

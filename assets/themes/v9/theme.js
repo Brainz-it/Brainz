@@ -48,9 +48,12 @@ window.WEDDING_THEME = (function () {
     var monogram = cp.monogram || (cp.bride.charAt(0) + "&" + cp.groom.charAt(0));
     var icons = inv.scheduleIcons || [];
     var names = esc(cp.bride) + "<span class='t9-amp'>" + esc(cp.conjunction || "&") + "</span>" + esc(cp.groom);
+    // sceau : "gold" | "wax" | "bow" (images partagées avec la V10) ou "svg" (sceau vectoriel d'origine) ; ?seal=… permet de comparer
+    var sealKey = (new URLSearchParams(location.search).get("seal") || inv.seal || "gold").replace(/[^a-z]/g, "") || "gold";
+    var sealSrc = sealKey === "svg" ? "assets/themes/v9/art/seal.svg" : "assets/themes/v10/art/seal-" + sealKey + ".webp";
     var html = ''
       + '<section class="t9-sec t9-save reveal"><div class="t9-kicker">' + esc(inv.kicker || "Save the date") + '</div>'
-      + '  <div class="t9-envelope"><img class="t9-roses t9-roses--l" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"><div class="t9-photo"><img src="' + esc(c.hero.photo) + '" alt="' + esc(cp.bride + " & " + cp.groom) + '"></div><div class="t9-env-back"></div><div class="t9-env-front"></div><img class="t9-seal" src="assets/themes/v9/art/seal.svg" alt="" aria-hidden="true"><img class="t9-roses t9-roses--r" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"></div>'
+      + '  <div class="t9-envelope"><img class="t9-roses t9-roses--l" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"><div class="t9-photo"><img src="' + esc(c.hero.photo) + '" alt="' + esc(cp.bride + " & " + cp.groom) + '"></div><div class="t9-env-back"></div><div class="t9-env-front"></div><img class="t9-seal t9-seal--' + sealKey + '" src="' + sealSrc + '" alt="" aria-hidden="true"><img class="t9-roses t9-roses--r" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"></div>'
       + '  <h1 class="t9-names">' + names + '</h1></section>'
       + '<section class="t9-sec reveal"><div class="t9-card">'
       + '  <div class="t9-card-title">' + esc(f.title || "Ceremony info") + '</div>'

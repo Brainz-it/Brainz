@@ -80,6 +80,7 @@ body{background:#f6efe6 url("art/paper.jpg") center/400px repeat}
 .t9-env-front{position:absolute;left:8%;right:8%;top:22%;bottom:0;z-index:3;border-radius:6px;background:linear-gradient(135deg,#7a1622 0,#7a1622 50%,#5f101a 50%);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
 .t9-env-front::after{content:"";position:absolute;inset:0;background:linear-gradient(45deg,transparent 49%,rgba(0,0,0,.18) 50%,transparent 51%),linear-gradient(-45deg,transparent 49%,rgba(0,0,0,.18) 50%,transparent 51%)}
 .t9-seal{position:absolute;left:50%;top:60%;width:22%;transform:translate(-50%,-50%);z-index:4;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))}
+.t9-seal--gold,.t9-seal--bow{width:38%;top:62%}.t9-seal--wax{width:26%}
 .t9-photo{position:absolute;left:50%;top:0;width:54%;aspect-ratio:3/4;transform:translateX(-50%) rotate(6deg);z-index:2;background:#fff;padding:5% 5% 12%;box-shadow:0 14px 30px rgba(0,0,0,.25);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .t9-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .intro-rest-revealed .t9-photo{transform:translate(-50%,-14%) rotate(-4deg)}
