@@ -1,33 +1,18 @@
 {
   "photos": [
     {
-      "src": "content/photos/couple.jpg",
-      "alt": "Couple",
+      "src": "content/photos/galerie-1.webp",
+      "alt": "Marwa et Hamid dans le jardin",
       "caption": ""
     },
     {
-      "src": "assets/themes/v1/photos/riad.jpg",
-      "alt": "Riad",
+      "src": "content/photos/galerie-2.webp",
+      "alt": "Marwa et Hamid et le gâteau H&M",
       "caption": ""
     },
     {
-      "src": "assets/themes/v2/photos/majorelle.jpg",
-      "alt": "Jardin Majorelle",
-      "caption": ""
-    },
-    {
-      "src": "assets/themes/v6/photos/dunes.jpg",
-      "alt": "Dunes",
-      "caption": ""
-    },
-    {
-      "src": "assets/themes/v5/photos/olives.jpg",
-      "alt": "Oliveraie",
-      "caption": ""
-    },
-    {
-      "src": "assets/themes/v7/photos/koutoubia.jpg",
-      "alt": "Koutoubia",
+      "src": "content/photos/galerie-3.webp",
+      "alt": "L'enseigne du Prestige Palace",
       "caption": ""
     }
   ]
