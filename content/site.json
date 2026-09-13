@@ -1,8 +1,8 @@
 {
   "site": {
-    "title": "The Wedding of Marwa & Hamid · Casablanca · 6 November 2026",
-    "language": "en",
-    "description": "You are invited to the wedding of Marwa and Hamid — Friday 6 November 2026, Prestige Palace, Bouskoura (Casablanca). RSVP online.",
+    "title": "Mariage de Marwa & Hamid · 6 novembre 2026",
+    "language": "fr",
+    "description": "Vous êtes invités au mariage de Marwa et Hamid, le vendredi 6 novembre 2026 à 17h00 au Prestige Palace, Bouskoura (Casablanca). Confirmez votre présence en ligne.",
     "ogImage": "content/photos/couple.jpg",
     "favicon": "content/photos/favicon.svg",
     "creditsPage": "credits.html"
@@ -26,8 +26,8 @@
   "couple": {
     "bride": "Marwa",
     "groom": "Hamid",
-    "conjunction": "and",
-    "monogram": "H&M"
+    "conjunction": "&",
+    "monogram": "M&H"
   },
   "hero": {
     "eyebrow": "You are invited to the wedding of",
@@ -35,7 +35,7 @@
   },
   "event": {
     "date": "2026-11-06T17:00:00+01:00",
-    "dateLabel": "Friday 6 November 2026",
+    "dateLabel": "Vendredi 6 novembre 2026",
     "city": "Bouskoura · Casablanca",
     "shortDate": "06 . 11 . 2026"
   },
@@ -50,27 +50,23 @@
   "rsvp": {
     "enabled": true,
     "buttonLabel": "RSVP",
-    "modalTitle": "Will you be joining us?",
+    "modalTitle": "Serez-vous présent(e) ?",
     "sendVia": "googlesheet",
     "googleSheetEndpoint": "https://script.google.com/macros/s/AKfycbzwcIGV8QZPl9QOiO9l6hrWUH2yQwBYEoedTkpwG8quH2tTEI-ht2guneHD6AWea3oA/exec",
     "email": "contact@example.com",
     "whatsappNumber": "212600000000",
     "formspreeEndpoint": "https://formspree.io/f/xxxxxxx",
     "labels": {
-      "name": "Full name",
-      "presence": "Presence",
-      "yes": "Yes",
-      "no": "No",
-      "accompanied": "Will you be accompanied?",
-      "plusOne": "Name of the +1",
-      "word": "A word for the newlyweds",
-      "send": "Send",
-      "sending": "Sending...",
+      "name": "Nom & prénom",
+      "presence": "Présent(e)",
+      "yes": "Oui",
+      "no": "Non",
+      "send": "Envoyer",
+      "sending": "Envoi en cours…",
       "success": "Merci de partager ce chemin avec nous.",
-      "errorName": "Please tell us your name.",
-      "errorPresence": "Please let us know if you can make it.",
-      "errorPlusOne": "Please tell us the name of your +1.",
-      "errorSend": "We could not record your reply. Please try again."
+      "errorName": "Merci d’indiquer votre nom.",
+      "errorPresence": "Merci de nous dire si vous serez présent(e).",
+      "errorSend": "Impossible d’enregistrer votre réponse. Réessayez, ou contactez-nous directement."
     }
   },
   "venue": {
@@ -78,7 +74,7 @@
     "title": "About the Venue",
     "illustration": "assets/images/venue.webp",
     "text": "Prestige Palace, Bouskoura — Casablanca.\nLocation and practical details to make the journey to the celebration effortless",
-    "buttonLabel": "Directions",
+    "buttonLabel": "Localisation",
     "latitude": 33.45506,
     "longitude": -7.63631,
     "wazeLabel": "Waze",
@@ -112,16 +108,12 @@
     "title": "Schedule",
     "items": [
       {
-        "time": "17:00",
-        "title": "Guest Arrival"
+        "time": "17h",
+        "title": "Accueil des invités"
       },
       {
-        "time": "18:00",
-        "title": "The bride and groom’s entrance"
-      },
-      {
-        "time": "Until no time...",
-        "title": ""
+        "time": "18h",
+        "title": "Entrée des mariés"
       }
     ]
   },
@@ -189,62 +181,29 @@
     "showDate": true
   },
   "invitation": {
-    "kicker": "Save the date",
+    "kicker": "À vos agendas !",
     "seal": "gold",
-    "coverInvites": "Cordially invites",
-    "openLabel": "Open",
-    "families": {
-      "title": "Ceremony info",
-      "groom": {
-        "prefix": "Mr. & Mrs.",
-        "father": "Father of the groom",
-        "mother": "Mother of the groom",
-        "city": "Casablanca"
-      },
-      "bride": {
-        "prefix": "Mr. & Mrs.",
-        "father": "Father of the bride",
-        "mother": "Mother of the bride",
-        "city": "Marrakech"
-      }
-    },
-    "announce": "With joyful hearts we announce\nthe wedding of our children",
-    "groomFullName": "Hamid",
-    "brideFullName": "Marwa",
-    "groomLabel": "The groom",
-    "brideLabel": "The bride",
-    "ceremony": {
-      "label": "Wedding ceremony at",
-      "venue": "Prestige Palace",
-      "time": "17:00"
-    },
+    "coverInvites": "ont la joie de vous inviter à leur mariage",
+    "openLabel": "Ouvrir",
+    "calendarTitle": "Mariage de",
+    "message": [
+      "Parce que les plus beaux moments sont ceux que l'on partage avec les personnes qui nous sont chères…",
+      "C'est avec une immense joie que nous vous invitons à célébrer notre mariage et à être témoins du début de notre nouvelle vie à deux.",
+      "Votre présence rendra cette journée encore plus précieuse."
+    ],
     "gallery": {
-      "title": "Photo gallery"
+      "title": "Galerie photo"
     },
     "reception": {
-      "title": "Reception info",
-      "intro": "The reception will take place at:",
+      "title": "Notre cérémonie",
+      "intro": "La cérémonie aura lieu le vendredi 6 novembre 2026 à 17h00.",
       "venue": "Prestige Palace",
       "address": "Bouskoura, Casablanca",
-      "time": "18:00",
-      "welcomeLabel": "Welcome",
-      "welcomeTime": "17:00",
-      "receptionLabel": "Reception",
-      "addToCalendar": "Add to calendar",
-      "confirm": "Confirm attendance",
-      "venueTitle": "Wedding reception venue"
+      "addToCalendar": "Ajouter au calendrier",
+      "confirm": "Confirmer ma présence",
+      "venueTitle": "Lieu de la cérémonie"
     },
-    "dressCode": {
-      "title": "Dress code",
-      "text": "Traditional or formal attire",
-      "colors": [
-        "#6b0f1a",
-        "#1f1f1f",
-        "#c9a24a",
-        "#f3e6d3"
-      ]
-    },
-    "scheduleTitle": "Wedding day schedule",
+    "scheduleTitle": "Programme de la cérémonie",
     "scheduleIcons": [
       "🥂",
       "💍",
@@ -254,17 +213,12 @@
       "🌙"
     ],
     "guestbook": {
-      "title": "Guestbook",
-      "namePlaceholder": "Enter your name",
-      "wishPlaceholder": "Enter your wishes",
-      "send": "Send wishes",
-      "thanks": "Thank you for your wishes!",
-      "empty": "Be the first to leave a wish."
-    },
-    "gift": {
-      "title": "Gift box",
-      "tap": "Tap to open",
-      "text": "Your presence would be the greatest gift we could receive!"
+      "title": "Livre d'or",
+      "namePlaceholder": "Indiquez votre nom",
+      "wishPlaceholder": "Un message pour les mariés",
+      "send": "Envoyer",
+      "thanks": "Merci pour votre message !",
+      "empty": "Soyez les premiers à laisser un message."
     },
     "music": {
       "src": "assets/themes/v9/media/music.mp3",

@@ -214,7 +214,6 @@
     });
 
     /* RSVP */
-    var plusOneField = $("#plus-one-field"), plusOneInput = $("#f-plus-one");
     var rsvpForm = $("#rsvp-form"), rsvpSuccess = $("#rsvp-success"), rsvpStatus = $("#rsvp-status");
     function resetRsvpModal() {
       if (!rsvpForm || !rsvpSuccess) return;
@@ -223,36 +222,23 @@
       var submit = rsvpForm.querySelector(".btn-send");
       if (submit) submit.disabled = false;
     }
-    $$('input[name="accompanied"]').forEach(function (r) {
-      r.addEventListener("change", function () {
-        var bringing = r.value === "yes" && r.checked;
-        plusOneField.hidden = !bringing;
-        plusOneInput.required = bringing;
-        if (!bringing) plusOneInput.value = "";
-      });
-    });
     var rc = c.rsvp || {}, L = rc.labels || {};
     rsvpForm.addEventListener("submit", function (e) {
       e.preventDefault();
       var data = Object.fromEntries(new FormData(e.target).entries());
       if (!data.name || !data.name.trim()) { rsvpStatus.textContent = L.errorName || "Name?"; return; }
       if (!data.presence) { rsvpStatus.textContent = L.errorPresence || "Presence?"; return; }
-      if (data.accompanied === "yes" && (!data.plusOne || !data.plusOne.trim())) { rsvpStatus.textContent = L.errorPlusOne || "+1?"; plusOneInput.focus(); return; }
-      if (data.accompanied !== "yes") delete data.plusOne;
       var submit = e.target.querySelector(".btn-send");
       submit.disabled = true;
       rsvpStatus.textContent = L.sending || "Sending...";
       var yes = L.yes || "Yes", no = L.no || "No";
-      var summary = "RSVP – " + data.name + "\n" + (L.presence || "Presence") + ": " + (data.presence === "yes" ? yes : no) +
-        "\n" + (L.accompanied || "Accompanied") + ": " + (data.accompanied === "yes" ? yes : no) +
-        (data.plusOne ? "\n" + (L.plusOne || "+1") + ": " + data.plusOne : "") +
-        "\n" + (L.word || "Message") + ": " + (data.word || "-");
+      var summary = "RSVP – " + data.name + "\n" + (L.presence || "Presence") + ": " + (data.presence === "yes" ? yes : no);
       var done = function () { rsvpStatus.textContent = ""; e.target.hidden = true; rsvpSuccess.hidden = false; };
       var fail = function (msg) { rsvpStatus.textContent = msg || L.errorSend || "Error"; submit.disabled = false; };
       try {
         if (rc.sendVia === "googlesheet" && rc.googleSheetEndpoint) {
           // Apps Script : envoi en formulaire encodé et sans CORS (réponse opaque), pas de pré-requête à gérer
-          var body = new URLSearchParams(Object.assign({}, data, { presence: data.presence === "yes" ? yes : no, accompanied: data.accompanied === "yes" ? yes : no }));
+          var body = new URLSearchParams(Object.assign({}, data, { presence: data.presence === "yes" ? yes : no }));
           fetch(rc.googleSheetEndpoint, { method: "POST", mode: "no-cors", body: body })
             .then(function () { done(); }).catch(function () { fail(); });
         } else if (rc.sendVia === "formspree" && rc.formspreeEndpoint) {

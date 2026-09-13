@@ -107,3 +107,10 @@ body{background:#f6efe6 url("art/paper.jpg") center/400px repeat}
 /* modales dans la palette */
 .modal{background:#fbf6ef;border:1px solid var(--taupe)}
 .modal-title{color:var(--t9-red)}
+
+.t9-card--message{padding-top:2rem}
+.t9-message{font-family:var(--serif);font-size:1.02rem;line-height:1.7;margin:0 auto 1.2rem;max-width:30ch;position:relative;z-index:1}
+.t9-message p{margin:0 0 .9rem}.t9-message p:last-child{margin-bottom:0}
+.t9-announce--sentence{text-transform:none;letter-spacing:.04em;font-family:var(--serif);font-size:1rem;line-height:1.6}
+.t9-place{display:flex;flex-direction:column;gap:.15rem;margin:.6rem 0 1rem;font-family:var(--serif);position:relative;z-index:1}
+.t9-place b{font-weight:500;font-size:1.25rem}.t9-place span{font-family:var(--sans);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;opacity:.85}

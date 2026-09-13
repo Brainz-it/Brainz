@@ -14,7 +14,7 @@
  *
  * Deux onglets sont utilisés : « RSVP » (réponses) et « Livre d'or » (vœux affichés sur le site).
  */
-var RSVP_HEADERS = ["Date", "Nom", "Présence", "Accompagné(e)", "Nom du +1", "Message"];
+var RSVP_HEADERS = ["Date", "Nom", "Présence"];
 var WISH_HEADERS = ["Date", "Nom", "Vœu", "Affiché"];
 
 function sheetNamed(name, headers) {
@@ -41,7 +41,7 @@ function doPost(e) {
     ws.appendRow([new Date(), String(p.name || "").slice(0, 80), String(p.wish || "").slice(0, 500), "oui"]);
   } else {
     var rs = sheetNamed("RSVP", RSVP_HEADERS);
-    rs.appendRow([new Date(), p.name || "", p.presence || "", p.accompanied || "", p.plusOne || "", p.word || ""]);
+    rs.appendRow([new Date(), p.name || "", p.presence || ""]);
   }
   return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
 }

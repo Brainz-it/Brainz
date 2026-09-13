@@ -16,7 +16,9 @@ window.WEDDING_THEME = (function () {
     var y = d.getFullYear(), m = d.getMonth(), day = d.getDate();
     var first = new Date(y, m, 1), start = (first.getDay() + 6) % 7, days = new Date(y, m + 1, 0).getDate();
     var monthName = d.toLocaleDateString(lang, { month: "long", year: "numeric" });
-    var head = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map(function (x) { return "<span class='t9-dow'>" + x + "</span>"; }).join("");
+    monthName = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+    // lundi → dimanche, abrégés dans la langue du site (le 1er janvier 2024 est un lundi)
+    var head = ""; for (var w = 0; w < 7; w++) { var wd = new Date(2024, 0, 1 + w).toLocaleDateString(lang, { weekday: "short" }).replace(/\./g, ""); head += "<span class='t9-dow'>" + esc(wd.charAt(0).toUpperCase() + wd.slice(1, 2)) + "</span>"; }
     var cells = ""; for (var i = 0; i < start; i++) cells += "<span></span>";
     for (var n = 1; n <= days; n++) cells += "<span class='" + (n === day ? "t9-day t9-day--on" : "t9-day") + "'>" + n + "</span>";
     return "<div class='t9-cal'><div class='t9-cal-title'>" + esc(monthName) + "</div><div class='t9-cal-grid'>" + head + cells + "</div></div>";
@@ -27,7 +29,7 @@ window.WEDDING_THEME = (function () {
     var pad = function (n) { return String(n).padStart(2, "0"); };
     var fmt = function (x) { return x.getUTCFullYear() + pad(x.getUTCMonth() + 1) + pad(x.getUTCDate()) + "T" + pad(x.getUTCHours()) + pad(x.getUTCMinutes()) + "00Z"; };
     var end = new Date(d.getTime() + 6 * 3600 * 1000);
-    var title = "Wedding of " + c.couple.bride + " & " + c.couple.groom;
+    var title = ((c.invitation || {}).calendarTitle || "Wedding of") + " " + c.couple.bride + " & " + c.couple.groom;
     var body = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//wedding//FR", "BEGIN:VEVENT", "DTSTART:" + fmt(d), "DTEND:" + fmt(end), "SUMMARY:" + title, "LOCATION:" + ((c.invitation.reception || {}).address || c.event.city || ""), "END:VEVENT", "END:VCALENDAR"].join("\r\n");
     return "data:text/calendar;charset=utf-8," + encodeURIComponent(body);
   }
@@ -55,28 +57,22 @@ window.WEDDING_THEME = (function () {
       + '<section class="t9-sec t9-save reveal"><div class="t9-kicker">' + esc(inv.kicker || "Save the date") + '</div>'
       + '  <div class="t9-envelope"><img class="t9-roses t9-roses--l" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"><div class="t9-photo"><img src="' + esc(c.hero.photo) + '" alt="' + esc(cp.bride + " & " + cp.groom) + '"></div><div class="t9-env-back"></div><div class="t9-env-front"></div><img class="t9-seal t9-seal--' + sealKey + '" src="' + sealSrc + '" alt="" aria-hidden="true"><img class="t9-roses t9-roses--r" src="assets/themes/v9/art/roses.webp" alt="" aria-hidden="true"></div>'
       + '  <h1 class="t9-names">' + names + '</h1></section>'
-      + '<section class="t9-sec reveal"><div class="t9-card">'
-      + '  <div class="t9-card-title">' + esc(f.title || "Ceremony info") + '</div>'
-      + '  <div class="t9-families"><div><small>' + esc(gf.prefix || "") + '</small><b>' + esc(gf.father || "") + '</b><b>' + esc(gf.mother || "") + '</b><em>' + esc(gf.city || "") + '</em></div><div><small>' + esc(bf.prefix || "") + '</small><b>' + esc(bf.father || "") + '</b><b>' + esc(bf.mother || "") + '</b><em>' + esc(bf.city || "") + '</em></div></div>'
-      + '  <p class="t9-announce">' + esc(inv.announce || "").replace(/\n/g, "<br>") + '</p>'
-      + '  <div class="t9-fullname">' + esc(inv.groomFullName || cp.groom) + '<small>' + esc(inv.groomLabel || "The groom") + '</small></div><div class="t9-amp2">' + esc(cp.conjunction || "&") + '</div><div class="t9-fullname">' + esc(inv.brideFullName || cp.bride) + '<small>' + esc(inv.brideLabel || "The bride") + '</small></div>'
-      + '  <div class="t9-ceremony"><span>' + esc(ce.label || "Wedding ceremony at") + '</span><b>' + esc(ce.venue || "") + '</b><span>' + esc(ce.time ? "at " + ce.time : "") + '</span></div>'
+      + '<section class="t9-sec reveal"><div class="t9-card t9-card--message">'
+      + (inv.messageTitle ? '  <div class="t9-card-title">' + esc(inv.messageTitle) + '</div>' : '')
+      + '  <div class="t9-message">' + (inv.message || []).map(function (par) { return "<p>" + esc(par) + "</p>"; }).join("") + '</div>'
       + bigDate(c, "") + '</div></section>'
       + '<section class="t9-sec reveal"><div class="t9-title">' + esc((inv.gallery || {}).title || "Photo gallery") + '</div><div class="t9-gallery" id="t9-gallery"></div></section>'
       + '<section class="t9-sec reveal"><div class="t9-card">'
-      + '  <div class="t9-card-title">' + esc(rc.title || "Reception info") + '</div><p class="t9-announce">' + esc(rc.intro || "") + '</p>'
-      + bigDate(c, rc.time || "")
-      + '  <div class="t9-times"><div><small>' + esc(rc.welcomeLabel || "Welcome") + '</small><b>' + esc(rc.welcomeTime || "") + '</b></div><div><small>' + esc(rc.receptionLabel || "Reception") + '</small><b>' + esc(rc.time || "") + '</b></div></div>'
+      + '  <div class="t9-card-title">' + esc(rc.title || "Reception info") + '</div><p class="t9-announce t9-announce--sentence">' + esc(rc.intro || "") + '</p>'
+      + '  <div class="t9-place"><b>' + esc(rc.venue || "") + '</b><span>' + esc(rc.address || ev.city || "") + '</span></div>'
       + calendar(ev.date, c.site.language || "en")
-      + '  <a class="t9-link" href="' + ics(c) + '" download="wedding.ics">' + esc(rc.addToCalendar || "Add to calendar") + '</a>'
+      + '  <a class="t9-link" href="' + ics(c) + '" download="mariage.ics">' + esc(rc.addToCalendar || "Add to calendar") + '</a>'
       + '  <button class="t9-btn t9-btn--light" data-open-modal="rsvp">' + esc(rc.confirm || "Confirm attendance") + '</button></div></section>'
       + '<section class="t9-sec reveal"><div class="t9-title">' + esc(rc.venueTitle || "Wedding reception venue") + '</div><p class="t9-addr"><b>' + esc(rc.venue || "") + '</b><br>' + esc(rc.address || ev.city || "") + '</p><button class="t9-outline" data-open-modal="loc">⌖ ' + esc(c.venue.buttonLabel || "Directions") + '</button></section>'
-      + '<section class="t9-sec reveal"><div class="t9-title">' + esc(dc.title || "Dress code") + '</div><p class="t9-addr">' + esc(dc.text || "") + '</p><div class="t9-swatches">' + (dc.colors || []).map(function (col) { return "<i style='background:" + esc(col) + "'></i>"; }).join("") + '</div></section>'
       + '<section class="t9-sec reveal"><div class="t9-card"><div class="t9-card-title">' + esc(inv.scheduleTitle || c.schedule.title) + '</div><div class="t9-timeline">'
       + (c.schedule.items || []).filter(function (it) { return it.title; }).map(function (it, i) { return "<div class='t9-tl'><span class='t9-tl-time'>" + esc(it.time) + "</span><span class='t9-tl-dot'>" + esc(icons[i % icons.length] || "•") + "</span><span class='t9-tl-name'>" + esc(it.title) + "</span></div>"; }).join("")
       + '</div></div></section>'
       + '<section class="t9-sec reveal"><div class="t9-paper"><div class="t9-title">' + esc(gb.title || "Guestbook") + '</div><form id="t9-gb-form"><input name="name" placeholder="' + esc(gb.namePlaceholder || "Your name") + '" required><textarea name="wish" rows="2" placeholder="' + esc(gb.wishPlaceholder || "Your wishes") + '" required></textarea><button class="t9-btn" type="submit">✧ ' + esc(gb.send || "Send wishes") + '</button><p class="t9-gb-status" id="t9-gb-status"></p></form></div><div class="t9-wishes" id="t9-wishes"><p class="t9-muted">' + esc(gb.empty || "") + '</p></div></section>'
-      + '<section class="t9-sec reveal t9-giftsec"><div class="t9-title">' + esc(gift.title || "Gift box") + '</div><button class="t9-gift" data-open-modal="gifts" data-bank="morocco"><img src="assets/themes/v9/art/gift.webp" alt=""><span>' + esc(gift.tap || "Tap to open") + '</span></button><p class="t9-addr">' + esc(gift.text || "") + '</p></section>'
       + '<footer class="t9-footer"><div class="t9-mono">' + esc(monogram) + '</div><div class="t9-date">' + esc(ev.shortDate || "") + '</div>' + (c.site.creditsPage ? '<a class="photo-credit" href="' + esc(c.site.creditsPage) + '">Crédits photos & musique</a>' : "") + '</footer>';
     var page = h.$(".page");
     page.innerHTML = '<img class="t9-castle" src="assets/themes/v9/art/riad.webp" alt="" aria-hidden="true">' + html;
