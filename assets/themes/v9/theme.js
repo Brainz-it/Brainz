@@ -61,7 +61,6 @@ window.WEDDING_THEME = (function () {
       + (inv.messageTitle ? '  <div class="t9-card-title">' + esc(inv.messageTitle) + '</div>' : '')
       + '  <div class="t9-message">' + (inv.message || []).map(function (par) { return "<p>" + esc(par) + "</p>"; }).join("") + '</div>'
       + bigDate(c, "") + '</div></section>'
-      + '<section class="t9-sec reveal"><div class="t9-title">' + esc((inv.gallery || {}).title || "Photo gallery") + '</div><div class="t9-gallery" id="t9-gallery"></div></section>'
       + '<section class="t9-sec reveal"><div class="t9-card">'
       + '  <div class="t9-card-title">' + esc(rc.title || "Reception info") + '</div><p class="t9-announce t9-announce--sentence">' + esc(rc.intro || "") + '</p>'
       + '  <div class="t9-place"><b>' + esc(rc.venue || "") + '</b><span>' + esc(rc.address || ev.city || "") + '</span></div>'
@@ -84,7 +83,7 @@ window.WEDDING_THEME = (function () {
     var seal = h.$(".t9-seal"); if (seal) seal.addEventListener("load", function () {}, { once: true });
     // galerie
     var g = h.$("#t9-gallery");
-    g.innerHTML = photos.map(function (p) { return "<figure><img src='" + esc(p.src) + "' alt='" + esc(p.alt || "") + "' loading='lazy'></figure>"; }).join("");
+    if (g) g.innerHTML = photos.map(function (p) { return "<figure><img src='" + esc(p.src) + "' alt='" + esc(p.alt || "") + "' loading='lazy'></figure>"; }).join("");
     // musique
     if (inv.music && inv.music.src) {
       audio = new Audio(inv.music.src); audio.loop = true; audio.preload = "auto";
