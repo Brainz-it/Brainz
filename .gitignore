@@ -1,7 +1,2 @@
-*/.wasp/
-*/.env.server
-*/.env.client
-*/.DS_Store
-*/node_modules
-*/migrations
 .DS_Store
+Thumbs.db
