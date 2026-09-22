@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" stroke="#b08d57" stroke-width="1.4">
+  <circle cx="120" cy="120" r="100"/><circle cx="120" cy="120" r="92" stroke-dasharray="2 5"/>
+  <path d="M120 30 v-10 M120 220 v-10 M30 120 h-10 M220 120 h-10" stroke-width="2"/>
+  <path d="M60 160 q60 -30 120 0 M60 80 q60 30 120 0" opacity=".7"/>
+  <text x="120" y="140" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="64" fill="#b08d57" stroke="none">H&amp;M</text>
+</svg>

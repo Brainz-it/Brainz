@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&family=Oswald:wght@300;500;700&family=Abril+Fatface&display=swap');
+:root{
+  --red:#c1272d; --charcoal:#2a2a2a; --grey:#8b8378; --taupe:#c9b99a;
+  --cream:#f2e8d5; --paper:#f7efdf; --cream-low:#ead9bd;
+  --serif:"Abril Fatface",Georgia,serif; --apparel:var(--serif); --button-serif:"Oswald",sans-serif;
+  --script:"Yellowtail",cursive; --sans:"Oswald",sans-serif;
+}
+body{background:#f2e8d5}
+body::before{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.18;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.page-wash{display:none}
+.candle-l,.candle-r,.lights-band img,.venue-art,.orn-divider,.attire-row img,.orn-sprig,.curtain,.lantern,.rsvp-candle{filter:sepia(.6) contrast(1.1) opacity(.75)}
+.names{font-family:"Yellowtail",cursive;font-style:normal;color:#c1272d;font-size:clamp(3.4rem,11vw,8rem);line-height:.9;text-shadow:3px 3px 0 #f7efdf,5px 5px 0 #2a2a2a}
+.names .and{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.4em;font-size:.28em;color:#2a2a2a;margin:.6em auto .4em}
+.eyebrow{font-weight:700;letter-spacing:.35em;color:#2a2a2a;font-size:clamp(.7rem,2vw,1.1rem)}
+.section-title{font-family:"Abril Fatface",serif;font-style:normal;font-weight:400;text-transform:uppercase;letter-spacing:.04em;color:#c1272d;text-shadow:2px 2px 0 #f7efdf,4px 4px 0 #2a2a2a}
+.hero-meta{font-family:"Oswald",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.2em;font-weight:500;font-size:clamp(1rem,2.6vw,1.5rem)}
+.portrait img{border-radius:0;filter:sepia(.85) contrast(1.15) saturate(.7);border:6px solid #2a2a2a;box-shadow:0 0 0 3px #f2e8d5,0 0 0 5px #c1272d}
+.btn,.btn-send{background:#c1272d;color:#f2e8d5;border-radius:4px;font-style:normal;font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(.8rem,2vw,1rem);border:2px dashed #f2e8d5;outline:2px solid #c1272d;box-shadow:4px 4px 0 #2a2a2a}
+.btn:hover,.btn-send:hover{background:#2a2a2a;outline-color:#2a2a2a}
+.countdown{border:3px double #2a2a2a;border-radius:4px;background:#f7efdf}
+.cd-num{font-family:"Oswald",sans-serif;font-weight:700;color:#2a2a2a}.cd-label{font-family:"Oswald",sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.15em;font-size:.65rem}
+.cd-unit + .cd-unit .cd-num::before{color:#c1272d}
+.rule{background:repeating-linear-gradient(90deg,#2a2a2a 0 8px,transparent 8px 14px);height:3px}
+.event-time{font-family:"Oswald",sans-serif;font-style:normal;font-weight:700;letter-spacing:.1em}
+.event-name{font-family:"Abril Fatface",serif;font-style:normal}
+.body-copy,.section-intro{color:#2a2a2a;font-weight:300;letter-spacing:.1em}
+.monogram{font-family:"Yellowtail",cursive;color:#c1272d;font-size:clamp(2.6rem,7vw,4rem)}
+.footer-date{font-weight:700;color:#2a2a2a;letter-spacing:.5em}
+.modal{background:#f7efdf;border:6px solid #2a2a2a;border-radius:4px;box-shadow:10px 10px 0 #c1272d}
+.modal-title{font-family:"Abril Fatface",serif;font-style:normal;text-transform:uppercase;color:#c1272d}
+.overlay{background:rgba(42,42,42,.55)}
+
+/* ── intro : amorce de film ── */
+#enter{background:#2a2a2a;overflow:hidden;color:#f2e8d5}
+.t4-grain{position:absolute;inset:0;opacity:.25;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:t4grain .3s steps(2) infinite}
+@keyframes t4grain{0%{transform:translate(0,0)}50%{transform:translate(-3%,2%)}100%{transform:translate(2%,-3%)}}
+.t4-marquee{position:relative;width:min(86vw,420px);display:grid;place-items:center}
+.t4-marquee img{width:100%;height:auto;animation:t4blink 1.2s steps(2) infinite}
+@keyframes t4blink{50%{filter:brightness(.75)}}
+.t4-title{position:absolute;top:34%;font-family:"Yellowtail",cursive;font-size:clamp(2rem,9vw,3.4rem);color:#f5d547;text-shadow:3px 3px 0 #c1272d}
+.t4-copy{position:absolute;bottom:30%;font-family:"Oswald",sans-serif;font-weight:500;letter-spacing:.35em;text-transform:uppercase;font-size:.7rem;color:#f2e8d5;animation:tapCopy 2.4s ease-in-out infinite}
+.t4-leader{position:absolute;inset:0;display:none;place-items:center;background:#d9cfb8}
+.t4-leader::before{content:"";position:absolute;inset:0;background:linear-gradient(#2a2a2a,#2a2a2a) center/100% 2px no-repeat,linear-gradient(#2a2a2a,#2a2a2a) center/2px 100% no-repeat;opacity:.5}
+.t4-leader i{position:absolute;left:50%;top:50%;width:min(70vw,360px);aspect-ratio:1;border-radius:50%;border:4px solid #2a2a2a;transform:translate(-50%,-50%);background:conic-gradient(#2a2a2a 0 var(--a,0deg),transparent var(--a,0deg));animation:t4sweep .7s linear infinite}
+@keyframes t4sweep{to{--a:360deg}}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.t4-leader b{position:relative;font-family:"Oswald",sans-serif;font-weight:700;font-size:clamp(6rem,30vw,12rem);color:#2a2a2a;mix-blend-mode:multiply}
+#enter.t4-roll .t4-marquee{display:none}#enter.t4-roll .t4-leader{display:grid}
+#enter.t4-flash .t4-leader{background:#fff}#enter.t4-flash .t4-leader b,#enter.t4-flash .t4-leader i{opacity:0}
+#enter.gone{transition:opacity .5s ease,visibility .5s}
+/* décor */
+.candle-l,.candle-r,.lights-band img,.curtain,.lantern{filter:none!important;opacity:1}
+.candle-l{width:16%;left:2%}.candle-r{width:16%;right:4%}
+.curtain{opacity:.95}.curtain.left{width:26%;transform:none}.curtain.right{width:26%;transform:scaleX(-1)}
+.lantern{width:min(60%,300px)}
+
+/* photos libres de droits */
+#enter{background:linear-gradient(rgba(42,42,42,.72),rgba(42,42,42,.85)),url("photos/cinema.jpg") center/cover no-repeat}
+.venue-art.is-photo{border-radius:4px;border:6px solid #2a2a2a;filter:sepia(.55) contrast(1.1);box-shadow:8px 8px 0 #c1272d}

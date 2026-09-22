@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160">
+  <path d="M10 10 h340 v50 a20 20 0 0 0 0 40 v50 h-340 v-50 a20 20 0 0 0 0 -40 z" fill="#f7efdf" stroke="#2a2a2a" stroke-width="4"/>
+  <path d="M250 14 v132" stroke="#2a2a2a" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="130" y="62" text-anchor="middle" font-family="Oswald, Impact, sans-serif" font-size="28" font-weight="700" fill="#c1272d" letter-spacing="4">ADMIT TWO</text>
+  <text x="130" y="98" text-anchor="middle" font-family="Oswald, sans-serif" font-size="16" fill="#2a2a2a" letter-spacing="5">MARRAKECH · 2026</text>
+  <text x="305" y="92" text-anchor="middle" font-family="Oswald, sans-serif" font-size="30" font-weight="700" fill="#2a2a2a" transform="rotate(-90 305 92)">Nº 0926</text>
+</svg>

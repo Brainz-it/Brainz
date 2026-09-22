@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mariage de Marwa & Hamid · 6 novembre 2026</title>
+<meta name="description" content="Vous êtes invités au mariage de Marwa et Hamid, le vendredi 6 novembre 2026 à 17h00 au Prestige Palace, Bouskoura (Casablanca). Confirmez votre présence en ligne." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mariage de Marwa & Hamid · 6 novembre 2026" />
+<meta property="og:description" content="Vous êtes invités au mariage de Marwa et Hamid, le vendredi 6 novembre 2026 à 17h00 au Prestige Palace, Bouskoura (Casablanca). Confirmez votre présence en ligne." />
+<meta property="og:image" content="https://brainz-it.github.io/Brainz/content/photos/couple.jpg" />
+<meta property="og:url" content="https://brainz-it.github.io/Brainz/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="content/photos/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Caveat:wght@400..700&amp;family=Raleway:wght@300..900&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js";</script>
+<noscript><style>#curtain-video,#enter{display:none!important}</style></noscript>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+
+<!-- ══ INTRO ══════════════════════════════════════════════ -->
+<video id="curtain-video" playsinline webkit-playsinline muted preload="auto"
+       poster="assets/images/curtain-closed.jpg" disablepictureinpicture aria-hidden="true">
+  <source src="assets/media/curtain-mobile.mp4" type="video/mp4" />
+  <source src="assets/media/curtain.mp4" type="video/mp4" />
+</video>
+
+<button id="enter" type="button" aria-label="Open the invitation">
+  <span class="click-prompt-wrapper">
+    <span class="enter-trigger" aria-hidden="true">
+      <img class="enter-trigger-icon" src="assets/images/tap-icon.png" alt="" aria-hidden="true" />
+    </span>
+    <span class="enter-copy" data-t="intro.prompt">Touchez pour continuer</span>
+  </span>
+</button>
+
+<div class="page">
+<img class="page-wash" src="assets/art/page-wash.svg" alt="" aria-hidden="true" />
+
+<!-- ══ HERO ═══════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow intro-rest intro-copy" style="--intro-delay:.65s" data-t="hero.eyebrow"></p>
+    <h1 class="names"><span data-t="couple.bride"></span><span class="and" data-t="couple.conjunction"></span><span data-t="couple.groom"></span></h1>
+  </div>
+
+  <div class="frame hero-stage">
+    <img class="candle-l intro-rest intro-decor" style="--intro-delay:1.85s" src="assets/images/candles-left.webp" alt="" aria-hidden="true" />
+    <figure class="portrait intro-rest intro-portrait" style="--intro-delay:1.25s">
+      <img id="hero-photo" src="" alt="" />
+    </figure>
+    <img class="candle-r intro-rest intro-decor" style="--intro-delay:2.3s" src="assets/images/candles-right.webp" alt="" aria-hidden="true" />
+  </div>
+
+  <hr class="rule intro-rest" style="--intro-delay:.02s" />
+</header>
+
+<!-- ══ DATE & RSVP ════════════════════════════════════════ -->
+<section class="reveal intro-rest invite-section" style="--intro-delay:.08s">
+  <div class="lights-band intro-rest intro-lamps" style="--intro-delay:0s" aria-hidden="true">
+    <img class="lights-l" src="assets/art/lights.svg" alt="" />
+    <img class="lights-r" src="assets/art/lights.svg" alt="" />
+  </div>
+
+  <div class="wrap invite-main">
+    <p class="hero-meta intro-rest intro-copy" style="--intro-delay:2.9s">
+      <span data-t="event.dateLabel"></span>
+      <span data-t="event.city"></span>
+    </p>
+
+    <div class="countdown intro-rest intro-copy" style="--intro-delay:3.1s" aria-label="Countdown to the wedding">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-label" data-t="countdown.labels.days"></div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label" data-t="countdown.labels.hours"></div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-label" data-t="countdown.labels.minutes"></div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-label" data-t="countdown.labels.seconds"></div></div>
+    </div>
+
+    <button class="btn intro-rest intro-action" style="--intro-delay:3.5s" data-open-modal="rsvp" data-section="rsvp" data-t="rsvp.buttonLabel"></button>
+  </div>
+  <hr class="rule intro-rest" style="--intro-delay:.14s" />
+</section>
+
+<!-- ══ VENUE ══════════════════════════════════════════════ -->
+<section class="reveal intro-rest venue-section" style="--intro-delay:.2s" data-section="venue">
+  <div class="wrap">
+    <h2 class="section-title" data-t="venue.title"></h2>
+  </div>
+  <img class="venue-art bleed" id="venue-art" src="" alt="Sketch of the wedding venue" />
+  <div class="wrap">
+    <p class="body-copy" id="venue-text"></p>
+    <p class="venue-action">
+      <button class="btn" data-open-modal="loc" data-t="venue.buttonLabel"></button>
+    </p>
+  </div>
+  <hr class="rule intro-rest" style="--intro-delay:.26s" />
+</section>
+
+<!-- ══ ATTIRE ═════════════════════════════════════════════ -->
+<section class="reveal intro-rest attire-section" style="--intro-delay:.32s" data-section="attire">
+  <div class="wrap">
+    <h2 class="section-title" data-t="attire.title"></h2>
+    <img class="orn-divider" src="assets/art/orn-divider.webp" alt="" aria-hidden="true" />
+  </div>
+  <div class="frame attire-row" id="attire-row"></div>
+  <div class="frame attire-caps">
+    <span class="cap-women" data-t="attire.captionWomen"></span>
+    <span class="cap-men" data-t="attire.captionMen"></span>
+  </div>
+  <div class="orn-feet" aria-hidden="true">
+    <img class="orn-sprig" src="assets/art/orn-sprig.svg" alt="" />
+    <img class="orn-sprig orn-sprig-r" src="assets/art/orn-sprig.svg" alt="" />
+  </div>
+  <hr class="rule intro-rest" style="--intro-delay:.38s" />
+</section>
+
+<!-- ══ SCHEDULE ═══════════════════════════════════════════ -->
+<section id="schedule" class="reveal schedule intro-rest" style="--intro-delay:.44s" data-section="schedule">
+  <img class="curtain left"  src="assets/art/curtain-left.svg"  alt="" aria-hidden="true" />
+  <img class="curtain right" src="assets/art/curtain-right.svg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <h2 class="section-title" data-t="schedule.title"></h2>
+    <div id="schedule-list"></div>
+  </div>
+  <hr class="rule intro-rest" style="--intro-delay:.5s" />
+</section>
+
+<!-- ══ WEDDING LIST + SIGN-OFF ════════════════════════════ -->
+<section class="reveal intro-rest wedding-list-section" style="--intro-delay:.56s" data-section="weddingList">
+  <div class="wrap wedding-list-main">
+    <h2 class="section-title" data-t="weddingList.title"></h2>
+    <p class="section-intro" data-t="weddingList.text"></p>
+    <div class="pair" id="wedding-list-buttons"></div>
+  </div>
+
+  <footer class="footer">
+    <img class="lantern" id="footer-illustration" src="" alt="" aria-hidden="true" />
+    <div class="monogram" data-t="couple.monogram"></div>
+    <div class="footer-date" data-t="event.shortDate"></div>
+  </footer>
+</section>
+
+</div><!-- /.page -->
+
+<button id="scroll-cue" class="scroll-cue" type="button" aria-label="Scroll to the next section">
+  <svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2.5 12 11.5 22 2.5" /></svg>
+</button>
+
+<!-- ══ MODAL · RSVP ═══════════════════════════════════════ -->
+<div class="overlay" id="modal-rsvp" data-open="false" role="dialog" aria-modal="true" aria-labelledby="rsvp-title">
+  <div class="modal">
+    <button class="modal-close" data-close aria-label="Close"><span aria-hidden="true">x</span></button>
+    <h2 class="modal-title" id="rsvp-title" data-t="rsvp.modalTitle"></h2>
+    <form id="rsvp-form" novalidate>
+      <div class="field">
+        <label for="f-name" data-t="rsvp.labels.name"></label>
+        <input type="text" id="f-name" name="name" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-presence" data-t="rsvp.labels.presence"></span>
+        <div class="choice" role="radiogroup" aria-labelledby="lbl-presence">
+          <input type="radio" id="p-yes" name="presence" value="yes" required />
+          <label for="p-yes" data-t="rsvp.labels.yes"></label>
+          <input type="radio" id="p-no" name="presence" value="no" />
+          <label for="p-no" data-t="rsvp.labels.no"></label>
+        </div>
+      </div>
+      <button type="submit" class="btn-send" data-t="rsvp.labels.send"></button>
+      <p class="form-status" id="rsvp-status" role="status" aria-live="polite"></p>
+    </form>
+    <div class="rsvp-success" id="rsvp-success" role="status" aria-live="polite" hidden>
+      <span class="rsvp-success-check" aria-hidden="true">
+        <svg viewBox="0 0 52 52" focusable="false"><circle cx="26" cy="26" r="24" /><path d="M15 27.5 22.6 35 38 18" /></svg>
+      </span>
+      <p data-t="rsvp.labels.success"></p>
+    </div>
+    <img class="rsvp-candle" src="assets/images/rsvp-candles.png" alt="" aria-hidden="true" />
+  </div>
+</div>
+
+<!-- ══ MODAL · DIRECTIONS ═════════════════════════════════ -->
+<div class="overlay" id="modal-loc" data-open="false" role="dialog" aria-modal="true" aria-labelledby="loc-title">
+  <div class="modal">
+    <button class="modal-close" data-close aria-label="Close"><span aria-hidden="true">x</span></button>
+    <h2 class="sr-only" id="loc-title">Itinéraire vers le lieu</h2>
+    <div class="map-apps">
+      <a class="map-app" id="link-waze" href="#" target="_blank" rel="noopener">
+        <img class="icon-img" src="assets/images/icon-waze.webp" alt="" aria-hidden="true" /><span data-t="venue.wazeLabel"></span>
+      </a>
+      <a class="map-app" id="link-gmaps" href="#" target="_blank" rel="noopener">
+        <img class="icon-img" src="assets/images/icon-gmaps.webp" alt="" aria-hidden="true" /><span data-t="venue.googleMapsLabel"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL · WEDDING LIST ═══════════════════════════════ -->
+<div class="overlay" id="modal-gifts" data-open="false" role="dialog" aria-modal="true" aria-labelledby="gifts-title">
+  <div class="modal modal--wide">
+    <button class="modal-close" data-close aria-label="Close"><span aria-hidden="true">x</span></button>
+    <h2 class="modal-title" id="gifts-title" data-t="weddingList.modalTitle"></h2>
+    <div class="gift-grid" id="gift-grid"></div>
+    <p class="modal-aside" data-t="weddingList.aside"></p>
+    <p class="modal-action">
+      <button class="btn" data-open-modal="bank" data-t="weddingList.bankButtonLabel"></button>
+    </p>
+  </div>
+</div>
+
+<!-- ══ MODAL · BANK DETAILS ═══════════════════════════════ -->
+<div class="overlay" id="modal-bank" data-open="false" role="dialog" aria-modal="true" aria-labelledby="bank-title">
+  <div class="modal">
+    <button class="modal-close" data-close aria-label="Close"><span aria-hidden="true">x</span></button>
+    <h2 class="modal-title" id="bank-title" data-t="weddingList.bankModalTitle"></h2>
+    <div class="bank">
+      <p class="bank-holder" id="bank-holder"></p>
+      <p class="bank-kind" id="bank-kind"></p>
+      <p class="bank-number" id="bank-number"></p>
+      <button class="bank-copy" id="bank-copy" type="button"></button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

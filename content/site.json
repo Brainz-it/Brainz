@@ -1,0 +1,385 @@
+{
+  "site": {
+    "title": "Mariage de Marwa & Hamid · 6 novembre 2026",
+    "language": "fr",
+    "description": "Vous êtes invités au mariage de Marwa et Hamid, le vendredi 6 novembre 2026 à 17h00 au Prestige Palace, Bouskoura (Casablanca). Confirmez votre présence en ligne.",
+    "ogImage": "content/photos/couple.jpg",
+    "favicon": "content/photos/favicon.svg",
+    "creditsPage": "credits.html"
+  },
+  "theme": {
+    "colorRed": "#AD3F3F",
+    "colorCharcoal": "#676868",
+    "colorGrey": "#939393",
+    "colorTaupe": "#ADA196",
+    "colorCream": "#F6F1EC",
+    "colorPaper": "#FCFCFC",
+    "colorCreamLow": "#F4EEE7",
+    "fontSerif": "Bodoni Moda",
+    "fontSans": "Raleway",
+    "fontScript": "Caveat",
+    "variant": 9
+  },
+  "intro": {
+    "enabled": true,
+    "prompt": "Touchez pour continuer"
+  },
+  "couple": {
+    "bride": "Marwa",
+    "groom": "Hamid",
+    "conjunction": "&",
+    "monogram": "M&H"
+  },
+  "hero": {
+    "eyebrow": "You are invited to the wedding of",
+    "photo": "content/photos/couple.jpg"
+  },
+  "event": {
+    "date": "2026-11-06T17:00:00+01:00",
+    "dateLabel": "Vendredi 6 novembre 2026",
+    "city": "Bouskoura · Casablanca",
+    "shortDate": "06 . 11 . 2026"
+  },
+  "countdown": {
+    "labels": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "seconds": "seconds"
+    }
+  },
+  "rsvp": {
+    "enabled": true,
+    "buttonLabel": "RSVP",
+    "modalTitle": "Serez-vous présent(e) ?",
+    "sendVia": "googlesheet",
+    "googleSheetEndpoint": "https://script.google.com/macros/s/AKfycbzwcIGV8QZPl9QOiO9l6hrWUH2yQwBYEoedTkpwG8quH2tTEI-ht2guneHD6AWea3oA/exec",
+    "email": "contact@example.com",
+    "whatsappNumber": "212600000000",
+    "formspreeEndpoint": "https://formspree.io/f/xxxxxxx",
+    "labels": {
+      "name": "Nom & prénom",
+      "presence": "Présent(e)",
+      "yes": "Oui",
+      "no": "Non",
+      "send": "Envoyer",
+      "sending": "Envoi en cours…",
+      "success": "Merci de partager ce chemin avec nous.",
+      "errorName": "Merci d’indiquer votre nom.",
+      "errorPresence": "Merci de nous dire si vous serez présent(e).",
+      "errorSend": "Impossible d’enregistrer votre réponse. Réessayez, ou contactez-nous directement."
+    }
+  },
+  "venue": {
+    "enabled": true,
+    "title": "About the Venue",
+    "illustration": "assets/images/venue.webp",
+    "text": "Prestige Palace, Bouskoura — Casablanca.\nLocation and practical details to make the journey to the celebration effortless",
+    "buttonLabel": "Localisation",
+    "latitude": 33.45506,
+    "longitude": -7.63631,
+    "wazeLabel": "Waze",
+    "googleMapsLabel": "Google Maps",
+    "name": "Prestige Palace",
+    "googleMapsUrl": "https://maps.app.goo.gl/jV6euZeRtcSuHM368",
+    "wazeUrl": "https://waze.com/ul?ll=33.45506,-7.63631&navigate=yes"
+  },
+  "attire": {
+    "enabled": true,
+    "title": "Attire details",
+    "items": [
+      {
+        "image": "assets/art/kaftan.svg",
+        "alt": "Kaftan"
+      },
+      {
+        "image": "assets/art/gown.svg",
+        "alt": "Evening gown"
+      },
+      {
+        "image": "assets/art/suit.svg",
+        "alt": "Suit"
+      }
+    ],
+    "captionWomen": "For women",
+    "captionMen": "For Men"
+  },
+  "schedule": {
+    "enabled": true,
+    "title": "Schedule",
+    "items": [
+      {
+        "time": "17h",
+        "title": "Accueil des invités"
+      },
+      {
+        "time": "18h",
+        "title": "Entrée des mariés"
+      }
+    ]
+  },
+  "weddingList": {
+    "enabled": true,
+    "title": "Wedding list",
+    "text": "Your presence on this special day is the greatest gift. For those who wish to celebrate with a gift, a few ideas are shared below.",
+    "buttons": [
+      {
+        "label": "Morocco",
+        "bank": "morocco",
+        "opens": "gifts"
+      },
+      {
+        "label": "Abroad",
+        "bank": "abroad",
+        "opens": "bank"
+      }
+    ],
+    "modalTitle": "Wedding list",
+    "shops": [
+      {
+        "label": "Rouge ivoire",
+        "url": "https://www.instagram.com/rougeivoire/",
+        "image": "content/photos/rouge-ivoire.webp"
+      },
+      {
+        "label": "Nuances maison",
+        "url": "https://www.instagram.com/nuancesmaisons/",
+        "image": "content/photos/nuances-maison.webp"
+      },
+      {
+        "label": "Fenêtre sur cour",
+        "url": "https://www.fenetresurcour.ma/",
+        "image": "content/photos/fenetre-sur-cour.webp"
+      }
+    ],
+    "emptyText": "Wedding list details will be shared privately with each guest.",
+    "aside": "Or for new adventures…",
+    "bankButtonLabel": "Bank details",
+    "bankModalTitle": "Bank details",
+    "banks": {
+      "morocco": {
+        "holder": "NOM DU TITULAIRE",
+        "kind": "RIB",
+        "number": "000 000 0000000000000000 00"
+      },
+      "abroad": {
+        "holder": "NOM DU TITULAIRE",
+        "kind": "IBAN",
+        "number": "FR76 0000 0000 0000 0000 0000 000"
+      }
+    },
+    "copyLabel": "Copy",
+    "copiedLabel": "Copied",
+    "copyFailedLabel": "Copy it by hand"
+  },
+  "gallery": {
+    "enabled": false,
+    "title": "Gallery"
+  },
+  "footer": {
+    "illustration": "assets/images/lantern.webp",
+    "showMonogram": true,
+    "showDate": true
+  },
+  "invitation": {
+    "kicker": "À vos agendas !",
+    "seal": "gold",
+    "coverInvites": "ont la joie de vous inviter à leur mariage",
+    "openLabel": "Ouvrir",
+    "calendarTitle": "Mariage de",
+    "message": [
+      "Parce que les plus beaux moments sont ceux que l'on partage avec les personnes qui nous sont chères…",
+      "C'est avec une immense joie que nous vous invitons à célébrer notre mariage et à être témoins du début de notre nouvelle vie à deux.",
+      "Votre présence rendra cette journée encore plus précieuse."
+    ],
+    "reception": {
+      "title": "Notre cérémonie",
+      "intro": "La cérémonie aura lieu le vendredi 6 novembre 2026 à 17h00.",
+      "venue": "Prestige Palace",
+      "address": "Bouskoura, Casablanca",
+      "addToCalendar": "Ajouter au calendrier",
+      "confirm": "Confirmer ma présence",
+      "venueTitle": "Lieu de la cérémonie"
+    },
+    "scheduleTitle": "Programme de la cérémonie",
+    "scheduleIcons": [
+      "🥂",
+      "💍",
+      "🍽️",
+      "🎶",
+      "🍰",
+      "🌙"
+    ],
+    "guestbook": {
+      "title": "Livre d'or",
+      "namePlaceholder": "Indiquez votre nom",
+      "wishPlaceholder": "Un message pour les mariés",
+      "send": "Envoyer",
+      "thanks": "Merci pour votre message !",
+      "empty": "Soyez les premiers à laisser un message."
+    },
+    "music": {
+      "src": "assets/themes/v9/media/music.mp3",
+      "autoplay": true
+    }
+  },
+  "villa": {
+    "lang": "fr",
+    "tagline": "Avec tout notre amour, nous vous invitons",
+    "scrollLabel": "Défiler",
+    "tapLabel": "Touchez pour ouvrir",
+    "menu": {
+      "home": "Accueil",
+      "venue": "Le lieu",
+      "program": "Programme",
+      "dress": "Le dress code",
+      "gifts": "Liste de mariage",
+      "rsvp": "Confirmez votre présence",
+      "faq": "Questions fréquentes",
+      "giftsShort": "Cadeaux"
+    },
+    "countdown": {
+      "kicker": "Le compte à rebours",
+      "title": "Pour toujours commence dans",
+      "dateLabel": "Date",
+      "labels": {
+        "days": "jours",
+        "hours": "heures",
+        "minutes": "minutes",
+        "seconds": "secondes"
+      }
+    },
+    "venue": {
+      "title": "Le lieu",
+      "ceremonyLabel": "Cérémonie",
+      "ceremonyName": "Prestige Palace",
+      "ceremonyTime": "17h00",
+      "ceremonyAddress": "Bouskoura, Casablanca",
+      "receptionLabel": "Réception",
+      "receptionName": "Prestige Palace",
+      "receptionTime": "à la suite",
+      "receptionAddress": "Bouskoura, Casablanca",
+      "mapsLabel": "Ouvrir dans Maps →",
+      "travel": [
+        {
+          "label": "En voiture",
+          "text": "Prestige Palace, Bouskoura, à 25 minutes du centre de Casablanca. Parking sur place."
+        },
+        {
+          "label": "En avion",
+          "text": "Aéroport Mohammed V à 20 minutes en taxi."
+        },
+        {
+          "label": "Hébergement",
+          "text": "Des chambres sont réservées à tarif préférentiel, écrivez-nous."
+        }
+      ],
+      "mapsUrl": "https://maps.app.goo.gl/jV6euZeRtcSuHM368"
+    },
+    "program": {
+      "kicker": "La journée",
+      "title": "Le programme",
+      "items": [
+        {
+          "time": "17:00",
+          "title": "Accueil des invités",
+          "text": "Thé à la menthe et pâtisseries",
+          "icon": "glass"
+        },
+        {
+          "time": "18:00",
+          "title": "Entrée des mariés",
+          "text": "Cérémonie traditionnelle au son des neggafates",
+          "icon": "rings"
+        },
+        {
+          "time": "20:30",
+          "title": "Dîner",
+          "text": "Dîner marocain",
+          "icon": "dinner"
+        },
+        {
+          "time": "22:30",
+          "title": "Soirée",
+          "text": "Musique live jusqu’au bout de la nuit",
+          "icon": "music"
+        }
+      ]
+    },
+    "dress": {
+      "title": "Le dress code",
+      "headline": "Élégance formelle",
+      "text": "Tenue de soirée, caftans et costumes bienvenus. Évitez le blanc.",
+      "colors": [
+        "#6f7248",
+        "#b08a4e",
+        "#c0674a",
+        "#e6d5b8"
+      ]
+    },
+    "gifts": {
+      "title": "Liste de mariage",
+      "headline": "Un cadeau pour nous",
+      "text": "Votre présence est le plus beau des cadeaux. Pour celles et ceux qui souhaiteraient nous gâter, nous avons choisi de récolter des contributions pour notre voyage de noces.",
+      "button": "Afficher l'IBAN"
+    },
+    "rsvp": {
+      "title": "Confirmez votre présence",
+      "kicker": "Faites-le nous savoir",
+      "text": "Dites-nous si vous serez présents avant le 15 octobre 2026.",
+      "familyLabel": "Nom de famille",
+      "guestLabel": "Prénom de l'invité",
+      "addGuest": "+ Ajouter un invité",
+      "yes": "Oui, je serai présent(e)",
+      "no": "Je ne peux pas",
+      "diet": "Régime alimentaire",
+      "dietPlaceholder": "Végétarien, sans gluten, allergies…",
+      "children": "Nous venons avec enfant(s)",
+      "message": "Une pensée pour les mariés",
+      "privacy": "Ces informations seront utilisées par les mariés uniquement pour organiser la journée.",
+      "send": "Envoyer la réponse",
+      "thanks": "Merci, votre réponse a bien été enregistrée.",
+      "error": "Une erreur est survenue, réessayez."
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Puis-je venir accompagné(e) ?",
+          "a": "Seules les personnes mentionnées sur l'invitation peuvent participer. Merci de votre compréhension !"
+        },
+        {
+          "q": "Où puis-je loger à proximité ?",
+          "a": "Plusieurs riads et hôtels sont à quelques minutes. Écrivez-nous et nous vous aiderons à trouver le plus pratique."
+        },
+        {
+          "q": "Y a-t-il un parking ?",
+          "a": "Oui, un parking est disponible sur place au Prestige Palace."
+        }
+      ]
+    },
+    "footer": {
+      "withLove": "Avec amour",
+      "contactKicker": "Contactez-nous pour toute info",
+      "contactText": "Pour toute question : contact@example.com"
+    },
+    "music": {
+      "src": "assets/themes/v9/media/music.mp3"
+    },
+    "seal": "bow",
+    "introVideos": {
+      "bow": {
+        "src": "assets/themes/v10/media/envelope-bow.mp4",
+        "poster": "assets/themes/v10/media/envelope-bow-poster.jpg"
+      },
+      "wax": {
+        "src": "assets/themes/v10/media/envelope-wax.mp4",
+        "poster": "assets/themes/v10/media/envelope-wax-poster.jpg"
+      },
+      "gold": {
+        "src": "assets/themes/v10/media/envelope-gold.mp4",
+        "poster": "assets/themes/v10/media/envelope-gold-poster.jpg"
+      }
+    }
+  }
+}

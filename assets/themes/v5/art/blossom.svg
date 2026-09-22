@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+  <g stroke="#6b7a4b" stroke-width="1.6" fill="none"><path d="M20 60 q90 -30 180 -10 M380 60 q-90 -30 -180 -10"/></g>
+  <g fill="#f8efe4" stroke="#c8ad8a" stroke-width="1.4">
+    <g transform="translate(200 46)"><ellipse rx="9" ry="16" transform="rotate(0)"/><ellipse rx="9" ry="16" transform="rotate(72)"/><ellipse rx="9" ry="16" transform="rotate(144)"/><ellipse rx="9" ry="16" transform="rotate(216)"/><ellipse rx="9" ry="16" transform="rotate(288)"/><circle r="5" fill="#e8a33d" stroke="none"/></g>
+    <g transform="translate(110 44) scale(.6)"><ellipse rx="9" ry="16"/><ellipse rx="9" ry="16" transform="rotate(72)"/><ellipse rx="9" ry="16" transform="rotate(144)"/><ellipse rx="9" ry="16" transform="rotate(216)"/><ellipse rx="9" ry="16" transform="rotate(288)"/><circle r="5" fill="#e8a33d" stroke="none"/></g>
+    <g transform="translate(290 44) scale(.6)"><ellipse rx="9" ry="16"/><ellipse rx="9" ry="16" transform="rotate(72)"/><ellipse rx="9" ry="16" transform="rotate(144)"/><ellipse rx="9" ry="16" transform="rotate(216)"/><ellipse rx="9" ry="16" transform="rotate(288)"/><circle r="5" fill="#e8a33d" stroke="none"/></g>
+  </g>
+  <g fill="#8a9a5b"><path d="M60 58 q-4 -18 12 -24 q4 18 -12 24 z M340 58 q4 -18 -12 -24 q-4 18 12 24 z M150 40 q0 -16 14 -20 q0 16 -14 20 z M250 40 q0 -16 -14 -20 q0 16 14 20 z"/></g>
+</svg>

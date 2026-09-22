@@ -1,0 +1,19 @@
+{
+  "photos": [
+    {
+      "src": "content/photos/galerie-1.webp",
+      "alt": "Marwa et Hamid dans le jardin",
+      "caption": ""
+    },
+    {
+      "src": "content/photos/galerie-2.webp",
+      "alt": "Marwa et Hamid et le gâteau H&M",
+      "caption": ""
+    },
+    {
+      "src": "content/photos/galerie-3.webp",
+      "alt": "L'enseigne du Prestige Palace",
+      "caption": ""
+    }
+  ]
+}
