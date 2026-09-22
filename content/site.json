@@ -17,7 +17,8 @@
     "colorCreamLow": "#F4EEE7",
     "fontSerif": "Bodoni Moda",
     "fontSans": "Raleway",
-    "fontScript": "Caveat"
+    "fontScript": "Caveat",
+    "variant": 9
   },
   "intro": {
     "enabled": true,
