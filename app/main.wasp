@@ -59,6 +59,7 @@ app OpenSaaS {
     system: PostgreSQL,
     seeds: [
       import { devSeedUsers } from "@src/server/scripts/usersSeed.js",
+      import { devSeedReelForge } from "@src/server/scripts/reelForgeSeed.js",
     ]
   },
   client: {
@@ -97,6 +98,83 @@ entity User {=psl
   contactFormMessages       ContactFormMessage[]     
   tasks                     Task[]
   files                     File[]
+  channels                  Channel[]
+  videos                    Video[]
+psl=}
+
+// 🎬 Reel Forge cockpit: a connected social channel (YouTube, Instagram, TikTok).
+entity Channel {=psl
+  id                        String          @id @default(uuid())
+  platform                  String          // YOUTUBE | INSTAGRAM | TIKTOK
+  name                      String
+  handle                    String?
+  externalId                String?         // channel id / IG user id / TikTok open id
+  thumbnailUrl              String?
+  accessToken               String?
+  refreshToken              String?
+  subscriberCount           Int             @default(0)
+  lastSyncedAt              DateTime?
+  lastSyncError             String?
+  user                      User            @relation(fields: [userId], references: [id])
+  userId                    Int
+  createdAt                 DateTime        @default(now())
+  videos                    Video[]
+  dailyStats                ChannelDailyStats[]
+  geoStats                  ChannelGeoStats[]
+psl=}
+
+entity Video {=psl
+  id                        String          @id @default(uuid())
+  title                     String
+  description               String?
+  status                    String          @default("SCHEDULED") // DRAFT | SCHEDULED | PUBLISHED
+  externalId                String?
+  url                       String?
+  thumbnailUrl              String?
+  scheduledAt               DateTime?
+  publishedAt               DateTime?
+  durationSec               Int?
+  views                     Int             @default(0)
+  likes                     Int             @default(0)
+  comments                  Int             @default(0)
+  watchTimeMinutes          Float           @default(0)
+  avgViewDurationSec        Float           @default(0)
+  channel                   Channel         @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId                 String
+  user                      User            @relation(fields: [userId], references: [id])
+  userId                    Int
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  @@unique([channelId, externalId])
+psl=}
+
+entity ChannelDailyStats {=psl
+  id                        String          @id @default(uuid())
+  date                      DateTime
+  views                     Int             @default(0)
+  watchTimeMinutes          Float           @default(0)
+  avgViewDurationSec        Float           @default(0)
+  likes                     Int             @default(0)
+  comments                  Int             @default(0)
+  shares                    Int             @default(0)
+  subscribersGained         Int             @default(0)
+  followersTotal            Int             @default(0)
+  channel                   Channel         @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId                 String
+  @@unique([channelId, date])
+psl=}
+
+// Geographic audience breakdown; city = '' means a country-level row.
+entity ChannelGeoStats {=psl
+  id                        String          @id @default(uuid())
+  date                      DateTime
+  country                   String
+  city                      String          @default("")
+  views                     Int             @default(0)
+  watchTimeMinutes          Float           @default(0)
+  channel                   Channel         @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId                 String
+  @@unique([channelId, date, country, city])
 psl=}
 
 entity GptResponse {=psl
@@ -209,6 +287,25 @@ route DemoAppRoute { path: "/demo-app", to: DemoAppPage }
 page DemoAppPage {
   authRequired: true,
   component: import DemoAppPage from "@src/client/app/DemoAppPage"
+}
+
+// 🎬 Reel Forge cockpit: unified analytics for YouTube / Instagram / TikTok.
+route CockpitRoute { path: "/cockpit", to: CockpitPage }
+page CockpitPage {
+  authRequired: true,
+  component: import Cockpit from "@src/client/cockpit/CockpitPage"
+}
+
+route CockpitCalendarRoute { path: "/cockpit/calendar", to: CockpitCalendarPage }
+page CockpitCalendarPage {
+  authRequired: true,
+  component: import CockpitCalendar from "@src/client/cockpit/CalendarPage"
+}
+
+route CockpitChannelsRoute { path: "/cockpit/channels", to: CockpitChannelsPage }
+page CockpitChannelsPage {
+  authRequired: true,
+  component: import CockpitChannels from "@src/client/cockpit/ChannelsPage"
 }
 
 route PricingPageRoute { path: "/pricing", to: PricingPage }
@@ -341,6 +438,38 @@ action createFile {
 }
 
 
+// 🎬 Reel Forge cockpit actions
+
+action createChannel {
+  fn: import { createChannel } from "@src/server/reelforge/actions.js",
+  entities: [Channel]
+}
+
+action deleteChannel {
+  fn: import { deleteChannel } from "@src/server/reelforge/actions.js",
+  entities: [Channel]
+}
+
+action scheduleVideo {
+  fn: import { scheduleVideo } from "@src/server/reelforge/actions.js",
+  entities: [Channel, Video]
+}
+
+action updateVideo {
+  fn: import { updateVideo } from "@src/server/reelforge/actions.js",
+  entities: [Video]
+}
+
+action deleteVideo {
+  fn: import { deleteVideo } from "@src/server/reelforge/actions.js",
+  entities: [Video]
+}
+
+action syncChannel {
+  fn: import { syncChannel } from "@src/server/reelforge/actions.js",
+  entities: [Channel, ChannelDailyStats, ChannelGeoStats, Video]
+}
+
 // 📚 Queries
 
 query getGptResponses {
@@ -373,6 +502,23 @@ query getPaginatedUsers {
   entities: [User]
 }
 
+// 🎬 Reel Forge cockpit queries
+
+query getChannels {
+  fn: import { getChannels } from "@src/server/reelforge/queries.js",
+  entities: [Channel]
+}
+
+query getCockpitStats {
+  fn: import { getCockpitStats } from "@src/server/reelforge/queries.js",
+  entities: [Channel, ChannelDailyStats, ChannelGeoStats, Video]
+}
+
+query getContentCalendar {
+  fn: import { getContentCalendar } from "@src/server/reelforge/queries.js",
+  entities: [Video, Channel]
+}
+
 /*
  * 📡 These are custom Wasp API Endpoints. Use them for callbacks, webhooks, etc.
  * https://wasp-lang.dev/docs/advanced/apis
@@ -398,6 +544,18 @@ job emailChecker {
     cron: "0 7 * * 1" // at 7:00 am every Monday
   },
   entities: [User]
+}
+
+// 🎬 Refreshes analytics for every connected channel with credentials.
+job channelAnalyticsSyncJob {
+  executor: PgBoss,
+  perform: {
+    fn: import { syncAllChannelsAnalytics } from "@src/server/workers/syncChannelAnalytics.js"
+  },
+  schedule: {
+    cron: "0 */6 * * *" // every 6 hours
+  },
+  entities: [Channel, ChannelDailyStats, ChannelGeoStats, Video, Logs]
 }
 
 job dailyStatsJob {
